@@ -63,17 +63,15 @@
 		190BC20C2478F4C9003AB8B9 /* travel_Project */ = {
 			isa = PBXGroup;
 			children = (
+				190BC20D2478F4C9003AB8B9 /* AppDelegate.swift */,
+				190BC20F2478F4C9003AB8B9 /* SceneDelegate.swift */,
 				19C80E76247903FA00CF8813 /* Helper */,
 				19C80E75247903F300CF8813 /* Model */,
 				19C80E74247903E900CF8813 /* View */,
 				19C80E73247903B500CF8813 /* Controller */,
 				19C80E72247903A700CF8813 /* API */,
-				190BC20D2478F4C9003AB8B9 /* AppDelegate.swift */,
-				190BC20F2478F4C9003AB8B9 /* SceneDelegate.swift */,
 				190BC2112478F4C9003AB8B9 /* ViewController.swift */,
-				190BC2132478F4C9003AB8B9 /* Main.storyboard */,
 				190BC2162478F4CA003AB8B9 /* Assets.xcassets */,
-				190BC2182478F4CA003AB8B9 /* LaunchScreen.storyboard */,
 				190BC21B2478F4CA003AB8B9 /* Info.plist */,
 			);
 			path = travel_Project;
@@ -110,6 +108,8 @@
 		19C80E76247903FA00CF8813 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				190BC2132478F4C9003AB8B9 /* Main.storyboard */,
+				190BC2182478F4CA003AB8B9 /* LaunchScreen.storyboard */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -128,7 +128,6 @@
 				8E113FFF43DBE4F10237251E /* Pods-travel_Project.debug.xcconfig */,
 				588176E35383B1C64E5B8AED /* Pods-travel_Project.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
