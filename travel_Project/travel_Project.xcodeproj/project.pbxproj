@@ -13,7 +13,8 @@
 		1912E8B8247D5E8B00371012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B7247D5E8B00371012 /* Assets.xcassets */; };
 		1912E8BB247D5E8B00371012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B9247D5E8B00371012 /* LaunchScreen.storyboard */; };
 		1912E8C3247D605700371012 /* welcomeTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912E8C2247D605700371012 /* welcomeTravel.swift */; };
-		194944E7247E1102006043DA /* Travelone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194944E6247E1102006043DA /* Travelone.swift */; };
+		192FC85E2480032D006086B5 /* Travel+name+detal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC85D2480032D006086B5 /* Travel+name+detal.swift */; };
+		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		1912E8BA247D5E8B00371012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1912E8BC247D5E8B00371012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1912E8C2247D605700371012 /* welcomeTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeTravel.swift; sourceTree = "<group>"; };
-		194944E6247E1102006043DA /* Travelone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travelone.swift; sourceTree = "<group>"; };
+		192FC85D2480032D006086B5 /* Travel+name+detal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Travel+name+detal.swift"; sourceTree = "<group>"; };
+		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,47 @@
 			children = (
 				1912E8AE247D5E8900371012 /* AppDelegate.swift */,
 				1912E8B0247D5E8900371012 /* SceneDelegate.swift */,
-				194944E6247E1102006043DA /* Travelone.swift */,
-				1912E8C2247D605700371012 /* welcomeTravel.swift */,
+				192FC863248009F0006086B5 /* API */,
+				192FC85F248003E8006086B5 /* Model */,
+				192FC860248003F5006086B5 /* View */,
+				192FC86424800A26006086B5 /* Helper */,
 				1912E8B4247D5E8900371012 /* Main.storyboard */,
 				1912E8B7247D5E8B00371012 /* Assets.xcassets */,
 				1912E8B9247D5E8B00371012 /* LaunchScreen.storyboard */,
 				1912E8BC247D5E8B00371012 /* Info.plist */,
 			);
 			path = travel_project;
+			sourceTree = "<group>";
+		};
+		192FC85F248003E8006086B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				192FC86124800445006086B5 /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		192FC860248003F5006086B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				192FC85D2480032D006086B5 /* Travel+name+detal.swift */,
+				1912E8C2247D605700371012 /* welcomeTravel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		192FC863248009F0006086B5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		192FC86424800A26006086B5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192FC86224800445006086B5 /* Note.swift in Sources */,
 				1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */,
 				1912E8B1247D5E8900371012 /* SceneDelegate.swift in Sources */,
-				194944E7247E1102006043DA /* Travelone.swift in Sources */,
+				192FC85E2480032D006086B5 /* Travel+name+detal.swift in Sources */,
 				1912E8C3247D605700371012 /* welcomeTravel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
