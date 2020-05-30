@@ -30,65 +30,59 @@ class Travel_name_detal: UITableViewController,welcomeDelegate {
         return 1
     }
     
+    //要顯示多少row
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return data.count == 0 ? 1 : data.count
-    }
-    
-    //呼叫tableview轉場方法
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-//        let nextwelcomeID = self.storyboard?.instantiateViewController(withIdentifier: "welcomeID") as! welcomeTravel
-////          welcome.delegate = self
-//         nextwelcomeID.delegate = self
-//
-//        self.navigationController?.pushViewController(nextwelcomeID, animated: true)
-        
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
         
-    
-        
         if self.data.count != 0{
             
             let note = self.data[indexPath.row]
             cell.showsReorderControl = true
             
-            cell.textLabel?.text = note.text
             
-            cell.data?.text = note.date
-            cell.Days?.text = note.Days
+            
+            cell.startDay?.text = note.date
+            cell.travelName?.text = note.text
+            cell.happyNumber?.text = note.Days
             
         }else{
-            cell.nameLabel.text = "旅遊名稱"
-            cell.data.text = "日期"
-            cell.Days.text = "天數"
+            cell.startDay.text = "日期"
+            cell.travelName.text = "旅遊名稱"
+            cell.happyNumber.text = "天數"
         }
         
         return cell
     }
     
+    //呼叫tableview轉場方法
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        //        let nextwelcomeID = self.storyboard?.instantiateViewController(withIdentifier: "welcomeID") as! welcomeTravel
+        ////          welcome.delegate = self
+        //         nextwelcomeID.delegate = self
+        //
+        //        self.navigationController?.pushViewController(nextwelcomeID, animated: true)
+        
+        
+        
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "segueWelcome"{
-
-           // let welcome =  .destination as! welcomeTravel
-
-        //       welcome.delegate = self
+        if segue.identifier == "SegueWVC"{
             
-//            if let indexPath = self.tableView.indexPathForSelectedRow{
-//
-////                let note = self.data[indexPath.row]
-////                welcome.note = note
-//                welcome.delegate = self
-//
-//            }
+            let welcome =  segue.destination as! welcomeTravel
+            
+            welcome.delegate = self
             
         }
     }
@@ -100,10 +94,22 @@ class Travel_name_detal: UITableViewController,welcomeDelegate {
         
         data.append(note);
         
-        if let index = self.data.firstIndex(of : note){
-            let indexPath = IndexPath(row: index, section: 0)
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        //新增table row
+        let dataCount =  data.count - 1
+        
+        //第一次新增 不增加row
+        if(dataCount != 0){
+            let rowIndex = IndexPath(row: dataCount, section: 0)
+            self.tableView.insertRows(at: [rowIndex], with: .automatic)
         }
+     
+        
+      
+        let indexPath = IndexPath(row: dataCount, section: 0)
+        
+        //insert cell
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        
     }
     
     

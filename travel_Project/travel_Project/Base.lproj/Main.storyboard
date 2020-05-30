@@ -361,13 +361,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="happyNumber" destination="U5G-Mt-koJ" id="AIA-8R-CQb"/>
-                        <outlet property="textLabel" destination="Wxz-Sg-e0U" id="J1i-lX-EgZ"/>
+                        <outlet property="startDay" destination="Wxz-Sg-e0U" id="3mr-9O-hzd"/>
                         <outlet property="travelname" destination="6KL-fv-kfF" id="9hA-JR-dL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqz-p5-KiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3638" y="-1294"/>
+            <point key="canvasLocation" x="3491" y="-1343"/>
         </scene>
         <!--Travel name detal-->
         <scene sceneID="0R5-su-chT">
@@ -388,20 +388,26 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-eA-C8v">
                                             <rect key="frame" x="26" y="11" width="368" height="78"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="旅遊名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-wU-YAi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旅遊名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-wU-YAi">
                                                     <rect key="frame" x="0.0" y="57.5" width="217.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="出發日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-aT-9jV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出發日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-aT-9jV">
                                                     <rect key="frame" x="246.5" y="60" width="61.5" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="61.5" id="aFj-kO-sTO"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="天數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-LW-4M9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-LW-4M9">
                                                     <rect key="frame" x="337" y="60" width="31" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="xB5-MN-1yl"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -421,9 +427,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Days" destination="tzK-LW-4M9" id="u0D-AS-Myf"/>
-                                    <outlet property="data" destination="0E7-aT-9jV" id="Q0v-gi-bfy"/>
-                                    <outlet property="nameLabel" destination="6dY-wU-YAi" id="IZN-O3-NhH"/>
+                                    <outlet property="happyNumber" destination="tzK-LW-4M9" id="mZw-bV-bXO"/>
+                                    <outlet property="startDay" destination="0E7-aT-9jV" id="yjy-Za-NgJ"/>
+                                    <outlet property="travelName" destination="6dY-wU-YAi" id="f5X-Sf-n2R"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -435,14 +441,14 @@
                     <navigationItem key="navigationItem" id="QUX-3K-Uto">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z0t-Qb-5Qx">
                             <connections>
-                                <segue destination="dR9-dY-dbS" kind="show" identifier="segueWelcome" id="Enz-vN-eQX"/>
+                                <segue destination="dR9-dY-dbS" kind="show" identifier="SegueWVC" id="Enz-vN-eQX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn4-SW-rEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2752" y="-1294"/>
+            <point key="canvasLocation" x="2048" y="-1270"/>
         </scene>
     </scenes>
     <resources>

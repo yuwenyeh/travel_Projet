@@ -11,9 +11,9 @@ import UIKit
 class TravelTableViewCell: UITableViewCell {
  
     
-    @IBOutlet   var nameLabel: UILabel!
-    @IBOutlet   var data : UILabel!
-    @IBOutlet   var Days: UILabel!
+    @IBOutlet  var startDay: UILabel!
+    @IBOutlet  var travelName : UILabel!
+    @IBOutlet  var happyNumber: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -18,7 +18,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     var formatter : DateFormatter! = nil
     let happyDay = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
     
-    @IBOutlet weak var textLabel: UITextField!
+    @IBOutlet weak var startDay: UITextField!
     @IBOutlet weak var travelname: UITextField!
     @IBOutlet weak var happyNumber: UITextField!
     
@@ -30,7 +30,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     
     @IBAction func UserAction(_ sender: Any) {
-        self.textLabel.text = time()
+        self.startDay.text = time()
     }
     
     
@@ -40,8 +40,14 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         navigationController?.popViewController(animated: true)
         let note = Note()
         
+        
+        //驗證值
+        
+        
+        
+        
         //把值裝進node
-        note.text = self.textLabel.text
+        note.text = self.startDay.text
         note.date = self.travelname.text
         note.Days = self.happyNumber.text
         
@@ -95,9 +101,9 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         // 設置 UIDatePicker 改變日期時會執行動作的方法
         myDatePicker.addTarget(self,action:#selector(welcomeTravel.datePickerChanged),for: .valueChanged)
         //將原本鍵盤試圖改UIDatePicker
-        textLabel.inputView = myDatePicker
-        textLabel.text = formatter.string(from: myDatePicker.date)
-        textLabel.tag = 200
+        startDay.inputView = myDatePicker
+        startDay.text = formatter.string(from: myDatePicker.date)
+        startDay.tag = 200
         
         
         // UIDatePicker 改變選擇時執行的動作
@@ -120,10 +126,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         }
     }
     
-    
-    
-    
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -154,10 +157,5 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         return currentTime
     }
     
-    
-    
-    
-    
-    
-    
+
 }

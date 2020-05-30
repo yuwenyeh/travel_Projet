@@ -62,9 +62,9 @@
 		1912E8AD247D5E8900371012 /* travel_project */ = {
 			isa = PBXGroup;
 			children = (
-				192EE53524827F66007EE3B0 /* controller */,
-				1912E8AE247D5E8900371012 /* AppDelegate.swift */,
 				1912E8B0247D5E8900371012 /* SceneDelegate.swift */,
+				1912E8AE247D5E8900371012 /* AppDelegate.swift */,
+				192EE53524827F66007EE3B0 /* controller */,
 				192FC863248009F0006086B5 /* API */,
 				192FC85F248003E8006086B5 /* Model */,
 				192FC860248003F5006086B5 /* View */,
@@ -80,6 +80,8 @@
 		192EE53524827F66007EE3B0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				192FC85D2480032D006086B5 /* Travel+name+detal.swift */,
+				1912E8C2247D605700371012 /* welcomeTravel.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -88,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				192FC86124800445006086B5 /* Note.swift */,
-				192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,8 +97,7 @@
 		192FC860248003F5006086B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				192FC85D2480032D006086B5 /* Travel+name+detal.swift */,
-				1912E8C2247D605700371012 /* welcomeTravel.swift */,
+				192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
