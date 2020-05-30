@@ -13,6 +13,7 @@
 		1912E8B8247D5E8B00371012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B7247D5E8B00371012 /* Assets.xcassets */; };
 		1912E8BB247D5E8B00371012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B9247D5E8B00371012 /* LaunchScreen.storyboard */; };
 		1912E8C3247D605700371012 /* welcomeTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912E8C2247D605700371012 /* welcomeTravel.swift */; };
+		192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */; };
 		192FC85E2480032D006086B5 /* Travel+name+detal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC85D2480032D006086B5 /* Travel+name+detal.swift */; };
 		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		1912E8BA247D5E8B00371012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1912E8BC247D5E8B00371012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1912E8C2247D605700371012 /* welcomeTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeTravel.swift; sourceTree = "<group>"; };
+		192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewCell.swift; sourceTree = "<group>"; };
 		192FC85D2480032D006086B5 /* Travel+name+detal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Travel+name+detal.swift"; sourceTree = "<group>"; };
 		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +62,7 @@
 		1912E8AD247D5E8900371012 /* travel_project */ = {
 			isa = PBXGroup;
 			children = (
+				192EE53524827F66007EE3B0 /* controller */,
 				1912E8AE247D5E8900371012 /* AppDelegate.swift */,
 				1912E8B0247D5E8900371012 /* SceneDelegate.swift */,
 				192FC863248009F0006086B5 /* API */,
@@ -74,10 +77,18 @@
 			path = travel_project;
 			sourceTree = "<group>";
 		};
+		192EE53524827F66007EE3B0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		192FC85F248003E8006086B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				192FC86124800445006086B5 /* Note.swift */,
+				192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				192FC86224800445006086B5 /* Note.swift in Sources */,
+				192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */,
 				1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */,
 				1912E8B1247D5E8900371012 /* SceneDelegate.swift in Sources */,
 				192FC85E2480032D006086B5 /* Travel+name+detal.swift in Sources */,

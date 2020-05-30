@@ -9,10 +9,18 @@
 import Foundation
 import UIKit
 
-class Note{
+class Note :Equatable{
+    static func == (lhs: Note, rhs: Note) -> Bool {
+        return lhs.text == rhs.text
+        
+        
+    }
+    
     
     var text: String?
-    var imageName:String?
-    
+ 
+    var Days : String?
+    var date: String?
+    var notearray : [String] = []
  
 }

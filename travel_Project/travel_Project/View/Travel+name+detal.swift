@@ -8,85 +8,103 @@
 
 import UIKit
 
-class Travel_name_detal: UITableViewController {
-
+class Travel_name_detal: UITableViewController,welcomeDelegate {
+    
     var data :[Note] = []
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-   
-        
     }
-
+    
+    
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return data.count
-    }
-
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1.1", for: indexPath)
-        let note = self.data[indexPath.row]
         
-         cell.textLabel?.text = note.text
-      
-
+        return data.count == 0 ? 1 : data.count
+    }
+    
+    //呼叫tableview轉場方法
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+//        let nextwelcomeID = self.storyboard?.instantiateViewController(withIdentifier: "welcomeID") as! welcomeTravel
+////          welcome.delegate = self
+//         nextwelcomeID.delegate = self
+//
+//        self.navigationController?.pushViewController(nextwelcomeID, animated: true)
+        
+        
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
+        
+    
+        
+        if self.data.count != 0{
+            
+            let note = self.data[indexPath.row]
+            cell.showsReorderControl = true
+            
+            cell.textLabel?.text = note.text
+            
+            cell.data?.text = note.date
+            cell.Days?.text = note.Days
+            
+        }else{
+            cell.nameLabel.text = "旅遊名稱"
+            cell.data.text = "日期"
+            cell.Days.text = "天數"
+        }
+        
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "segueWelcome"{
 
+           // let welcome =  .destination as! welcomeTravel
+
+        //       welcome.delegate = self
+            
+//            if let indexPath = self.tableView.indexPathForSelectedRow{
+//
+////                let note = self.data[indexPath.row]
+////                welcome.note = note
+//                welcome.delegate = self
+//
+//            }
+            
+        }
+    }
+    
+    
+    
+    //
+    func didFinishUpdate(_ note: Note){
+        
+        data.append(note);
+        
+        if let index = self.data.firstIndex(of : note){
+            let indexPath = IndexPath(row: index, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    
 }

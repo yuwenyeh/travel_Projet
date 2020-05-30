@@ -170,9 +170,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.59593880180000003" green="0.85103005170000001" blue="0.91753321889999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="9XK-Dl-Rxn" kind="show" identifier="cell1_1" id="hcI-ga-yez"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="156" id="0Cd-eg-1Qv">
                                         <rect key="frame" x="0.0" y="329" width="414" height="156"/>
@@ -200,7 +197,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3487925529" green="0.76083034279999995" blue="0.86655730009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="bcj-gW-zGw" kind="show" identifier="cell1" id="eIR-5g-6ft"/>
+                                            <segue destination="Rm6-8o-wkh" kind="show" id="OjN-IW-7XF"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell3" id="Zbc-Yq-o2a">
@@ -231,9 +228,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.32930815219999998" green="0.52944999930000003" blue="0.76853078600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="apl-Ef-eif" kind="show" identifier="cell1_3" id="APH-Ox-oI6"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -247,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncP-Nq-qR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344.9275362318842" y="-500.22321428571428"/>
+            <point key="canvasLocation" x="1380" y="-494"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mTq-8y-lDW">
@@ -272,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c87-ck-WV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="-469"/>
+            <point key="canvasLocation" x="2230" y="31"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UII-zK-0Nt">
@@ -297,12 +291,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iho-yD-WD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="-1270"/>
+            <point key="canvasLocation" x="1080" y="-1270"/>
         </scene>
         <!--Welcome Travel-->
         <scene sceneID="h4N-2P-NTV">
             <objects>
-                <viewController id="dR9-dY-dbS" customClass="welcomeTravel" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeID" id="dR9-dY-dbS" customClass="welcomeTravel" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6MG-4f-i95">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,69 +367,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqz-p5-KiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3073.913043478261" y="-1241.5178571428571"/>
+            <point key="canvasLocation" x="3638" y="-1294"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7RZ-Lz-AT8">
+        <!--Travel name detal-->
+        <scene sceneID="0R5-su-chT">
             <objects>
-                <viewController id="bcj-gW-zGw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ygB-rv-Kwm">
+                <tableViewController id="Rm6-8o-wkh" customClass="Travel_name_detal" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NXg-PE-8UT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tGf-It-req">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addcell" rowHeight="150" id="Jw0-dV-mdt">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jw0-dV-mdt" id="UTb-cS-QWi">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TravelTableViewCell" rowHeight="100" id="kPx-5l-hfx" customClass="TravelTableViewCell" customModule="travel_project" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kPx-5l-hfx" id="vbU-TF-vvV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-eA-C8v">
+                                            <rect key="frame" x="26" y="11" width="368" height="78"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-dN-sl8">
-                                                    <rect key="frame" x="20" y="118" width="40" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="旅遊名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dY-wU-YAi">
+                                                    <rect key="frame" x="0.0" y="57.5" width="217.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="天數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4B-Z6-S2j">
-                                                    <rect key="frame" x="223" y="118" width="40" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="出發日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E7-aT-9jV">
+                                                    <rect key="frame" x="246.5" y="60" width="61.5" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTa-Ab-WP9">
-                                                    <rect key="frame" x="52" y="17" width="50" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="天數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-LW-4M9">
+                                                    <rect key="frame" x="337" y="60" width="31" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="sDL-Na-NBi"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2XQ-NE-Jjt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5QB-OY-HHq">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="78" id="CTE-5M-GfH"/>
+                                                <constraint firstAttribute="width" constant="368" id="NIE-a9-zOv"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bWk-eA-C8v" secondAttribute="bottom" id="Uuy-5F-wyO"/>
+                                        <constraint firstItem="bWk-eA-C8v" firstAttribute="leading" secondItem="vbU-TF-vvV" secondAttribute="leadingMargin" constant="6" id="ZKQ-9I-NeE"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bWk-eA-C8v" secondAttribute="trailing" id="ocF-lK-LM6"/>
+                                        <constraint firstItem="bWk-eA-C8v" firstAttribute="top" secondItem="vbU-TF-vvV" secondAttribute="topMargin" id="xja-Qa-ArK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Days" destination="tzK-LW-4M9" id="u0D-AS-Myf"/>
+                                    <outlet property="data" destination="0E7-aT-9jV" id="Q0v-gi-bfy"/>
+                                    <outlet property="nameLabel" destination="6dY-wU-YAi" id="IZN-O3-NhH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rm6-8o-wkh" id="sOb-qN-c7Z"/>
+                            <outlet property="delegate" destination="Rm6-8o-wkh" id="yV4-I7-Ukk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="QUX-3K-Uto">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z0t-Qb-5Qx">
                             <connections>
-                                <segue destination="dR9-dY-dbS" kind="show" identifier="cell1.1" id="1jy-Ig-sMy"/>
+                                <segue destination="dR9-dY-dbS" kind="show" identifier="segueWelcome" id="Enz-vN-eQX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m7x-PS-tZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hn4-SW-rEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269.5652173913045" y="-1255.5803571428571"/>
+            <point key="canvasLocation" x="2752" y="-1294"/>
         </scene>
     </scenes>
     <resources>
