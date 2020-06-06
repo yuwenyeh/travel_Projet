@@ -20,8 +20,8 @@
 		19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAE8D5248A74AF00282427 /* TravelDetail.swift */; };
 		19B2A212248B819A00A18972 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2A211248B819A00A18972 /* CellData.swift */; };
 		F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */; };
-		F68A0DC52487469C002712A0 /* TripPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68A0DC42487469C002712A0 /* TripPlan.swift */; };
-		F6D9073624860B0F00FCC6D1 /* Planning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9073524860B0F00FCC6D1 /* Planning.swift */; };
+		F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68A0DC42487469C002712A0 /* TripPlanViewController.swift */; };
+		F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,8 @@
 		19AAE8D5248A74AF00282427 /* TravelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelDetail.swift; path = travel_Project/Model/TravelDetail.swift; sourceTree = SOURCE_ROOT; };
 		19B2A211248B819A00A18972 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellData.swift; path = travel_Project/Model/CellData.swift; sourceTree = SOURCE_ROOT; };
 		F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandableHeaderView.swift; path = travel_Project/View/ExpandableHeaderView.swift; sourceTree = SOURCE_ROOT; };
-		F68A0DC42487469C002712A0 /* TripPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlan.swift; path = travel_Project/controller/TripPlan.swift; sourceTree = SOURCE_ROOT; };
-		F6D9073524860B0F00FCC6D1 /* Planning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Planning.swift; path = travel_Project/controller/Planning.swift; sourceTree = SOURCE_ROOT; };
+		F68A0DC42487469C002712A0 /* TripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_Project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
+		F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanViewController.swift; path = travel_Project/controller/PlanViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 			children = (
 				192FC85D2480032D006086B5 /* PlayTrip.swift */,
 				19880C352487CE550078C9F9 /* welcomeTravel.swift */,
-				F6D9073524860B0F00FCC6D1 /* Planning.swift */,
-				F68A0DC42487469C002712A0 /* TripPlan.swift */,
+				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
+				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -205,12 +205,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D9073624860B0F00FCC6D1 /* Planning.swift in Sources */,
+				F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */,
 				19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */,
 				192FC86224800445006086B5 /* Note.swift in Sources */,
 				19880C362487CE550078C9F9 /* welcomeTravel.swift in Sources */,
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
-				F68A0DC52487469C002712A0 /* TripPlan.swift in Sources */,
+				F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */,
 				192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */,
 				1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */,
 				1912E8B1247D5E8900371012 /* SceneDelegate.swift in Sources */,

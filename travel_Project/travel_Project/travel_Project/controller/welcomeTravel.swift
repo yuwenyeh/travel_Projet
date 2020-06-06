@@ -33,6 +33,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        //驗證值
         if let textFiel = self.travelname.text{
             if textFiel == ""{
                 let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
@@ -41,49 +42,36 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
                 present(myalert, animated: true, completion: nil)
             }
         }
+        
+        
         if segue.identifier == "SeguePlan"{
             
-            let plan = segue .destination as! Planning
+            let planVC = segue.destination as! PlanViewController
             
-            var note = Note()
-            
-            //驗證值
+            let note = Note()
             
             //把值裝進node
             note.travelName = self.travelname.text
             note.startDate =  self.startDay.text
             note.days = self.happyNumber.text
             
-            
+            //把出發日期 依照 天數 產生 key
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy年MM月dd日"
             
-            //把出發日期 依照 天數 產生 key
-            
             if let dayCount = Int(note.days!) , let startDate = dateFormatter.date(from:note.startDate!) {
                 
-                
                 note.dailyPlan = [CellData]()
-                
-                
+            
                 for i in 0..<dayCount{
                     let addTime = Double(3600*24*i)
                     let travelDay  = startDate.addingTimeInterval(addTime)//出發天數轉date
                     let dayKey = dateFormatter.string(from: travelDay)
-                    
-                    
                     let celldata = CellData.init(isOpen: true, sectionTitle: dayKey, sectionData: [])
-                    
                     note.dailyPlan?.append(celldata)
-                    
                 }
                 
-                
-                //排列將字典整齊
-                //  let  array = note.dailyPlan?.keys.sorted()
-                
-                
-                //   print("\(note.dailyPlan!)")
+                planVC.notedata = note
                 
             }
             

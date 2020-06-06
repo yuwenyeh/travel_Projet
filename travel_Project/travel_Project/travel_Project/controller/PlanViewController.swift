@@ -8,29 +8,38 @@
 
 import UIKit
 
-class Planning: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
+class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    //    struct CellData {
-    //      var isOpen: Bool
-    //      var sectionTitle :String
-    //      var sectionData :[String]
-    //  }
+    
+    var tableViewData:[CellData]?
+    
+    var notedata : Note?
+    
     
     @IBOutlet weak var tableView: UITableView!
+   
     
-    var tableViewData1 = [Note]()
     
     
-    var tableViewData = [CellData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewData = [
-            CellData(isOpen: false, sectionTitle:"11/1", sectionData: ["吃冰","紀念館"]),
-            CellData(isOpen: false, sectionTitle: "11/2", sectionData: ["吃香蕉"]),
-            CellData(isOpen: false, sectionTitle: "11/3", sectionData: ["吃水果"])
-        ]
+      
+        if let noteData = notedata{
+            self.tableViewData = noteData.dailyPlan
+           
+        }
+        
+        
+        
+        
+        //        tableViewData = [
+        //            CellData(isOpen: false, sectionTitle:"11/1", sectionData: ["吃冰","紀念館"]),
+        //            CellData(isOpen: false, sectionTitle: "11/2", sectionData: ["吃香蕉"]),
+        //            CellData(isOpen: false, sectionTitle: "11/3", sectionData: ["吃水果"])
+        //        ]
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,13 +47,13 @@ class Planning: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewData.count
+        return tableViewData!.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        if tableViewData[section].isOpen == true{
-            return tableViewData[section].sectionData.count + 1
+        
+        if tableViewData![section].isOpen == true{
+            return tableViewData![section].sectionData.count + 1
             
         }else{
             return 1
@@ -57,11 +66,11 @@ class Planning: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionTitle
+            cell.textLabel?.text = tableViewData![indexPath.section].sectionTitle
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+            cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1]
             return cell
             
         }
@@ -69,13 +78,13 @@ class Planning: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if  tableViewData[indexPath.section].isOpen == true{
-            tableViewData[indexPath.section].isOpen = false
+        if  tableViewData![indexPath.section].isOpen == true{
+            tableViewData![indexPath.section].isOpen = false
             let indexes = IndexSet(integer : indexPath.section)
             tableView.reloadSections(indexes, with: .automatic)
             
         }else{
-            tableViewData[indexPath.section].isOpen = true
+            tableViewData![indexPath.section].isOpen = true
             let indexes = IndexSet(integer : indexPath.section)
             tableView.reloadSections(indexes, with: .automatic)
         }

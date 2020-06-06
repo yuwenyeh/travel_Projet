@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripPlan: UITableViewController {
+class TripPlanViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

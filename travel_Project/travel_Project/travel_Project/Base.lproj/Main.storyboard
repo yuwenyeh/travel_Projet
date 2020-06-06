@@ -243,10 +243,10 @@
             </objects>
             <point key="canvasLocation" x="1286" y="11"/>
         </scene>
-        <!--Planning-->
+        <!--AAA-->
         <scene sceneID="e8e-fb-moJ">
             <objects>
-                <viewController id="jH8-R9-Vzu" customClass="Planning" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AAA" id="jH8-R9-Vzu" customClass="PlanViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1cc-Td-8hA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,14 +271,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjp-Ac-mwq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjp-Ac-mwq">
                                                     <rect key="frame" x="186" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Hjp-Ac-mwq" firstAttribute="centerY" secondItem="kHu-x9-Tbs" secondAttribute="centerY" id="0Su-O5-BN0"/>
+                                                <constraint firstItem="Hjp-Ac-mwq" firstAttribute="centerX" secondItem="kHu-x9-Tbs" secondAttribute="centerX" id="3HC-n3-AfR"/>
+                                                <constraint firstItem="Hjp-Ac-mwq" firstAttribute="top" secondItem="kHu-x9-Tbs" secondAttribute="topMargin" id="xoN-tn-bQc"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="TripCell" destination="Hjp-Ac-mwq" id="KOR-TN-ubL"/>
@@ -290,6 +294,10 @@
                                     <outlet property="delegate" destination="jH8-R9-Vzu" id="Zhx-t0-ueC"/>
                                 </connections>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4u5-3a-ck2">
+                                <rect key="frame" x="172.5" y="68" width="69.5" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -311,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkh-cH-dLW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="160"/>
+            <point key="canvasLocation" x="2847.826086956522" y="159.375"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2mL-ql-EL9">
