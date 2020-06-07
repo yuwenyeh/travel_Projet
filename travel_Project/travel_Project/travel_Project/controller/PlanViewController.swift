@@ -25,7 +25,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var navItem: UINavigationItem!//導航列
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,17 +41,17 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func addCellLabel(_ sender: Any) {
         
-
-//        let  CellData(isOpen: false, sectionTitle: <#T##String#>, sectionData: <#T##[String]#>)
         
-//        if let noteDate = notedata{
-//            self.tableViewData?.append(contentsOf:CellData)
-//        }
+        //        let  CellData(isOpen: false, sectionTitle: <#T##String#>, sectionData: <#T##[String]#>)
+        
+        //        if let noteDate = notedata{
+        //            self.tableViewData?.append(contentsOf:CellData)
+        //        }
         
         
         
-//        let indexPath = IndexPath(row:0, section: 0)
-//        self.tableView.insertRows(at: [indexPath], with: .automatic)
+        //        let indexPath = IndexPath(row:0, section: 0)
+        //        self.tableView.insertRows(at: [indexPath], with: .automatic)
         
     }
     
@@ -73,6 +73,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionTitle
@@ -84,27 +85,48 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if  tableViewData![indexPath.section].isOpen == true{
-            tableViewData![indexPath.section].isOpen = false
-            let indexes = IndexSet(integer : indexPath.section)
-            tableView.reloadSections(indexes, with: .automatic)
+        if indexPath.row == 0 {
+            
+            if  tableViewData![indexPath.section].isOpen == true{
+                tableViewData![indexPath.section].isOpen = false
+                let indexes = IndexSet(integer : indexPath.section)
+                tableView.reloadSections(indexes, with: .automatic)
+                
+            }else{
+                tableViewData![indexPath.section].isOpen = true
+                let indexes = IndexSet(integer : indexPath.section)
+                tableView.reloadSections(indexes, with: .automatic)
+            }
             
         }else{
-            tableViewData![indexPath.section].isOpen = true
-            let indexes = IndexSet(integer : indexPath.section)
-            tableView.reloadSections(indexes, with: .automatic)
+            
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "TripPlanVC") {
+                
+                let tripPlanVC = vc as! TripPlanViewController
+                tripPlanVC.noteData = self.notedata
+                tripPlanVC.sectionIndex = indexPath.section 
+            
+                navigationController?.pushViewController(tripPlanVC, animated: true)
+            }
+            
         }
         
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "playVC"{
-            let indexPath = segue.destination as! PlayTrip
+        
+        
+//        if segue.identifier == "playVC"{
+//            let pvc = segue.destination as! PlayTrip
+//
+//        }
             
-        }
+     
     }
     
     

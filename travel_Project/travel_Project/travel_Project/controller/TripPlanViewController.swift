@@ -8,25 +8,40 @@
 
 import UIKit
 
-class TripPlanViewController: UITableViewController {
+class TripPlanViewController: UIViewController {
 
+    
+    var sights : String?
+    
+    var noteData:Note?
+    
+    var sectionIndex:Int?
+    
+    
+    @IBOutlet var Sights: UISearchBar!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        print(noteData)
 
        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        return 0
+//    }
 
     
     

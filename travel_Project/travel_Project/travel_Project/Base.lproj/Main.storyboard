@@ -264,29 +264,22 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3487925529" green="0.76083034279999995" blue="0.86655730009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="60n-ng-5Og" customClass="TripPlanCell" customModule="travel_project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="nzC-sa-Bnt" style="IBUITableViewCellStyleDefault" id="60n-ng-5Og" customClass="TripPlanCell" customModule="travel_project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="60n-ng-5Og" id="kHu-x9-Tbs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjp-Ac-mwq">
-                                                    <rect key="frame" x="186" y="11" width="42" height="21.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nzC-sa-Bnt">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Hjp-Ac-mwq" firstAttribute="centerY" secondItem="kHu-x9-Tbs" secondAttribute="centerY" id="0Su-O5-BN0"/>
-                                                <constraint firstItem="Hjp-Ac-mwq" firstAttribute="centerX" secondItem="kHu-x9-Tbs" secondAttribute="centerX" id="3HC-n3-AfR"/>
-                                                <constraint firstItem="Hjp-Ac-mwq" firstAttribute="top" secondItem="kHu-x9-Tbs" secondAttribute="topMargin" id="xoN-tn-bQc"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="TripCell" destination="Hjp-Ac-mwq" id="KOR-TN-ubL"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -331,22 +324,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkh-cH-dLW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="19"/>
+            <point key="canvasLocation" x="2980" y="24"/>
         </scene>
-        <!--View Controller-->
+        <!--Trip Plan View Controller-->
         <scene sceneID="2mL-ql-EL9">
             <objects>
-                <viewController id="sYV-Xm-9pU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TripPlanVC" id="sYV-Xm-9pU" customClass="TripPlanViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oOe-3g-4kw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HV8-Ma-ogU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Obt-ls-v0i"/>
                     </view>
+                    <navigationItem key="navigationItem" id="MT6-QJ-gY3"/>
+                    <connections>
+                        <outlet property="Sights" destination="HV8-Ma-ogU" id="7gj-sW-5EF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bka-aN-xfV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3703" y="11"/>
+            <point key="canvasLocation" x="3717" y="24"/>
         </scene>
         <!--Welcome Travel View Controller-->
         <scene sceneID="h4N-2P-NTV">

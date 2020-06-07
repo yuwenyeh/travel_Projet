@@ -74,9 +74,9 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                     let travelDay  = startDate.addingTimeInterval(addTime)//出發天數轉date
                     let dayKey = dateFormatter.string(from: travelDay)
                     
-                    //測試用 strt
+                   
                     var travelArray = [TravelDetail]()
-                    let travelDetail = TravelDetail(place:"測試地點")
+                    let travelDetail = TravelDetail(place:"點擊新增")
                     travelArray.append(travelDetail)
                     
                     
