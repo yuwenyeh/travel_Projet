@@ -1,6 +1,0 @@
-framework module Pods_GDrive01 {
-  umbrella header "Pods-GDrive01-umbrella.h"
-
-  export *
-  module * { export * }
-}
