@@ -11,9 +11,17 @@ import UIKit
 class TripPlanCell: UITableViewCell {
 
     
+    @IBOutlet var nameLabel : UILabel!
+    @IBOutlet var locationLabel : UILabel!
+    @IBOutlet var typeLabel : UILabel!
     
+    @IBOutlet var tripImage: UIImageView!{
+        didSet{
+            tripImage.layer.cornerRadius = 50
+            tripImage.clipsToBounds = true
+        }
+    }
     
-    @IBOutlet weak var TripCell: UILabel!
     
     
     

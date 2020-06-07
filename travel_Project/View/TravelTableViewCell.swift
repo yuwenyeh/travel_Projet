@@ -15,6 +15,8 @@ class TravelTableViewCell: UITableViewCell {
     @IBOutlet  var travelName : UILabel!
     @IBOutlet  var happyNumber: UILabel!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
