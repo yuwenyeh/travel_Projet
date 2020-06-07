@@ -16,7 +16,7 @@
 		192FC85E2480032D006086B5 /* PlayTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC85D2480032D006086B5 /* PlayTrip.swift */; };
 		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 		19880BC524874E410078C9F9 /* TripPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880BC424874E410078C9F9 /* TripPlanCell.swift */; };
-		19880C362487CE550078C9F9 /* welcomeTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880C352487CE550078C9F9 /* welcomeTravel.swift */; };
+		19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */; };
 		19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAE8D5248A74AF00282427 /* TravelDetail.swift */; };
 		19B2A212248B819A00A18972 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2A211248B819A00A18972 /* CellData.swift */; };
 		F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */; };
@@ -36,7 +36,7 @@
 		192FC85D2480032D006086B5 /* PlayTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTrip.swift; sourceTree = "<group>"; };
 		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		19880BC424874E410078C9F9 /* TripPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanCell.swift; path = travel_Project/View/TripPlanCell.swift; sourceTree = SOURCE_ROOT; };
-		19880C352487CE550078C9F9 /* welcomeTravel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = welcomeTravel.swift; path = travel_Project/controller/welcomeTravel.swift; sourceTree = SOURCE_ROOT; };
+		19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = welcomeTravelViewController.swift; path = travel_Project/controller/welcomeTravelViewController.swift; sourceTree = SOURCE_ROOT; };
 		19AAE8D5248A74AF00282427 /* TravelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelDetail.swift; path = travel_Project/Model/TravelDetail.swift; sourceTree = SOURCE_ROOT; };
 		19B2A211248B819A00A18972 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellData.swift; path = travel_Project/Model/CellData.swift; sourceTree = SOURCE_ROOT; };
 		F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandableHeaderView.swift; path = travel_Project/View/ExpandableHeaderView.swift; sourceTree = SOURCE_ROOT; };
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				192FC85D2480032D006086B5 /* PlayTrip.swift */,
-				19880C352487CE550078C9F9 /* welcomeTravel.swift */,
+				19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */,
 				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
 				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 			);
@@ -208,7 +208,7 @@
 				F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */,
 				19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */,
 				192FC86224800445006086B5 /* Note.swift in Sources */,
-				19880C362487CE550078C9F9 /* welcomeTravel.swift in Sources */,
+				19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */,
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
 				F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */,
 				192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */,

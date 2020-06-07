@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayTrip: UITableViewController,welcomeDelegate {
+class PlayTrip: UITableViewController,PlanviceControllDelegate{
     
     var data :[Note] = []
     
@@ -76,9 +76,9 @@ class PlayTrip: UITableViewController,welcomeDelegate {
         
         if segue.identifier == "SegueWVC"{
             
-            let welcome =  segue.destination as! welcomeTravel
+            let welcome =  segue.destination as! welcomeTravelViewController
             
-            welcome.delegate = self
+           // TripPlanViewController.delegate = self
             
         }
     }

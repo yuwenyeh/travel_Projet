@@ -15,12 +15,12 @@ class  Note :Equatable{
     var travelName: String? //行程名稱
     var startDate: String? //出發日期
     var days : String?  //天數
+    var dailyPlan:[CellData]?//行程計畫詳情
+    var addFlag = false//是否已新增行程
     
     
-    
-//    var dailyPlan: Dictionary<String, [String]>?
-   
-    var dailyPlan:[CellData]?
+
+  
 
  
     static func == (lhs: Note, rhs: Note) -> Bool {

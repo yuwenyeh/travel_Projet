@@ -12,5 +12,5 @@ import UIKit
  struct CellData {
     var isOpen: Bool
     var sectionTitle :String
-    var sectionData :[String]
+    var sectionData :[TravelDetail]
 }

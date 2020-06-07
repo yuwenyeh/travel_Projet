@@ -8,11 +8,8 @@
 
 import UIKit
 
-protocol welcomeDelegate :class{
-    func didFinishUpdate(_ note:Note)
-}
 
-class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource{
+class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource{
     
     
     var formatter : DateFormatter! = nil
@@ -22,7 +19,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var travelname: UITextField!  //行程名稱
     @IBOutlet weak var happyNumber: UITextField!   //天數
     
-    weak var delegate : welcomeDelegate?
+    
     
     
     
@@ -30,6 +27,15 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     @IBAction func UserAction(_ sender: Any) {
         self.startDay.text = time()
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        UIPickerUnit();
+        
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -42,7 +48,6 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
                 present(myalert, animated: true, completion: nil)
             }
         }
-        
         
         if segue.identifier == "SeguePlan"{
             
@@ -62,14 +67,23 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
             if let dayCount = Int(note.days!) , let startDate = dateFormatter.date(from:note.startDate!) {
                 
                 note.dailyPlan = [CellData]()
-            
+                note.addFlag = true;//紀錄是否已設定行程
+                
                 for i in 0..<dayCount{
                     let addTime = Double(3600*24*i)
                     let travelDay  = startDate.addingTimeInterval(addTime)//出發天數轉date
                     let dayKey = dateFormatter.string(from: travelDay)
-                    let celldata = CellData.init(isOpen: true, sectionTitle: dayKey, sectionData: [])
+                    
+                    //測試用 strt
+                    var travelArray = [TravelDetail]()
+                    let travelDetail = TravelDetail(place:"測試地點")
+                    travelArray.append(travelDetail)
+                    
+                    
+                    let celldata = CellData.init(isOpen: true, sectionTitle: dayKey, sectionData:travelArray)
                     note.dailyPlan?.append(celldata)
                 }
+                
                 
                 planVC.notedata = note
                 
@@ -78,6 +92,11 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         }
         
     }
+    
+    
+    
+    
+    
     //
     @objc func datePickerChanged(datePicker: UIDatePicker){
         //依據元件的tag取得UITextField
@@ -92,13 +111,6 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        UIPickerUnit();
-        
-        
-    }
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -121,7 +133,6 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     
-    
     //設定時間格式
     func time() -> String {
         let now = Date()
@@ -133,7 +144,6 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
     
     //
     func UIPickerUnit(){
-        
         
         //建立UIPickView
         let myPickView = UIPickerView()
@@ -156,7 +166,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
         //設置UIDatePicker預設日期為現在日期
         myDatePicker.date = NSDate() as Date
         // 設置 UIDatePicker 改變日期時會執行動作的方法
-        myDatePicker.addTarget(self,action:#selector(welcomeTravel.datePickerChanged),for: .valueChanged)
+        myDatePicker.addTarget(self,action:#selector(welcomeTravelViewController.datePickerChanged),for: .valueChanged)
         //將原本鍵盤試圖改UIDatePicker
         startDay.inputView = myDatePicker
         startDay.text = formatter.string(from: myDatePicker.date)
@@ -170,7 +180,7 @@ class welcomeTravel: UIViewController,UIPickerViewDelegate, UIPickerViewDataSour
             textLabel?.text = formatter.string(from: datePicker.date)
         }
         // 增加一個觸控事件
-        let tap = UITapGestureRecognizer(target: self,action:#selector(welcomeTravel.hideKeyboard(tapG:)))
+        let tap = UITapGestureRecognizer(target: self,action:#selector(welcomeTravelViewController.hideKeyboard(tapG:)))
         tap.cancelsTouchesInView = false
         // 加在最基底的 self.view 上
         self.view.addGestureRecognizer(tap)
