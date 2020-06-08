@@ -1,0 +1,6 @@
+framework module Pods_googleDemo {
+  umbrella header "Pods-googleDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
