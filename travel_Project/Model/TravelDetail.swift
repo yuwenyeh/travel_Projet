@@ -9,12 +9,15 @@
 import Foundation
 
 
-struct TravelDetail {
-    
-  var place:String?//地點
-    
-    
-    
-  
+struct TravelDetail{
 
-}
+    var place: String?
+    var name:String?//名稱
+    var address:String?//地址
+    var rating:String?//評價星星
+    var photoReference:String?
+    var centerLatLngStr:String?//經緯度
+    
+    }
+    
+

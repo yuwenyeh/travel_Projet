@@ -22,6 +22,33 @@ class TripPlanCell: UITableViewCell {
         }
     }
     
+   
+    
+
+    
+    @IBOutlet weak var startLabel: UIImageView!//星星評價
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

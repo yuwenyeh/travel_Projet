@@ -60,5 +60,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>we need your current location to access your current weather conditions</string>
+	<key>NSLocationUsageDescription</key>
+	<string>we need your current location to access your current weather conditions</string>
+    <key>requestWhenInUseAuthorization</key>
+    <string>請同意App取得位置資訊</string>
 </dict>
 </plist>
