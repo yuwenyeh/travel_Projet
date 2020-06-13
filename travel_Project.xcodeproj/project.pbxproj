@@ -23,7 +23,7 @@
 		19E083D6249385C300DCF201 /* TripPlanProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E083D5249385C300DCF201 /* TripPlanProtocol.swift */; };
 		19E083D82493891900DCF201 /* UISearchcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E083D72493891900DCF201 /* UISearchcontroller.swift */; };
 		F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */; };
-		F65A40A1248F1B4100A6C31F /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A40A0248F1B4100A6C31F /* MapVC.swift */; };
+		F65A40A1248F1B4100A6C31F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A40A0248F1B4100A6C31F /* MapViewController.swift */; };
 		F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68A0DC42487469C002712A0 /* TripPlanViewController.swift */; };
 		F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */; };
 		FF1004CD522E3C0CC6C67392 /* Pods_travel_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9AC1019F7D3951C7519F77 /* Pods_travel_project.framework */; };
@@ -51,7 +51,7 @@
 		19E083D72493891900DCF201 /* UISearchcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UISearchcontroller.swift; path = travel_Project/Model/UISearchcontroller.swift; sourceTree = SOURCE_ROOT; };
 		CD9AC1019F7D3951C7519F77 /* Pods_travel_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandableHeaderView.swift; path = travel_Project/View/ExpandableHeaderView.swift; sourceTree = SOURCE_ROOT; };
-		F65A40A0248F1B4100A6C31F /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = travel_Project/controller/MapVC.swift; sourceTree = SOURCE_ROOT; };
+		F65A40A0248F1B4100A6C31F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = travel_Project/controller/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		F68A0DC42487469C002712A0 /* TripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_Project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanViewController.swift; path = travel_Project/controller/PlanViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -111,7 +111,7 @@
 				19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */,
 				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
 				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
-				F65A40A0248F1B4100A6C31F /* MapVC.swift */,
+				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 			files = (
 				19E083D424937F3000DCF201 /* GoogleApiUtil.swift in Sources */,
 				F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */,
-				F65A40A1248F1B4100A6C31F /* MapVC.swift in Sources */,
+				F65A40A1248F1B4100A6C31F /* MapViewController.swift in Sources */,
 				19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */,
 				192FC86224800445006086B5 /* Note.swift in Sources */,
 				19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */,

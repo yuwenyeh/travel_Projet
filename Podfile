@@ -8,7 +8,7 @@ target 'travel_project' do
   # Pods for travel_project
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-   pod 'Alamofire', '~>4.5'
+  pod 'Alamofire', '~>4.5'
   pod 'Kingfisher', '~>4.0'
   pod 'SwiftyJSON'
 end

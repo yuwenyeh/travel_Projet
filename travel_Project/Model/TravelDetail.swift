@@ -16,7 +16,10 @@ struct TravelDetail{
     var address:String?//地址
     var rating:String?//評價星星
     var photoReference:String?
-    var centerLatLngStr:String?//經緯度
+//    var centerLatLngStr:String?//經緯度
+    
+    var centerLat:Double?//經度
+    var centerLng:Double?//緯度
     
     }
     

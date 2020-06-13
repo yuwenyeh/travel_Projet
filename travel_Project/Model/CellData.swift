@@ -11,6 +11,6 @@ import UIKit
 
  struct CellData {
     var isOpen: Bool
-    var sectionTitle :String
-    var sectionData :[TravelDetail]
+    var sectionTitle :String   //日期 4/1
+    var sectionData :[TravelDetail] //行程
 }

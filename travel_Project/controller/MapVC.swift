@@ -8,13 +8,17 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 
-class MapVC: UIViewController {
-
+class MapViewController: UIViewController {
+    
     @IBOutlet weak var mapView: GMSMapView!
     
-    var tripInfo : tripPlanInfo?
+    var travelDetail : TravelDetail?
+    
+    var noteData:Note?
+    var sectionIndex:Int?
     
     
     
@@ -29,8 +33,28 @@ class MapVC: UIViewController {
         mapView.settings.myLocationButton = true
         
         
+        
+        
+    }
+}
+
+
+
+
+extension TripPlanViewController: GMSAutocompleteViewControllerDelegate{
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(String(describing: place.name))")
+        dismiss(animated: true , completion: nil)
+        self.txtSearch.text = place.name
+    }
     
-
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        
+    }
+    
+    
 }
-}
-
