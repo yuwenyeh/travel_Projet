@@ -19,11 +19,10 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
     var sectionIndex:Int?
     
 
-//    @IBOutlet var panoView: UIView!
-    
-    
-    
 
+    @IBOutlet var streetView: GMSPanoramaView!
+    @IBOutlet var mapView: GMSMapView!
+    
     
     
     
@@ -35,36 +34,24 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             let lat =  travelDetail.centerLat!
             let long = travelDetail.centerLng!
             
-            let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
-            let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+            //地圖
+            mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
+            mapView.mapType = .terrain
             
-//            self.googleMapView.addSubview(mapView)
-//            self.view.addSubview(googleMapView)
+            self.streetView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long))//街景
             
+
             // Creates a marker in the center of the map.
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
             marker.title = "Sydney"
             marker.snippet = "Australia"
             marker.map = mapView
-            
-            
-//            let pano = GMSPanoramaView(frame: .zero)
-//            pano.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long))
-//            self.panoView = pano
-           
-            
-            
-           let panoView = GMSPanoramaView(frame: .zero)
-            self.view = panoView
-            panoView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long))
-            
-            
+
+        
             mapView.settings.compassButton = true//指南針
             mapView.isMyLocationEnabled = true//定位啟用
             mapView.settings.myLocationButton = true//定位按鈕
-            
-            
             
         }
         

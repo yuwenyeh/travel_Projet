@@ -475,16 +475,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7K-Tu-pIW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="445"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcG-6L-NLu" customClass="GMSPanoramaView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="438"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdK-yx-zgT" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="526" width="414" height="370"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bdK-yx-zgT" firstAttribute="trailing" secondItem="Eqk-DT-1iu" secondAttribute="trailing" id="6ME-6z-rcz"/>
+                            <constraint firstItem="kcG-6L-NLu" firstAttribute="top" secondItem="Eqk-DT-1iu" secondAttribute="top" id="GnC-di-Z6U"/>
+                            <constraint firstAttribute="bottom" secondItem="bdK-yx-zgT" secondAttribute="bottom" id="InU-Oc-HgD"/>
+                            <constraint firstItem="kcG-6L-NLu" firstAttribute="trailing" secondItem="Eqk-DT-1iu" secondAttribute="trailing" id="L57-uG-BMC"/>
+                            <constraint firstItem="bdK-yx-zgT" firstAttribute="leading" secondItem="Eqk-DT-1iu" secondAttribute="leading" id="cgZ-d8-JeV"/>
+                            <constraint firstItem="bdK-yx-zgT" firstAttribute="top" secondItem="XT4-rx-X6t" secondAttribute="top" constant="526" id="gyf-yZ-7RY"/>
+                            <constraint firstItem="kcG-6L-NLu" firstAttribute="leading" secondItem="Eqk-DT-1iu" secondAttribute="leading" id="oTG-eY-WSB"/>
+                            <constraint firstItem="bdK-yx-zgT" firstAttribute="top" secondItem="kcG-6L-NLu" secondAttribute="bottom" id="zmY-nd-4Vj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Eqk-DT-1iu"/>
                     </view>
                     <navigationItem key="navigationItem" id="ILo-zs-qwE"/>
+                    <connections>
+                        <outlet property="mapView" destination="bdK-yx-zgT" id="wsf-Tb-691"/>
+                        <outlet property="streetView" destination="kcG-6L-NLu" id="Fgi-0l-PT1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeD-rs-grv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
