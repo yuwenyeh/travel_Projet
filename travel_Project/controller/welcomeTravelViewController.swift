@@ -76,7 +76,7 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                     
                    
                     var travelArray = [TravelDetail]()
-                    let travelDetail = TravelDetail(place:"點擊新增")
+                    let travelDetail = TravelDetail(name:"點擊新增")
                     travelArray.append(travelDetail)
                     
                     

@@ -18,6 +18,8 @@ class GoogleApiUtil{
     
     private static let GOOGLE_NEAR_MAP:String = "\(GOOGLE_MAP_API_URL)/place/nearbysearch";
     
+    private static let GOOGLE_DETAIL:String = "\(GOOGLE_MAP_API_URL)/place/details";
+    
     private static let GOOGLE_PHOTO:String = "\(GOOGLE_MAP_API_URL)/place/photo";
     
     
@@ -32,7 +34,12 @@ class GoogleApiUtil{
     public static func createNearMapUrl(lat:Double, lng:Double,types:String) ->String{
         //精度緯度
         let centerLatLngStr = String.init(format: "%f,%f", lat, lng)
-        return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&rankby=distance&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
+        return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&radius=2000&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
+    }
+    
+    //取景點詳情
+    public static func  createMapDetailInfo(placeId:String) ->String{
+        return "\(GOOGLE_DETAIL)/json?place_id=\(placeId)&fields=formatted_address,name,review,photo&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
     //取照片

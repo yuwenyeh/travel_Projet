@@ -29,7 +29,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     var mapView : GMSMapView!
     var placeClient:GMSPlacesClient!
     var zoomLevel:Float = 15.0
-
+    
     private var travePlaceList: [TravelDetail]?//景點清單
     private var nameSearch:UISearchController?
     private var searchText = ""
@@ -41,13 +41,18 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     @IBOutlet var txtSearch: UITextField!
     
     
-
+    
     @IBAction func locationTapped(_ sender: Any) {
         gotoPlaces()
     }
     
     
     override func viewDidLoad() {
+        
+        
+        getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
+        
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         stopLocationNearMap = false
@@ -86,7 +91,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
         
     }
     
-
+    
     
     /*搜尋附近景點*/
     func getLocationNearMap(lat:Double,long:Double,types:String){
@@ -117,8 +122,11 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                                 let lng = data["geometry"]["location"]["lng"]
                                 info.name = data["name"].string!
                                 info.address = data["vicinity"].string!
+                                info.placeID =  data["place_id"].string!
                                 info.photoReference = photoReference
-//                                info.centerLatLngStr = "\(lat),\(lng)"
+                                
+                                
+                                
                                 info.centerLat = Double("\(lat)")
                                 info.centerLng = Double("\(lng)")
                                 
@@ -163,7 +171,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
         self.locationManager.requestWhenInUseAuthorization()
     }
     
-   
+    
     
 } //class
 
@@ -196,7 +204,7 @@ extension TripPlanViewController: UITableViewDataSource{
                 let url = URL(string: urlStr)
                 cell.tripImage.kf.setImage(with: url)
             }
-        
+            
         }
         return cell
     }
@@ -208,16 +216,55 @@ extension TripPlanViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedTravelDetail = travePlaceList?[indexPath.row]//選好的景點
+        let alertController = UIAlertController()
         
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "mapVC"){
-            let mapVC = vc as! MapViewController
-            mapVC.travelDetail = selectedTravelDetail
-            mapVC.noteData = self.noteData
-            mapVC.sectionIndex = self.sectionIndex
-            navigationController?.pushViewController(mapVC, animated: true)
+        let storeFile = UIAlertAction(title: "加入行程", style: .default) { (action) in
+            
+        
+            let planDetail = self.travePlaceList?[indexPath.row]
+            
+            
+            if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
+                let planVC = pvc as! PlanViewController
+                // let travelArray = [TravelDetail]()
+                //                let celldetail  = plan.notedata?.dailyPlan[1].sectionData[1
+                let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
+                
+                self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
+                
+                planVC.notedata = self.noteData
+                self.navigationController?.pushViewController(planVC, animated: true)
+                
+            }
+            
+            
+            
+            
         }
         
+        let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
+            
+            let selectedTravelDetail = self.travePlaceList?[indexPath.row]//選好的景點
+            
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "mapVC"){
+                let mapVC = vc as! MapViewController
+                mapVC.travelDetail = selectedTravelDetail
+                mapVC.noteData = self.noteData
+                mapVC.sectionIndex = self.sectionIndex
+                self.navigationController?.pushViewController(mapVC, animated: true)
+                
+            }
+        }
+        let deleteAction = UIAlertAction(title: "Cancel", style: .cancel) { (action)->Void in
+            print("按下取消")
+        }
+        
+        
+        
+        alertController.addAction(storeFile)
+        alertController.addAction(okAction)
+        alertController.addAction(deleteAction)
+        self.present(alertController, animated: true,completion: nil)
     }
     
     
@@ -236,7 +283,7 @@ extension TripPlanViewController: CLLocationManagerDelegate{
         let currentLocation:CLLocation = locations[locations.count-1] as CLLocation
         let lat = currentLocation.coordinate.latitude
         let long = currentLocation.coordinate.longitude
-      
+        
         
         if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
             print(currentLocation.coordinate.latitude)
@@ -249,35 +296,35 @@ extension TripPlanViewController: CLLocationManagerDelegate{
             
         }
         
-      
+        
         
         
     }
     
-//    func locationManager(manager:CLLocationManager!,didUpdateLocations locations :[AnyObject]!){
-//        //取得locations陣列的最後一個
-//        var location:CLLocation = locations[locations.count-1] as! CLLocation
-//        print("自己的位置\(locationManager)")
-//        //判斷是否為空
-//        if(location.horizontalAccuracy>0){
-//            print(location.coordinate.latitude)
-//            print(location.coordinate.longitude)
-//
-//            var lat = location.coordinate.latitude
-//            //停止定位
-//        }
-//        func VIewDidDispappear(animated: Bool){
-//            locationManager.stopUpdatingHeading()
-//        }
-//
-//    }
+    //    func locationManager(manager:CLLocationManager!,didUpdateLocations locations :[AnyObject]!){
+    //        //取得locations陣列的最後一個
+    //        var location:CLLocation = locations[locations.count-1] as! CLLocation
+    //        print("自己的位置\(locationManager)")
+    //        //判斷是否為空
+    //        if(location.horizontalAccuracy>0){
+    //            print(location.coordinate.latitude)
+    //            print(location.coordinate.longitude)
+    //
+    //            var lat = location.coordinate.latitude
+    //            //停止定位
+    //        }
+    //        func VIewDidDispappear(animated: Bool){
+    //            locationManager.stopUpdatingHeading()
+    //        }
+    //
+    //    }
     
     //錯誤資訊列印
     func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
         print(error)
     }
     
-
+    
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GtM-bG-WfK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYE-vb-MkO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -246,7 +246,7 @@
         <!--plan-->
         <scene sceneID="e8e-fb-moJ">
             <objects>
-                <viewController title="plan" id="jH8-R9-Vzu" customClass="PlanViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="plan" title="plan" id="jH8-R9-Vzu" customClass="PlanViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1cc-Td-8hA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -460,12 +460,95 @@
                     <connections>
                         <outlet property="tableView" destination="Oms-7S-SaV" id="EYY-CO-sMq"/>
                         <outlet property="txtSearch" destination="is5-5X-i4R" id="yAP-Kw-I8p"/>
-                        <segue destination="zQO-t8-PRw" kind="show" id="rvz-Rz-9z6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bka-aN-xfV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4780" y="23"/>
+        </scene>
+        <!--Trip Detail View Controller-->
+        <scene sceneID="QO9-Im-lye">
+            <objects>
+                <tableViewController storyboardIdentifier="TripDvc" id="dGU-lT-20c" customClass="TripDetailViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dWo-MT-Plw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="242" id="vmw-tv-4YX">
+                                <rect key="frame" x="0.0" y="28" width="414" height="242"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vmw-tv-4YX" id="kt8-Bp-f4P">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="zmy-6q-k43">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="750" id="TOo-tc-Ebt"/>
+                                                <constraint firstAttribute="height" constant="251" id="dcr-7v-fI0"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zmy-6q-k43" firstAttribute="top" secondItem="kt8-Bp-f4P" secondAttribute="top" id="Xfv-nL-KXU"/>
+                                        <constraint firstAttribute="bottom" secondItem="zmy-6q-k43" secondAttribute="bottom" id="pBe-KU-L9b"/>
+                                        <constraint firstAttribute="trailing" secondItem="zmy-6q-k43" secondAttribute="trailing" id="t0g-1S-zMJ"/>
+                                        <constraint firstItem="zmy-6q-k43" firstAttribute="leading" secondItem="kt8-Bp-f4P" secondAttribute="leading" id="vbU-as-hs9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="135" id="ZH2-PR-BKD" customClass="TripUIImagePicCell" customModule="travel_project" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="270" width="414" height="135"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZH2-PR-BKD" id="hSo-zI-QRU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="googlemappic" translatesAutoresizingMaskIntoConstraints="NO" id="Qwa-Rd-yTD">
+                                            <rect key="frame" x="0.0" y="11" width="120" height="113"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c88-Do-XnP">
+                                            <rect key="frame" x="150" y="11" width="62" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-mx-iGb">
+                                            <rect key="frame" x="150" y="90" width="35" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="Ast-mx-iGb" id="aKI-YY-p2n"/>
+                                    <outlet property="companyName" destination="c88-Do-XnP" id="N5w-v5-Zjd"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="135" id="lpr-t2-2TQ" customClass="TripUIImagePicCell" customModule="travel_project" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="405" width="414" height="135"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lpr-t2-2TQ" id="xKn-Ic-vgD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dGU-lT-20c" id="MGN-IY-4sT"/>
+                            <outlet property="delegate" destination="dGU-lT-20c" id="wSz-xL-sQA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Yrx-lP-ZZy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCu-4t-nH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3829" y="-669"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="GO2-Pu-teZ">
@@ -476,7 +559,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcG-6L-NLu" customClass="GMSPanoramaView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="438"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="482"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdK-yx-zgT" customClass="GMSMapView">
@@ -505,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeD-rs-grv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5695.652173913044" y="22.767857142857142"/>
+            <point key="canvasLocation" x="5586" y="485"/>
         </scene>
         <!--Welcome Travel View Controller-->
         <scene sceneID="h4N-2P-NTV">
@@ -687,7 +770,9 @@
         <segue reference="u7B-b5-JUe"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="googlemappic" width="106.66666412353516" height="73.333335876464844"/>
         <image name="mainVCrecommend" width="64" height="64"/>
         <image name="mainVCsearch" width="64" height="64"/>
+        <image name="no_image" width="426.66665649414062" height="320"/>
     </resources>
 </document>

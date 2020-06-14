@@ -14,7 +14,7 @@ protocol PlanviceControllDelegate :class{
 
 class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
+    //var travelDetail : [TravelDetail]?
     var tableViewData:[CellData]?
     var notedata : Note?
     
@@ -41,15 +41,13 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func addCellLabel(_ sender: Any) {
         
-        
+        //功能還沒寫好
         //        let  CellData(isOpen: false, sectionTitle: <#T##String#>, sectionData: <#T##[String]#>)
         
         //        if let noteDate = notedata{
         //            self.tableViewData?.append(contentsOf:CellData)
         //        }
-        
-        
-        
+  
         //        let indexPath = IndexPath(row:0, section: 0)
         //        self.tableView.insertRows(at: [indexPath], with: .automatic)
         
@@ -80,8 +78,10 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].place
+            cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
             return cell
+            
+            //加東西
             
         }
     }
@@ -104,29 +104,61 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }else{
             
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "TripPlanVC") {
-                
-                let tripPlanVC = vc as! TripPlanViewController
-                tripPlanVC.noteData = self.notedata
-                tripPlanVC.sectionIndex = indexPath.section 
             
-                navigationController?.pushViewController(tripPlanVC, animated: true)
+            let section =  indexPath.section
+            
+            let cellData = tableViewData?[section].sectionData
+            let tripDetail = cellData?[indexPath.row - 1] 
+            
+            
+            if cellData!.count > 1{
+                
+                if let tripDvc = storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
+                    
+                    let tripDetailVC = tripDvc as! TripDetailViewController
+                    
+                    tripDetailVC.placeName = tripDetail?.name
+                    tripDetailVC.placeId = tripDetail?.placeID
+                    tripDetailVC.photoReference = tripDetail?.photoReference
+                    
+                    
+                    navigationController?.pushViewController(tripDetailVC, animated: true)
+                
+                }
+                
+                
+            }else{
+                
+                if let vc = storyboard?.instantiateViewController(withIdentifier: "TripPlanVC") {
+                    let tripPlanVC = vc as! TripPlanViewController
+                    tripPlanVC.noteData = self.notedata
+                    tripPlanVC.sectionIndex = indexPath.section
+                    navigationController?.pushViewController(tripPlanVC, animated: true)
+                }
+                
             }
             
+                
+                
+            
+                
+                
+                
+                
+                
+             
+                
+                
+                    
+                
+                
+            
+            
         }
-        
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-//        if segue.identifier == "playVC"{
-//            let pvc = segue.destination as! PlayTrip
-//
-//        }
-            
-     
+
     }
     
     

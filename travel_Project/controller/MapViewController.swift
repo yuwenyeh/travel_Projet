@@ -44,8 +44,8 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             // Creates a marker in the center of the map.
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            marker.title = "Sydney"
-            marker.snippet = "Australia"
+            marker.title = travelDetail.name
+//            marker.snippet = "Australia"
             marker.map = mapView
 
         
