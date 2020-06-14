@@ -122,7 +122,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     tripDetailVC.photoReference = tripDetail?.photoReference
                     
                     
-                    navigationController?.pushViewController(tripDetailVC, animated: true)
+                    navigationController?.pushViewController(tripDvc, animated: true)
                 
                 }
                 
@@ -139,20 +139,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
             
                 
-                
-            
-                
-                
-                
-                
-                
-             
-                
-                
-                    
-                
-                
-            
+  
             
         }
     }

@@ -11,12 +11,7 @@ import UIKit
 class TripUIImagePicCell: UITableViewCell {
 
     
-    @IBOutlet var companyName: UILabel!
-    
-    
-    @IBOutlet var addressLabel: UILabel!
-    
-    
+  
     
     
     

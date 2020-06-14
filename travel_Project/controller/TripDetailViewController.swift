@@ -15,38 +15,36 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-class TripDetailViewController: UITableViewController {
-
+class TripDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
     
+    var noteData: Note?
+   
+    
+    //從前頁帶過來3個變數
     var placeId:String?
     var placeName:String?
     var photoReference:String?
+    
+  
+    
+    @IBOutlet var UIimabeLabel: UIImageView!
+  
+    var messageLabel:[String] = []
     
     
     var img_1:UIImage?
     var img_2:UIImage?
     
     
+    @IBOutlet var tableview: UITableView!
     
-    
-    
-    var placeClient:GMSPlacesClient!
-    
-    // A hotel in Saigon with an attribution.
-//    let placeID = "ChIJV4k8_9UodTERU5KXbkYpSYs"
-
-    // Specify the place data types to return.
-    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) | UInt(GMSPlaceField.placeID.rawValue))!
-      
-
-    
-    
+ 
     
 
     
-  
+    
+    
     
     override func viewDidLoad() {
         
@@ -55,9 +53,9 @@ class TripDetailViewController: UITableViewController {
         if let placeId = self.placeId{
             getMapDetailInfo(placeId)
         }
-        
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
     }
-    
     
     //取詳情
     func getMapDetailInfo(_ placeId:String){
@@ -67,67 +65,63 @@ class TripDetailViewController: UITableViewController {
         Alamofire.request(url).validate().responseJSON { (response) in
             
             if response.result.isSuccess{
-                
-        
+               
                 do {
-                    
                     let jsonData = try JSON(data: response.data!)
                     
-                    
-                    
-                    if let photoArray = jsonData["result"]["photos"].array{
+                    if let photoArray = jsonData["result"][0].array{
                         
-                        print(photoArray)
+                        for data in photoArray{
+                            
+                            let photoReference = data["photos"]["photo_reference"].string
+                            
+                            
+                            if photoReference != nil{
+                                self.placeId = data["place_id"].string!
+                                self.placeName = data["name"].string!
+                                self.photoReference = photoReference
+                                
+                            }
+                            
+                            
+                        }//for
                         
-                    }
-                    
-                    
-                    
-                    
+                       // self.tableView.reloadData()//暫時先寫
                     
                     //  評論
                     if let reviewArray = jsonData["result"]["reviews"].array{
                         
                         print(reviewArray)
-                        
                     }
-                    
-                    
-                    
+                    }
                 }catch{
                     print("JSONSerialization error:", error)
                 }
-                
-                
             }
-            
         }
-        
-        
-    
-        
     }
     
     
-    
- 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return messageLabel.count
+    }
+   
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return 0
-    }
-
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reviewsCell", for: indexPath)
+        cell.textLabel?.text = self.placeName
+        
+        
 
-        // Configure the cell...
+        
 
         return cell
     }
@@ -141,32 +135,9 @@ class TripDetailViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+ 
 
     /*
     // MARK: - Navigation
