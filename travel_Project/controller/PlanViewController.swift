@@ -111,7 +111,8 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let tripDetail = cellData?[indexPath.row - 1] 
             
             
-            if cellData!.count > 1{
+            if tripDetail?.name != "點擊新增"{
+                
                 
                 if let tripDvc = storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
                     
@@ -119,7 +120,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     
                     tripDetailVC.placeName = tripDetail?.name
                     tripDetailVC.placeId = tripDetail?.placeID
-                    tripDetailVC.photoReference = tripDetail?.photoReference
+                    //tripDetailVC.photoReference = tripDetail?.photoReference
                     
                     
                     navigationController?.pushViewController(tripDvc, animated: true)
@@ -138,9 +139,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
             }
             
-                
-  
-            
+ 
         }
     }
     

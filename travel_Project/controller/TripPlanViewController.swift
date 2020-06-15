@@ -86,7 +86,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
         
         self.nameSearch?.initStyle(updater: self, placeholoderTxt: NSLocalizedString("Please input the search keyword", comment: ""))
         self.navigationItem.searchController = self.nameSearch
-        // Hide the search bar when scrolling up, Default is true. if setup as false it will always display
+        // /向上滾動時隱藏搜索欄，默認為true。 如果設置為false，它將始終顯示
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
     }

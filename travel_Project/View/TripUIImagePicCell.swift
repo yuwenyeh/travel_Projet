@@ -11,7 +11,7 @@ import UIKit
 class TripUIImagePicCell: UITableViewCell {
 
     
-  
+    @IBOutlet var nameLabel: UILabel!
     
     
     

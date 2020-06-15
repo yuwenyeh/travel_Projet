@@ -20,31 +20,29 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var noteData: Note?
    
-    
     //從前頁帶過來3個變數
     var placeId:String?
     var placeName:String?
-    var photoReference:String?
-    
-  
-    
-    @IBOutlet var UIimabeLabel: UIImageView!
-  
-    var messageLabel:[String] = []
+    //var photoReference:String?
     
     
-    var img_1:UIImage?
-    var img_2:UIImage?
+  let imageLabel = TripDetailViewController()
     
     
-    @IBOutlet var tableview: UITableView!
+    @IBOutlet var image: UIImageView!
+    var referenceArray:[String] = []
     
- 
+    var messageLabel : [discuss]?
+    
+    
+    
+//    @IBOutlet var themephotoUIimage: UIImageView! //大照片
+//    @IBOutlet var accessoryUIimage: UIImageView! //小照片
     
 
-    
-    
-    
+    @IBOutlet var tableview: UITableView!
+  
+
     
     override func viewDidLoad() {
         
@@ -55,7 +53,15 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         self.tableview.delegate = self
         self.tableview.dataSource = self
+       
+       
+        
+        
+        
     }
+    
+    
+    
     
     //取詳情
     func getMapDetailInfo(_ placeId:String){
@@ -65,35 +71,41 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         Alamofire.request(url).validate().responseJSON { (response) in
             
             if response.result.isSuccess{
-               
+
                 do {
                     let jsonData = try JSON(data: response.data!)
                     
-                    if let photoArray = jsonData["result"][0].array{
+                   
+                    
+                    if let photoArray = jsonData["result"]["photos"].array{
                         
-                        for data in photoArray{
+                        for (index ,photo) in photoArray.enumerated() {
                             
-                            let photoReference = data["photos"]["photo_reference"].string
+                            if index < 2{
                             
+                                self.referenceArray.append(photo["photo_reference"].string!)
+                               self.placeName = jsonData["result"]["name"].string
                             
-                            if photoReference != nil{
-                                self.placeId = data["place_id"].string!
-                                self.placeName = data["name"].string!
-                                self.photoReference = photoReference
-                                
+                               
+                            }else{
+                                break
                             }
-                            
-                            
+                    
                         }//for
                         
-                       // self.tableView.reloadData()//暫時先寫
+                        
+                    }
+                        
+               
                     
                     //  評論
                     if let reviewArray = jsonData["result"]["reviews"].array{
                         
-                        print(reviewArray)
+                        
                     }
-                    }
+                    self.tableview.reloadData()
+                    
+                    
                 }catch{
                     print("JSONSerialization error:", error)
                 }
@@ -102,10 +114,11 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return messageLabel.count
+        return 1
     }
    
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,12 +128,19 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "call") as! TripUIImagePicCell
+//
+//        cell.nameLabel?.text = self.placeName
+//
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reviewsCell", for: indexPath)
-        cell.textLabel?.text = self.placeName
         
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TripUIImagePicCell
 
+        cell.nameLabel?.text = self.placeName
+
+
+  
         
 
         return cell
