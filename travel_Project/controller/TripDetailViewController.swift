@@ -26,10 +26,6 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     //var photoReference:String?
     
     
-  let imageLabel = TripDetailViewController()
-    
-    
-    @IBOutlet var image: UIImageView!
     var referenceArray:[String] = []
     
     var messageLabel : [discuss]?
