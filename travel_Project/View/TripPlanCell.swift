@@ -18,13 +18,7 @@ class TripPlanCell: UITableViewCell {
     
     @IBOutlet var typeLabel : UILabel!
     @IBOutlet var tripImage: UIImageView!
-//        {
-//        didSet{
-//            tripImage.layer.cornerRadius = 50
-//            tripImage.clipsToBounds = true
-//        }
-//    }
-    
+
    
     
 
@@ -33,25 +27,7 @@ class TripPlanCell: UITableViewCell {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     

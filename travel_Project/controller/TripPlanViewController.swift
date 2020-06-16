@@ -38,14 +38,11 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var txtSearch: UITextField!
     
     
     
-    @IBAction func locationTapped(_ sender: Any) {
-        gotoPlaces()
-    }
     
+ 
     
     override func viewDidLoad() {
         
@@ -80,7 +77,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     }
     
     
-    func initView(){
+    func initView(){ //根本沒進來
         /* Init SearchController 搜尋功能*/
         self.nameSearch = UISearchController(searchResultsController: nil)
         
@@ -157,14 +154,6 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
         self.presenter?.onSearchKeyworkChange(keyword: self.searchText)
     }
     
-    
-    func gotoPlaces(){
-        txtSearch.resignFirstResponder()//辭職。 第一。 回應者
-        let acController = GMSAutocompleteViewController()
-        acController.delegate = self
-        present(acController, animated: true, completion: nil)
-        
-    }
     
     func getCurrentLocation(){
         //請求採用授權

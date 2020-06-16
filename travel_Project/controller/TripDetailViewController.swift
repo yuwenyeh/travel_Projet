@@ -22,21 +22,32 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
    
     //從前頁帶過來3個變數
     var placeId:String?
-    var placeName:String?
-    //var photoReference:String?
-    
+    var placeName:String? //顯示飯店名稱
+   var photoReference:String?
+    var addjsonData : String? //顯示住址
+    var accessorUIimage: String?
     
     var referenceArray:[String] = []
     
-    var messageLabel : [discuss]?
+   private var messageLabel : [discuss]?//放評論的小盒子
     
     
+    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet var imageLabel: UIImageView!
     
-//    @IBOutlet var themephotoUIimage: UIImageView! //大照片
-//    @IBOutlet var accessoryUIimage: UIImageView! //小照片
+    @IBOutlet var namelabel: UILabel! //View店名稱
+    @IBOutlet var addressLabel: UILabel! // View地址
     
-
+    
     @IBOutlet var tableview: UITableView!
+    
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+       
+            
+        }
+    
   
 
     
@@ -49,13 +60,36 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         self.tableview.delegate = self
         self.tableview.dataSource = self
-       
-       
         
+        self.namelabel?.text = self.placeName
+        
+        self.addressLabel?.text = self.addjsonData
+       
         
         
     }
     
+    
+//    func photo(){
+//        
+//        
+//        if let message = messageLabel?(discuss){
+//            
+//               if let messageLanguage =  {
+//                
+//                   let urlStr = GoogleApiUtil.createPhotoUrl(ference:
+//                    self.accessorUIimage!, width: 400)
+//                
+//                   let url = URL(string: urlStr)
+//                
+//                   //self.referenceArray[0].tripImage.kf.setImage(with: url)
+//                   self.mainImage.kf.setImage(with: url)
+//                }{}
+//               }
+//        
+//        
+//        
+//    }
     
     
     
@@ -81,7 +115,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                             
                                 self.referenceArray.append(photo["photo_reference"].string!)
                                self.placeName = jsonData["result"]["name"].string
-                            
+                                self.addjsonData = jsonData["result"]["formatted_address"].string
                                
                             }else{
                                 break
@@ -91,13 +125,23 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         
                         
                     }
-                        
-               
-                    
+                   
                     //  評論
                     if let reviewArray = jsonData["result"]["reviews"].array{
+                        self.messageLabel = [discuss]()
                         
+                        for data in reviewArray{
+                        var info = discuss()
                         
+                            info.author_name = data["author_name"].string!
+                            info.text = data["text"].string!
+                            info.timetext = data["relative_time_description"].string!
+                            
+                            self.messageLabel?.append(info)
+              
+                        }
+                        
+
                     }
                     self.tableview.reloadData()
                     
@@ -119,25 +163,26 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
    
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return 1
+        return messageLabel?.count ?? 1
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "call") as! TripUIImagePicCell
-//
-//        cell.nameLabel?.text = self.placeName
-//
         
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TripUIImagePicCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Trip_UimagePicCell
 
-        cell.nameLabel?.text = self.placeName
-
+        cell.allMessage?.text = "所有評價"
+        //private var messageLabel : [discuss]?
+        if let message = messageLabel?[indexPath.row]{
+            
+            cell.userName?.text = message.author_name
+            cell.timetext?.text = message.timetext
+            cell.messageLabel.text = message.text
+            
+        }
 
   
-        
+    
 
         return cell
     }

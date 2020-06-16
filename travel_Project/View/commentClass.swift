@@ -15,5 +15,19 @@ import UIKit
 struct discuss {
     
     
+    var mainPhoto : String? //大照片
+    
+    var accessPhoto:String?//小照片
+    
+    var author_name : String? //User名稱
+    
+    var text : String? //評價
+    
+    var timetext: String?//評論時間
+    
+    
+    
+    
+    
     
 }

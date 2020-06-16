@@ -81,7 +81,7 @@ extension TripPlanViewController: GMSAutocompleteViewControllerDelegate{
 
         dismiss(animated: true , completion: nil)
 
-        self.txtSearch.text = place.name
+       
     }
 
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
