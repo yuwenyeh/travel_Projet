@@ -10,7 +10,9 @@ import Foundation
 
 
 struct TravelDetail{
-
+    
+    var id:String?
+    
     var placeID:String?
     
     var name:String?//名稱

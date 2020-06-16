@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.9.1)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - GoogleMaps (3.9.0):
     - GoogleMaps/Maps (= 3.9.0)
   - GoogleMaps/Base (3.9.0)
@@ -12,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - FMDB
   - GoogleMaps
   - GooglePlaces
   - Kingfisher (~> 4.0)
@@ -20,6 +24,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FMDB
     - GoogleMaps
     - GooglePlaces
     - Kingfisher
@@ -27,11 +32,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GoogleMaps: 4b5346bddfe6911bb89155d43c903020170523ac
   GooglePlaces: 1634d019549b969d40fe0ccb0b9513055adebe01
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 9740a4111f53a127e9c7861796aae420c5a5ec54
+PODFILE CHECKSUM: ec2f66dcba09f71bdb32e7db9787ede5447c0b84
 
 COCOAPODS: 1.9.1

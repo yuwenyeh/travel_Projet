@@ -120,6 +120,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                                 info.name = data["name"].string!
                                 info.address = data["vicinity"].string!
                                 info.placeID =  data["place_id"].string!
+                              
                                 info.photoReference = photoReference
                                 
                                 
@@ -160,7 +161,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
         self.locationManager.requestWhenInUseAuthorization()
     }
     
-    
+ 
     
 } //class
 

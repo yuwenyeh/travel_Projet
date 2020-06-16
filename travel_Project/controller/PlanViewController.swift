@@ -20,9 +20,12 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     weak var delegate : PlanviceControllDelegate?
     
+    @IBOutlet weak var arrow: UIImageView!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navItem: UINavigationItem!//導航列
+    
+   
     
     
     
@@ -79,6 +82,8 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
+            cell.imageView?.image = UIImage(systemName: "arrow.down", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+            
             return cell
             
             //加東西
@@ -109,7 +114,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             let cellData = tableViewData?[section].sectionData
             let tripDetail = cellData?[indexPath.row - 1] 
-            
+           
             
             if tripDetail?.name != "點擊新增"{
                 
@@ -142,6 +147,21 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
  
         }
     }
+    
+    //增加刪除功能
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         if editingStyle == .delete{
+            //var  note-> dailyPlan:[CellData]?
+            
+//            tableViewData.remove(at: indexPath.row)
+             
+             
+         }
+        tableView.reloadData()
+     }
+     
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

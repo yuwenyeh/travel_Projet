@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
  struct CellData {
+    
+    
+    var id:String? //旅遊計畫id
     var isOpen: Bool
     var sectionTitle :String   //日期 4/1
     var sectionData :[TravelDetail] //行程
