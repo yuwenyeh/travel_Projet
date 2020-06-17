@@ -26,7 +26,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var photoReference:String?
     
     
-    var addjsonData : String? //顯示住址
+  
     var accessorUIimage: String?
     
     var referenceArray:[String] = []
@@ -38,7 +38,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var imageLabel: UIImageView!
     
     @IBOutlet var namelabel: UILabel! //View店名稱
-    @IBOutlet var addressLabel: UILabel! // View地址
+    @IBOutlet var addressLabel: UILabel! //顯示住址
     
     
     @IBOutlet var tableview: UITableView!
@@ -57,15 +57,17 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         super.viewDidLoad()
         
+        
         if let placeId = self.placeId{
             getMapDetailInfo(placeId)
+            
         }
         
         self.tableview.delegate = self
         self.tableview.dataSource = self
         
         self.namelabel?.text = self.placeName
-        //self.addressLabel?.text = self.addjsonData
+     
          
         
         
@@ -120,7 +122,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                             if index < 2{
                                 self.referenceArray.append(photo["photo_reference"].string!)
                                 self.placeName = jsonData["result"]["name"].string
-                                self.addjsonData = jsonData["result"]["formatted_address"].string
+                                self.addressLabel.text = jsonData["result"]["formatted_address"].string
+                                  
                             }else{
                                 break
                             }
