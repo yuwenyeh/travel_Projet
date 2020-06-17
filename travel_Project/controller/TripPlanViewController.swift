@@ -51,7 +51,10 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
         
         
         super.viewDidLoad()
+        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         stopLocationNearMap = false
         
         //開啟定位方式最好的方式
@@ -180,6 +183,10 @@ extension TripPlanViewController: UITableViewDataSource{
         return 1
     }
     
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! TripPlanCell
@@ -188,19 +195,22 @@ extension TripPlanViewController: UITableViewDataSource{
             
             cell.nameLabel?.text = travePlace.name
             cell.address?.text = travePlace.address
+          
             
+            
+            
+            //從google抓圖片
             if let photoReference = travePlace.photoReference{
                 let urlStr = GoogleApiUtil.createPhotoUrl(ference: photoReference, width: 400)
                 let url = URL(string: urlStr)
                 cell.tripImage.kf.setImage(with: url)
             }
-            
         }
         return cell
     }
-    
-    
 }
+
+
 
 extension TripPlanViewController: UITableViewDelegate{
     

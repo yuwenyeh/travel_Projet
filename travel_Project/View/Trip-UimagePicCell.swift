@@ -13,10 +13,10 @@ class Trip_UimagePicCell: UITableViewCell {
     
     
     
-    @IBOutlet var allMessage: UILabel!
-    @IBOutlet var userName: UILabel!
-    @IBOutlet var timetext: UILabel!
-    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var allMessage: UILabel! //所有評價
+    @IBOutlet var userName: UILabel! //評論者姓名
+    @IBOutlet var timetext: UILabel!  //上次評論的時間
+    @IBOutlet var messageLabel: UILabel! //評論內容
     
     
     

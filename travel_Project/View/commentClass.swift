@@ -19,11 +19,11 @@ struct discuss {
     
     var accessPhoto:String?//小照片
     
-    var author_name : String? //User名稱
+    var author_name : String? //評論者名稱
     
     var text : String? //評價
     
-    var timetext: String?//評論時間
+    var timetext: String?//上次評論的時間
     
     
     

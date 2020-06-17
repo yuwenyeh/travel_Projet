@@ -24,6 +24,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var placeId:String?
     var placeName:String? //顯示飯店名稱
     var photoReference:String?
+    
+    
     var addjsonData : String? //顯示住址
     var accessorUIimage: String?
     
@@ -48,7 +50,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    
+   
     
     
     override func viewDidLoad() {
@@ -63,8 +65,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableview.dataSource = self
         
         self.namelabel?.text = self.placeName
-        self.addressLabel?.text = self.addjsonData
-        
+        //self.addressLabel?.text = self.addjsonData
+         
         
         
     }
@@ -132,16 +134,21 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         self.messageLabel = [discuss]()
                         for data in reviewArray{
                             var info = discuss()
+                            
+                            
                             info.author_name = data["author_name"].string!
                             info.text = data["text"].string!
                             info.timetext = data["relative_time_description"].string!
+                            
+                            
                             self.messageLabel?.append(info)
+                            
                         }
                         
                     }
                     
                     self.setPhoto()
-//                    self.tableview.reloadData()
+                   self.tableview.reloadData()
                     
                 }catch{
                     print("JSONSerialization error:", error)
@@ -168,14 +175,16 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Trip_UimagePicCell
         
+        
         cell.allMessage?.text = "所有評價"
         //private var messageLabel : [discuss]?
         if let message = messageLabel?[indexPath.row]{
             
-            cell.userName?.text = message.author_name
-            cell.timetext?.text = message.timetext
-            cell.messageLabel.text = message.text
             
+            cell.userName?.text = message.author_name //評論者姓名
+            cell.timetext?.text = message.timetext //上次評論的時間
+            cell.messageLabel?.text = message.text// 評論的內容
+        
         }
         
         

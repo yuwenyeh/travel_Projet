@@ -15,16 +15,18 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     var formatter : DateFormatter! = nil
     let happyDay = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
     
-    @IBOutlet weak var startDay: UITextField! //出發天數
+    @IBOutlet weak var startDay: UITextField! //出發日期
     @IBOutlet weak var travelname: UITextField!  //行程名稱
     @IBOutlet weak var happyNumber: UITextField!   //天數
     
+    @IBOutlet var backgrounImageView: UIImageView!
     
     
     
     
     
     @IBAction func UserAction(_ sender: Any) {
+       
         self.startDay.text = time()
     }
     
@@ -34,28 +36,40 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
         
         UIPickerUnit();
         
+        //背景霧化
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+           let blurEffectView = UIVisualEffectView(effect: blurEffect)
+           blurEffectView.frame = view.bounds
+           backgrounImageView.addSubview(blurEffectView)
     }
+    
+    
+    //增加橘色確定Button
+    @IBAction func dataAddTrip(_ sender: UIButton) {
+        
+        //驗證值
+               if let textFiel = self.travelname.text{
+                   if textFiel == ""{
+                       let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
+                       let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                       myalert.addAction(Alertaction)
+                       present(myalert, animated: true, completion: nil)
+                   }
+               }
+    }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //驗證值
-        if let textFiel = self.travelname.text{
-            if textFiel == ""{
-                let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
-                let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                myalert.addAction(Alertaction)
-                present(myalert, animated: true, completion: nil)
-            }
-        }
-        
+   
         if segue.identifier == "SeguePlan"{
             
             let planVC = segue.destination as! PlanViewController
             
             let note = Note()
             
-            //把值裝進node
+            //把值裝進note
             note.travelName = self.travelname.text
             note.startDate =  self.startDay.text
             note.days = self.happyNumber.text
@@ -76,7 +90,7 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                     
                    
                     var travelArray = [TravelDetail]()
-                    let travelDetail = TravelDetail(name:"點擊新增")
+                    let travelDetail = TravelDetail(name:"增加旅程")
                     travelArray.append(travelDetail)
                     
                     

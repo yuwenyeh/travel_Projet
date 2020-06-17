@@ -37,6 +37,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             navItem.title = noteData.travelName//設定導航列標題文字
         }
         
+        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -73,8 +74,12 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+      
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionTitle
@@ -82,7 +87,9 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
-            cell.imageView?.image = UIImage(systemName: "arrow.down", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+            cell.imageView?.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+            
+            cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             
             return cell
             
@@ -116,7 +123,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let tripDetail = cellData?[indexPath.row - 1] 
            
             
-            if tripDetail?.name != "點擊新增"{
+            if tripDetail?.name != "增加旅程"{
                 
                 
                 if let tripDvc = storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
