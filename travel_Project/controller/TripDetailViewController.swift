@@ -26,7 +26,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var photoReference:String?
     
     
-  
+    
+    @IBOutlet weak var tbl_height: NSLayoutConstraint!
     var accessorUIimage: String?
     
     var referenceArray:[String] = []
@@ -39,16 +40,18 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var threeImage: UIImageView!//第三張照片(View)
     
     
-   
+    
     @IBOutlet var addressLabel: UILabel! //顯示住址
     
     @IBOutlet var tableview: UITableView!
     
- 
+    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        
         
         navigationItem.title = self.placeName
         
@@ -60,12 +63,40 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableview.delegate = self
         self.tableview.dataSource = self
         
-       // self.namelabel?.text = self.placeName
-     
-         
-        
         
     }
+    
+    override func viewWillAppear(_ aminated: Bool){
+        
+        self.tableview.addObserver(self, forKeyPath: "contentSize", options: .new
+            , context: nil)
+        self.tableview.reloadData()
+    }
+    
+    
+    override func viewWillDisappear(_ animated:Bool){
+        
+        self.tableview.removeObserver(self, forKeyPath: "contentSize")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize"
+        {
+            
+                if let newvalue = change?[.newKey]{
+                    let newsize = newvalue as! CGSize
+                    self.tbl_height.constant = newsize.height
+                
+                    
+                }
+            
+            
+        }
+    }
+    
+    
+    
+    
     
     //設置照片
     func setPhoto(){
@@ -124,7 +155,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                                 self.referenceArray.append(photo["photo_reference"].string!)
                                 self.placeName = jsonData["result"]["name"].string
                                 self.addressLabel.text = jsonData["result"]["formatted_address"].string
-                                  
+                                
                             }else{
                                 break
                             }
@@ -178,13 +209,22 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Trip_UimagePicCell
         
         
         cell.allMessage?.text = "所有評價"
-        //private var messageLabel : [discuss]?
+        
         if let message = messageLabel?[indexPath.row]{
             
             
@@ -200,7 +240,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.Userphoto.kf.setImage(with: url)
                 
             }
-        
+            
         }
         
         
