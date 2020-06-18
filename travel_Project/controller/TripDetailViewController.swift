@@ -34,29 +34,23 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     private var messageLabel : [discuss]?//放評論的小盒子
     
     
-    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var mainImage: UIImageView! //大照片
     @IBOutlet var imageLabel: UIImageView!
+    @IBOutlet weak var threeImage: UIImageView!//第三張照片(View)
     
-    @IBOutlet var namelabel: UILabel! //View店名稱
+    
+   
     @IBOutlet var addressLabel: UILabel! //顯示住址
-    
     
     @IBOutlet var tableview: UITableView!
     
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        
-    }
-    
-   
-    
+ 
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        navigationItem.title = self.placeName
         
         if let placeId = self.placeId{
             getMapDetailInfo(placeId)
@@ -66,7 +60,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableview.delegate = self
         self.tableview.dataSource = self
         
-        self.namelabel?.text = self.placeName
+       // self.namelabel?.text = self.placeName
      
          
         
@@ -91,6 +85,13 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     let urlStr = GoogleApiUtil.createPhotoUrl(ference: reference, width: 400)
                     let  url = URL(string: urlStr)
                     self.imageLabel.kf.setImage(with: url)
+                    
+                }
+                if index == 2{
+                    //照片2
+                    let urlStr = GoogleApiUtil.createPhotoUrl(ference: reference, width: 400)
+                    let  url = URL(string: urlStr)
+                    self.threeImage.kf.setImage(with: url)
                     
                 }
                 
@@ -119,7 +120,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         
                         for (index ,photo) in photoArray.enumerated() {
                             
-                            if index < 2{
+                            if index < 3{
                                 self.referenceArray.append(photo["photo_reference"].string!)
                                 self.placeName = jsonData["result"]["name"].string
                                 self.addressLabel.text = jsonData["result"]["formatted_address"].string
@@ -138,14 +139,35 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         for data in reviewArray{
                             var info = discuss()
                             
+                            let user = data["profile_photo_url"].string //取使用者頭像
                             
+                             if user != nil {
+                                
                             info.author_name = data["author_name"].string!
                             info.text = data["text"].string!
                             info.timetext = data["relative_time_description"].string!
+                                info.start = data["rating"].int!
+//                                func start(){
+//                                    
+//                                    enum start{
+//                                        
+//                                        case 1
+//                                        case 2
+//                                        case 3
+//                                        case 4
+//                                        case 5
+//                                    }
+//                                    
+//                                }
+                                
+                                
                             
+                           
+                                info.user = user
+                         
                             
                             self.messageLabel?.append(info)
-                            
+                            }
                         }
                         
                     }
@@ -187,6 +209,15 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.userName?.text = message.author_name //評論者姓名
             cell.timetext?.text = message.timetext //上次評論的時間
             cell.messageLabel?.text = message.text// 評論的內容
+            
+            
+            //從google抓照片
+            if let user = message.user{
+                let urlStr = GoogleApiUtil.createPhotoUrl(ference: user, width:150)
+                let url = URL(string: urlStr)
+                cell.Userphoto.kf.setImage(with: url)
+                
+            }
         
         }
         

@@ -118,6 +118,8 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                             let photoReference = data["photos"][0]["photo_reference"].string
                             
                             if photoReference != nil {
+                                
+                                
                                 let lat = data["geometry"]["location"]["lat"]
                                 let lng = data["geometry"]["location"]["lng"]
                                 info.name = data["name"].string!
@@ -225,9 +227,11 @@ extension TripPlanViewController: UITableViewDelegate{
             
             
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
+                
                 let planVC = pvc as! PlanViewController
-                // let travelArray = [TravelDetail]()
-                //                let celldetail  = plan.notedata?.dailyPlan[1].sectionData[1
+                
+                
+               
                 let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
                 
                 self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
@@ -236,10 +240,7 @@ extension TripPlanViewController: UITableViewDelegate{
                 self.navigationController?.pushViewController(planVC, animated: true)
                 
             }
-            
-            
-            
-            
+
         }
         
         let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
@@ -259,17 +260,14 @@ extension TripPlanViewController: UITableViewDelegate{
             print("按下取消")
         }
         
-        
-        
+   
         alertController.addAction(storeFile)
         alertController.addAction(okAction)
         alertController.addAction(deleteAction)
         self.present(alertController, animated: true,completion: nil)
     }
     
-    
-    
-    
+
 }
 
 
@@ -295,30 +293,11 @@ extension TripPlanViewController: CLLocationManagerDelegate{
             
             
         }
-        
-        
-        
+
         
     }
     
-    //    func locationManager(manager:CLLocationManager!,didUpdateLocations locations :[AnyObject]!){
-    //        //取得locations陣列的最後一個
-    //        var location:CLLocation = locations[locations.count-1] as! CLLocation
-    //        print("自己的位置\(locationManager)")
-    //        //判斷是否為空
-    //        if(location.horizontalAccuracy>0){
-    //            print(location.coordinate.latitude)
-    //            print(location.coordinate.longitude)
-    //
-    //            var lat = location.coordinate.latitude
-    //            //停止定位
-    //        }
-    //        func VIewDidDispappear(animated: Bool){
-    //            locationManager.stopUpdatingHeading()
-    //        }
-    //
-    //    }
-    
+ 
     //錯誤資訊列印
     func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
         print(error)

@@ -76,7 +76,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     
-    
+    //MARK: cellForRowAT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
       
@@ -87,7 +87,9 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
-            cell.imageView?.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+            
+            //增加一個 +
+           cell.imageView?.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
             
             cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             
@@ -141,7 +143,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
                 
             }else{
-                
+                //轉場到景點搜尋
                 if let vc = storyboard?.instantiateViewController(withIdentifier: "TripPlanVC") {
                     let tripPlanVC = vc as! TripPlanViewController
                     tripPlanVC.noteData = self.notedata
@@ -158,11 +160,10 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //增加刪除功能
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete{
-            //var  note-> dailyPlan:[CellData]?
+          
             
-//            tableViewData.remove(at: indexPath.row)
-             
-             
+            tableViewData!.remove(at: indexPath.row)
+ 
          }
         tableView.reloadData()
      }

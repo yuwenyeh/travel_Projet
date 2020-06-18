@@ -18,7 +18,10 @@ class Trip_UimagePicCell: UITableViewCell {
     @IBOutlet var timetext: UILabel!  //上次評論的時間
     @IBOutlet var messageLabel: UILabel! //評論內容
     
+    @IBOutlet weak var startUIImage: UIImageView!//星星評價
     
+    
+    @IBOutlet weak var Userphoto: UIImageView! //評論者照片
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource{
+class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     
     var formatter : DateFormatter! = nil
@@ -20,8 +20,30 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     @IBOutlet weak var happyNumber: UITextField!   //天數
     
     @IBOutlet var backgrounImageView: UIImageView!
+    var isNewImage : Bool = false
+    
+   
+    @IBOutlet var showitem: UIImageView!
     
     
+    @IBAction func camera(_ sender: UIButton) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    //camera
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+          
+        let image = info[.originalImage] as? UIImage
+          self.showitem.image = image
+          isNewImage = true
+          self.dismiss(animated: true, completion: nil)
+      }
+      
     
     
     
@@ -34,6 +56,11 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        guard let image = UIImage(named: "user") else{
+            fatalError("no starting image")
+        }
+        showitem.image = image
         UIPickerUnit();
         
         //背景霧化
@@ -41,6 +68,8 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
            let blurEffectView = UIVisualEffectView(effect: blurEffect)
            blurEffectView.frame = view.bounds
            backgrounImageView.addSubview(blurEffectView)
+        
+        
     }
     
     

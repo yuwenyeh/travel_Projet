@@ -69,7 +69,9 @@
 	<string>we need your current location to access your current weather conditions</string>
 	<key>NSLocationUsageDescription</key>
 	<string>we need your current location to access your current weather conditions</string>
-    <key>requestWhenInUseAuthorization</key>
-    <string>請同意App取得位置資訊</string>
+	<key>requestWhenInUseAuthorization</key>
+	<string>請同意App取得位置資訊</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>存取相簿</string>
 </dict>
 </plist>

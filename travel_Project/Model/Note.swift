@@ -20,7 +20,7 @@ class  Note :Equatable{
     var days : String?  //天數
     var dailyPlan:[CellData]?//行程計畫詳情
     var addFlag = false//是否已新增行程
-    
+    var image : UIImage?
     
 
     init() {
