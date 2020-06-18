@@ -15,13 +15,9 @@ import UIKit
 struct discuss {
     
     
-    var start : Int? //星星評價
-    
-    
+    var star : UIImage? //星星評價
     
     var  user : String? //使用者大頭照
-    
-    
     
     var author_name : String? //評論者名稱
     

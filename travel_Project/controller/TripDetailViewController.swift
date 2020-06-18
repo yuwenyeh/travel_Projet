@@ -141,39 +141,21 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                             
                             let user = data["profile_photo_url"].string //取使用者頭像
                             
-                             if user != nil {
-                                
-                            info.author_name = data["author_name"].string!
-                            info.text = data["text"].string!
-                            info.timetext = data["relative_time_description"].string!
-                                info.start = data["rating"].int!
-//                                func start(){
-//                                    
-//                                    enum start{
-//                                        
-//                                        case 1
-//                                        case 2
-//                                        case 3
-//                                        case 4
-//                                        case 5
-//                                    }
-//                                    
-//                                }
-                                
-                                
-                            
-                           
+                            if user != nil {
+                                info.author_name = data["author_name"].string!
+                                info.text = data["text"].string!
+                                info.timetext = data["relative_time_description"].string!
+                                info.star =  self.getStar(rating:Int(data["rating"].int!))
                                 info.user = user
-                         
-                            
-                            self.messageLabel?.append(info)
+                                
+                                self.messageLabel?.append(info)
                             }
                         }
                         
                     }
                     
                     self.setPhoto()
-                   self.tableview.reloadData()
+                    self.tableview.reloadData()
                     
                 }catch{
                     print("JSONSerialization error:", error)
@@ -209,7 +191,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.userName?.text = message.author_name //評論者姓名
             cell.timetext?.text = message.timetext //上次評論的時間
             cell.messageLabel?.text = message.text// 評論的內容
-            
+            cell.startUIImage.image = message.star//星星
             
             //從google抓照片
             if let user = message.user{
@@ -226,6 +208,36 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
+    
+    
+    
+    
+    func getStar(rating:Int) ->UIImage!{
+        
+        var star:UIImage?
+        
+        switch rating {
+            
+        case 1:
+            star = UIImage(named: "Star_rating_1_of_5")
+        case 2:
+            star = UIImage(named: "Star_rating_2_of_5")
+        case 3:
+            star = UIImage(named: "Star_rating_3_of_5")
+        case 4:
+            star = UIImage(named: "Star_rating_4_of_5_")
+        case 5:
+            star = UIImage(named: "Star_rating_5_of_5")
+        case nil:
+            star = UIImage(named: "Star_rating_0_of_5")
+        default:
+            star = UIImage(named: "Star_rating_0_of_5")
+        }
+        
+        return star
+        
+    }
+    
     
     
     /*

@@ -17,9 +17,8 @@ struct TravelDetail{
     
     var name:String?//名稱
     var address:String?//地址
-    //var rating:String?//評價星星
-    
-    
+
+
     var photoReference:String?
     
     
