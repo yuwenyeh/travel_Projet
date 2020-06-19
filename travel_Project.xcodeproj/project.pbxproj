@@ -28,6 +28,7 @@
 		19E083D424937F3000DCF201 /* GoogleApiUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E083D324937F3000DCF201 /* GoogleApiUtil.swift */; };
 		19E083D6249385C300DCF201 /* TripPlanProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E083D5249385C300DCF201 /* TripPlanProtocol.swift */; };
 		19E083D82493891900DCF201 /* UISearchcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E083D72493891900DCF201 /* UISearchcontroller.swift */; };
+		19F7B55F249CF30F0026F17E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F7B55E249CF30F0026F17E /* Constant.swift */; };
 		F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */; };
 		F65A40A1248F1B4100A6C31F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A40A0248F1B4100A6C31F /* MapViewController.swift */; };
 		F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68A0DC42487469C002712A0 /* TripPlanViewController.swift */; };
@@ -61,6 +62,7 @@
 		19E083D324937F3000DCF201 /* GoogleApiUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoogleApiUtil.swift; path = travel_Project/Model/GoogleApiUtil.swift; sourceTree = SOURCE_ROOT; };
 		19E083D5249385C300DCF201 /* TripPlanProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanProtocol.swift; path = travel_Project/Model/TripPlanProtocol.swift; sourceTree = SOURCE_ROOT; };
 		19E083D72493891900DCF201 /* UISearchcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UISearchcontroller.swift; path = travel_Project/Model/UISearchcontroller.swift; sourceTree = SOURCE_ROOT; };
+		19F7B55E249CF30F0026F17E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = travel_Project/Model/Constant.swift; sourceTree = SOURCE_ROOT; };
 		CD9AC1019F7D3951C7519F77 /* Pods_travel_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandableHeaderView.swift; path = travel_Project/View/ExpandableHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		F65A40A0248F1B4100A6C31F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = travel_Project/controller/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -137,6 +139,7 @@
 				19AAE8D5248A74AF00282427 /* TravelDetail.swift */,
 				19E083D5249385C300DCF201 /* TripPlanProtocol.swift */,
 				19E083D72493891900DCF201 /* UISearchcontroller.swift */,
+				19F7B55E249CF30F0026F17E /* Constant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				1950BC9D2497B30A006343AB /* commentClass.swift in Sources */,
 				19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */,
 				19E083D6249385C300DCF201 /* TripPlanProtocol.swift in Sources */,
+				19F7B55F249CF30F0026F17E /* Constant.swift in Sources */,
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
 				F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */,
 				19BC29A12499EEE300AF6A1C /* backgrund.swift in Sources */,

@@ -18,16 +18,17 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     @IBOutlet weak var startDay: UITextField! //出發日期
     @IBOutlet weak var travelname: UITextField!  //行程名稱
     @IBOutlet weak var happyNumber: UITextField!   //天數
-    
     @IBOutlet var backgrounImageView: UIImageView!
+    
     var isNewImage : Bool = false
     var notedata : Note!
+    let dbManager = DBManager.shared
     
     
-   //weak var delegate : StartPlanning?
+    //weak var delegate : StartPlanning?
     
     
-   
+    
     @IBOutlet var showitem: UIImageView!
     
     
@@ -42,18 +43,18 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     //camera
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-          
+        
         let image = info[.originalImage] as? UIImage
-          self.showitem.image = image
-          isNewImage = true
-          self.dismiss(animated: true, completion: nil)
-      }
-      
+        self.showitem.image = image
+        isNewImage = true
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
     
     @IBAction func UserAction(_ sender: Any) {
-       
+        
         self.startDay.text = time()
     }
     
@@ -70,12 +71,11 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
         
         //背景霧化
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-           let blurEffectView = UIVisualEffectView(effect: blurEffect)
-           blurEffectView.frame = view.bounds
-           backgrounImageView.addSubview(blurEffectView)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgrounImageView.addSubview(blurEffectView)
         
-       //產生陰影
-        
+        //產生陰影
         showitem.layer.cornerRadius = 3
         showitem.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
         showitem.layer.shadowOffset = CGSize(width: 0, height: 1.75)
@@ -88,33 +88,31 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     @IBAction func dataAddTrip(_ sender: UIButton) {
         
         //驗證值
-               if let textFiel = self.travelname.text{
-                   if textFiel == ""{
-                       let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
-                       let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                       myalert.addAction(Alertaction)
-                       present(myalert, animated: true, completion: nil)
-                   }
-               }
+        if let textFiel = self.travelname.text{
+            if textFiel == ""{
+                let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
+                let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                myalert.addAction(Alertaction)
+                present(myalert, animated: true, completion: nil)
+            }
+        }
     }
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-   
+        
         if segue.identifier == "SeguePlan"{
             
             let planVC = segue.destination as! PlanViewController
-            
             let note = Note()
+            var dailyStr = [String]()
             
             //把值裝進note
             note.travelName = self.travelname.text
             note.startDate =  self.startDay.text
             note.days = self.happyNumber.text
-            
-            
             
             
             //把出發日期 依照 天數 產生 key
@@ -131,26 +129,35 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                     let travelDay  = startDate.addingTimeInterval(addTime)//出發天數轉date
                     let dayKey = dateFormatter.string(from: travelDay)
                     
-                   
-                    var travelArray = [TravelDetail]()
-                    let travelDetail = TravelDetail(name:"增加旅程")
-                    travelArray.append(travelDetail)
+                    dailyStr.append(dayKey)//存入每天遊玩日期
                     
+                    var travelArray = [TravelDetail]()
+                    let travelDetail = TravelDetail(name: "增加旅程")
+                    travelArray.append(travelDetail)
                     
                     let celldata = CellData.init(isOpen: true, sectionTitle: dayKey, sectionData:travelArray)
                     note.dailyPlan?.append(celldata)
                 }
                 
+                note.dailyStr = dailyStr.joined(separator: "_")//組成字串
+                
+                
+                //insert note to DB
+                dbManager.insertTravelPlanData(insertData: note)
+                
+                
+                
+                
                 
                 planVC.notedata = note
-               
+                
             }
             
         }
         
     }
     
- 
+    
     //
     @objc func datePickerChanged(datePicker: UIDatePicker){
         //依據元件的tag取得UITextField

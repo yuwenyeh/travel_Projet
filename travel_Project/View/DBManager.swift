@@ -18,23 +18,19 @@ class DBManager : NSObject {
     static let shared = DBManager()
     
     
-    
+    //建立表
     let CREATE_TRAVEL_PLAN_SQL = "create table travel_plan (id text primary key not null, travelName text not null, startDate text not null, days text not null, dayStr ,createTime text not null)"
-    
     
     let CREATE_TRAVEL_DETAIL_SQL = "create table travel_detail (id text primary key not null,relateId text not null , travelDay text not null, placeName text, address text , photoReference  text  , centerLat text , centerLng text, createTime text not null)"
     
     
+    
     override init() {
         super.init()
-        
         let documentsDirectory = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString) as String
-        
-        print("documentsDirectory")
-        
         pathToDatabase = documentsDirectory.appending("/\(databaseFileName)")
+        print(pathToDatabase!)
     }
-    
     
     
     func createDatabase() -> Bool {
@@ -72,27 +68,53 @@ class DBManager : NSObject {
     
     
     
-    func openDatabase() -> Bool {
-        
+   func openDatabase() -> Bool {
+    
         if database == nil {
-            self.createDatabase()
+            if FileManager.default.fileExists(atPath: pathToDatabase) {
+                database = FMDatabase(path: pathToDatabase)
+            }
         }
-        
+
         if database != nil {
             if database.open() {
                 return true
             }
         }
-        
+
         return false
     }
     
     
+    //新增行程
+    func insertTravelPlanData(insertData:Note?) {
+        
+        if openDatabase() {
+            
+            if let insertData = insertData{
+                
+                do {
+                    
+                    let query = "insert into travel_plan (\(ID) , \(TRAVAEL_NAME),\(START_DATE),\(DAYS),\(DAY_STR),\(CREATE_TIME)) values('\(insertData.id!)','\(insertData.travelName!)','\(insertData.startDate!)','\(insertData.days!)','\(insertData.dailyStr!)',strftime('%s', 'now'))"
+                    
+                    if !database.executeStatements(query) {
+                        print("Failed to insert initial data into the database.")
+                        print(database.lastError(), database.lastErrorMessage())
+                    }
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+                
+            }
+            
+        }
+        
+        database.close()
+        
+    }
     
-    
-    
-    
-    
+//    query += "insert into movies (\(field_MovieID), \(field_MovieTitle), \(field_MovieCategory), \(field_MovieYear), \(field_MovieURL), \(field_MovieCoverURL), \(field_MovieWatched), \(field_MovieLikes)) values (null, '\(movieTitle)', '\(movieCategory)', \(movieYear), '\(movieURL)', '\(movieCoverURL)', 0, 0);"
     
     
     

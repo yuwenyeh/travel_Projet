@@ -14,18 +14,15 @@ class  Note :Equatable{
     
     
     
-    var id:String?//識別id
+    var id:String? = UUID().uuidString;     //識別id
     var travelName: String? //行程名稱
     var startDate: String? //出發日期
     var days : String?  //天數
     var dailyPlan:[CellData]?//行程計畫詳情
     var addFlag = false//是否已新增行程
     var image : UIImage?
+    var dailyStr:String?//天數字串
     
-
-    init() {
-        self.id = UUID().uuidString
-    }
     
     
     static func == (lhs: Note, rhs: Note) -> Bool {
