@@ -8,15 +8,19 @@
 
 import UIKit
 
-class startPlanning: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSource,StartPlanningDelegate {
     
     
     var data:[Note] = []
     
+   
+   
     
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var search: UISearchBar!
-    @IBOutlet weak var button: UIButton!
+    
+   
+    
+    let search = UISearchController(searchResultsController: nil)
     
     
     
@@ -31,6 +35,8 @@ class startPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
         
+        
+        
         if self.data.count != 0{
             
             let note = self.data[indexPath.row]
@@ -40,6 +46,7 @@ class startPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.startDay?.text = note.startDate
             cell.travelName?.text = note.travelName
             cell.happyNumber?.text = note.days
+            
             
         }else{
             cell.startDay.text = "日期"
@@ -51,6 +58,32 @@ class startPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  
+        
+        
+    }
+    
+    
+    //SegueWVC
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let welcome = UIStoryboard(name: "SegueWVC", bundle: nil).instantiateViewController(withIdentifier: "welcomeID")
+//        present(welcome, animated: true, completion: nil)
+//
+//
+//
+//    }
+
+    
+    func didFinishUpdate(note:Note){
+       if let index =  self.data.firstIndex(of: note){
+        
+            let indexpath = IndexPath(row: index, section: 0)
+        self.tableview.reloadRows(at: [indexpath], with: .automatic)
+        
+        
+        }
+    }
     
     
     
@@ -61,22 +94,17 @@ class startPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
         self.tableview.delegate = self
         self.tableview.dataSource = self
+        self.navigationItem.searchController = search
+       
+        
     }
+    
     
 
        }
        
        
-       
-       //
-     
-    
-    
-    
-    
-    
-    
-    
+
     /*
     // MARK: - Navigation
 

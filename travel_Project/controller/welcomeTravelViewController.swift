@@ -21,6 +21,11 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     
     @IBOutlet var backgrounImageView: UIImageView!
     var isNewImage : Bool = false
+    var notedata : Note!
+    
+    
+   //weak var delegate : StartPlanning?
+    
     
    
     @IBOutlet var showitem: UIImageView!
@@ -69,7 +74,13 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
            blurEffectView.frame = view.bounds
            backgrounImageView.addSubview(blurEffectView)
         
+       //產生陰影
         
+        showitem.layer.cornerRadius = 3
+        showitem.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        showitem.layer.shadowOffset = CGSize(width: 0, height: 1.75)
+        showitem.layer.shadowRadius = 1.7
+        showitem.layer.shadowOpacity = 0.45
     }
     
     
@@ -103,6 +114,9 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
             note.startDate =  self.startDay.text
             note.days = self.happyNumber.text
             
+            
+            
+            
             //把出發日期 依照 天數 產生 key
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy年MM月dd日"
@@ -129,17 +143,14 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                 
                 
                 planVC.notedata = note
-                
+               
             }
             
         }
         
     }
     
-    
-    
-    
-    
+ 
     //
     @objc func datePickerChanged(datePicker: UIDatePicker){
         //依據元件的tag取得UITextField

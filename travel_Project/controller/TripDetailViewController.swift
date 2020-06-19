@@ -233,6 +233,9 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.messageLabel?.text = message.text// 評論的內容
             cell.startUIImage.image = message.star//星星
             
+           //讓文字展開
+            cell.messageLabel.numberOfLines = 0
+            
             //從google抓照片
             if let user = message.user{
                 let urlStr = GoogleApiUtil.createPhotoUrl(ference: user, width:150)

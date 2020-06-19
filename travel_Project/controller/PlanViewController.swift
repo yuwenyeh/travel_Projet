@@ -8,17 +8,24 @@
 
 import UIKit
 
-protocol PlanviceControllDelegate :class{
-    func didFinishUpdate(_ note:Note)
+protocol StartPlanningDelegate :class{
+    func didFinishUpdate(note:Note)
 }
 
 class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     //var travelDetail : [TravelDetail]?
     var tableViewData:[CellData]?
-    var notedata : Note?
+    var notedata : Note!
     
-    weak var delegate : PlanviceControllDelegate?
+    var travelName : String?
+    var startDate : String?
+    var happyNumber : String?
+    
+    
+    
+    //通知第一頁更新資料
+    weak var delegate : StartPlanningDelegate?
     
     @IBOutlet weak var arrow: UIImageView!
     
@@ -27,6 +34,15 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
    
     
+    @IBAction func backPage(_ sender: Any) {
+       
+        self.notedata.travelName = self.travelName
+        self.notedata.startDate = self.startDate
+        self.notedata.days = self.happyNumber
+          //通知第一頁更新
+        self.delegate?.didFinishUpdate(note: self.notedata)
+       dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -36,6 +52,11 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.tableViewData = noteData.dailyPlan
             navItem.title = noteData.travelName//設定導航列標題文字
         }
+        
+        self.travelName = self.notedata.travelName
+        self.startDate = self.notedata.startDate
+        self.happyNumber = self.notedata.days
+        
         
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         tableView.delegate = self
@@ -89,10 +110,11 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
             
             //增加一個 +
-           cell.imageView?.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+           //cell.imageView?.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
             
             cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             
+           
             return cell
             
             //加東西
@@ -173,6 +195,8 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        
+        
     }
     
     
