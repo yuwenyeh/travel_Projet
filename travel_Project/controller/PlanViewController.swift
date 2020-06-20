@@ -33,15 +33,13 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var navItem: UINavigationItem!//導航列
     
    
+    var startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID") as!StartPlanning
+    
     
     @IBAction func backPage(_ sender: Any) {
        
-        self.notedata.travelName = self.travelName
-        self.notedata.startDate = self.startDate
-        self.notedata.days = self.happyNumber
-          //通知第一頁更新
-        self.delegate?.didFinishUpdate(note: self.notedata)
-       dismiss(animated: true, completion: nil)
+      
+       
     }
     
     

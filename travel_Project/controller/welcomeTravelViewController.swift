@@ -29,27 +29,27 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     
     
     
-    @IBOutlet var showitem: UIImageView!
-    
-    
-    @IBAction func camera(_ sender: UIButton) {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .savedPhotosAlbum
-        imagePicker.delegate = self
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    //camera
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        let image = info[.originalImage] as? UIImage
-        self.showitem.image = image
-        isNewImage = true
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+//    @IBOutlet var showitem: UIImageView!
+//
+//
+//    @IBAction func camera(_ sender: UIButton) {
+//
+//        let imagePicker = UIImagePickerController()
+//        imagePicker.sourceType = .savedPhotosAlbum
+//        imagePicker.delegate = self
+//        self.present(imagePicker, animated: true, completion: nil)
+//    }
+//
+//    //camera
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//        let image = info[.originalImage] as? UIImage
+//        self.showitem.image = image
+//        isNewImage = true
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//
     
     
     
@@ -63,25 +63,25 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
         super.viewDidLoad()
         
         
-        guard let image = UIImage(named: "user") else{
-            fatalError("no starting image")
-        }
-        showitem.image = image
-        UIPickerUnit();
+       // guard let image = UIImage(named: "user") else{
+            //fatalError("no starting image")
         
+        //showitem.image = image
+        UIPickerUnit();
+    }
         //背景霧化
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        backgrounImageView.addSubview(blurEffectView)
+//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        backgrounImageView.addSubview(blurEffectView)
         
         //產生陰影
-        showitem.layer.cornerRadius = 3
-        showitem.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
-        showitem.layer.shadowOffset = CGSize(width: 0, height: 1.75)
-        showitem.layer.shadowRadius = 1.7
-        showitem.layer.shadowOpacity = 0.45
-    }
+//        showitem.layer.cornerRadius = 3
+//        showitem.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+//        showitem.layer.shadowOffset = CGSize(width: 0, height: 1.75)
+//        showitem.layer.shadowRadius = 1.7
+//        showitem.layer.shadowOpacity = 0.45
+ 
     
     
     //增加橘色確定Button

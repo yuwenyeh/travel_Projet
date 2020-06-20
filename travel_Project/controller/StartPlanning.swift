@@ -8,26 +8,20 @@
 
 import UIKit
 
-class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSource,StartPlanningDelegate {
+class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var data:[Note] = []
     
-   
-   
     
     @IBOutlet weak var tableview: UITableView!
     
-   
     
-    let search = UISearchController(searchResultsController: nil)
-    
-    
+   // let search = UISearchController(searchResultsController: nil)
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count == 0 ? 1 : data.count
     }
-    
     
     
     
@@ -57,62 +51,47 @@ class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  
+   
+    func initStatusBarStyle(){
         
+        // Set StatusBar Style
+        
+        self.navigationController?.navigationBar.barStyle = .black
+ 
+        self.navigationController?.navigationBar.tintColor = UIColor.red
+        // navigation & status bar 改顏色方法
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0, blue: 219/255, alpha: 1)
         
     }
-    
-    
-    //SegueWVC
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let welcome = UIStoryboard(name: "SegueWVC", bundle: nil).instantiateViewController(withIdentifier: "welcomeID")
-//        present(welcome, animated: true, completion: nil)
-//
-//
-//
-//    }
-
-    
-    func didFinishUpdate(note:Note){
-       if let index =  self.data.firstIndex(of: note){
-        
-            let indexpath = IndexPath(row: index, section: 0)
-        self.tableview.reloadRows(at: [indexpath], with: .automatic)
-        
-        
-        }
-    }
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableview.delegate = self
         self.tableview.dataSource = self
-        self.navigationItem.searchController = search
-       
+        initStatusBarStyle()
         
     }
     
+ 
     
+}
 
-       }
-       
-       
+//extension StartPlanning:StartPlanningDelegate{
+//
+//    func didFinishUpdate(note:Note){
+//        if let index = self.data.firstIndex(of: note){
+//
+//            let data = Note()
+//
+//
+//        }
+//    }
+//
+//}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+
 
 

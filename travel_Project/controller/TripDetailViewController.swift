@@ -41,8 +41,13 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    @IBOutlet var addressLabel: UILabel! //顯示住址
+    @IBOutlet var addressLabel: UILabel! {//顯示住址
     
+        didSet{
+            addressLabel.numberOfLines = 0
+        }
+        }
+        
     @IBOutlet var tableview: UITableView!
     
     

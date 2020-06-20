@@ -20,6 +20,9 @@ import GooglePlaces
         GMSPlacesClient.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
         
         
+
+        
+   
         
         let dbManager = DBManager.shared
         dbManager.createDatabase()
