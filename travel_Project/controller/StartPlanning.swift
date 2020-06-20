@@ -14,6 +14,7 @@ class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var data:[Note] = []
     
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
     
     
@@ -51,6 +52,23 @@ class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, comletionHandler) in
+            
+            //刪除資料
+            self.data.remove(at: indexPath.row)
+            comletionHandler(true)
+        }
+        
+       let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        
+        return swipeConfiguration
+        
+   
+    }
    
     func initStatusBarStyle(){
         
@@ -60,7 +78,11 @@ class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
  
         self.navigationController?.navigationBar.tintColor = UIColor.red
         // navigation & status bar 改顏色方法
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0, blue: 219/255, alpha: 1)
+//        navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0, blue: 219/255, alpha: 1)
+        
+        
+        navigationController?.navigationBar.apply(gradient: [UIColor(red: 0, green: 219/255, blue: 0, alpha: 1),UIColor(red: 231/255, green: 231/255, blue: 243/255, alpha: 1)])
+        
         
     }
     
@@ -72,10 +94,41 @@ class StartPlanning: UIViewController, UITableViewDelegate, UITableViewDataSourc
         initStatusBarStyle()
         
     }
-    
- 
+    //background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  //background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
     
 }
+extension UINavigationBar{
+    
+    //將顏色加入指定範圍
+    func apply(gradient colors: [UIColor]) {
+        var naviAndStatusBar: CGRect = self.bounds
+        naviAndStatusBar.size.height += 45//statusBar和navigationBar的高度
+        setBackgroundImage(UINavigationBar.gradient(size: naviAndStatusBar.size,colors: colors), for: .default)
+    }
+    
+    //設定漸層
+    static func gradient(size: CGSize, colors: [UIColor]) ->UIImage{
+        
+        let cgColors = colors.map{$0.cgColor}//將顏色轉換成cgColor
+        
+        UIGraphicsBeginImageContextWithOptions(size, true, 0)//開始繪製的位置
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return UIGraphicsGetImageFromCurrentImageContext()!}
+        
+        defer {UIGraphicsEndImageContext()}
+        
+        var locations: [CGFloat] = [0,1]//顏色位置(座標)
+        
+        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: cgColors as NSArray as CFArray, locations: &locations) else { return UIGraphicsGetImageFromCurrentImageContext()! }
+        
+        context.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: [])//繪製漸層的角度
+        
+        return UIGraphicsGetImageFromCurrentImageContext()!
+    }
+    
+}
+
 
 //extension StartPlanning:StartPlanningDelegate{
 //
