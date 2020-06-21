@@ -14,7 +14,7 @@ class  Note :Equatable{
     
     
     
-    var id:String? = UUID().uuidString;     //識別id
+    var id:String?   //識別id
     var travelName: String? //行程名稱
     var startDate: String? //出發日期
     var days : String?  //天數

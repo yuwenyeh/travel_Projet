@@ -81,7 +81,7 @@
         <!--搜尋-->
         <scene sceneID="BEU-d1-iLi">
             <objects>
-                <viewController storyboardIdentifier="startID" id="IMI-Ze-iDe" customClass="StartPlanning" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="startID" id="IMI-Ze-iDe" customClass="StartPlanViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qkl-US-WwK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

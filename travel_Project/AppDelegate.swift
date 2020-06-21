@@ -23,7 +23,7 @@ import GooglePlaces
 
         
    
-        
+        //產生資料庫
         let dbManager = DBManager.shared
         dbManager.createDatabase()
         

@@ -26,9 +26,6 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     
     
     //weak var delegate : StartPlanning?
-    
-    
-    
 //    @IBOutlet var showitem: UIImageView!
 //
 //
@@ -52,16 +49,8 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
 //
     
     
-    
-    @IBAction func UserAction(_ sender: Any) {
-        
-        self.startDay.text = time()
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
        // guard let image = UIImage(named: "user") else{
             //fatalError("no starting image")
@@ -84,6 +73,12 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
  
     
     
+    
+    @IBAction func UserAction(_ sender: Any) {
+        self.startDay.text = time()
+    }
+    
+    
     //增加橘色確定Button
     @IBAction func dataAddTrip(_ sender: UIButton) {
         
@@ -97,7 +92,6 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
             }
         }
     }
-    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,7 +108,6 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
             note.startDate =  self.startDay.text
             note.days = self.happyNumber.text
             
-            
             //把出發日期 依照 天數 產生 key
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy年MM月dd日"
@@ -128,26 +121,12 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                     let addTime = Double(3600*24*i)
                     let travelDay  = startDate.addingTimeInterval(addTime)//出發天數轉date
                     let dayKey = dateFormatter.string(from: travelDay)
-                    
                     dailyStr.append(dayKey)//存入每天遊玩日期
-                    
-                    var travelArray = [TravelDetail]()
-                    let travelDetail = TravelDetail(name: "增加旅程")
-                    travelArray.append(travelDetail)
-                    
-                    let celldata = CellData.init(isOpen: true, sectionTitle: dayKey, sectionData:travelArray)
-                    note.dailyPlan?.append(celldata)
                 }
                 
                 note.dailyStr = dailyStr.joined(separator: "_")//組成字串
-                
-                
-                //insert note to DB
-                dbManager.insertTravelPlanData(insertData: note)
-                
-                
-                
-                
+                //insert note to DB 順便回傳uuid 給 note
+                note.id = dbManager.insertTravelPlanData(insertData: note)
                 
                 planVC.notedata = note
                 

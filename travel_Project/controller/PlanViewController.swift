@@ -14,40 +14,30 @@ protocol StartPlanningDelegate :class{
 
 class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    //var travelDetail : [TravelDetail]?
-    var tableViewData:[CellData]?
+
+    var tableViewData:[CellData]? = [CellData]()
     var notedata : Note!
     
     var travelName : String?
     var startDate : String?
     var happyNumber : String?
     
-    
+    let dbManager = DBManager.shared
     
     //通知第一頁更新資料
     weak var delegate : StartPlanningDelegate?
     
     @IBOutlet weak var arrow: UIImageView!
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navItem: UINavigationItem!//導航列
     
-   
-    var startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID") as!StartPlanning
-    
-    
-    @IBAction func backPage(_ sender: Any) {
-       
-      
-       
-    }
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let noteData = notedata{
-            self.tableViewData = noteData.dailyPlan
+//            self.tableViewData = noteData.dailyPlan
             navItem.title = noteData.travelName//設定導航列標題文字
         }
         
@@ -62,6 +52,38 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //讀取資料
+        if let notedata = self.notedata{
+            
+            let dailyStrArray = notedata.dailyStr?.split(separator: "_")
+            
+            //用單日日期去找 行程
+            for daily in dailyStrArray!{
+                //取得每日行程主項
+                let cellData = dbManager.loadPlanDetails(notedata.id!, daily: String(daily))
+                //裝入
+                self.tableViewData?.append(cellData)
+            }
+            
+            self.notedata.dailyPlan = self.tableViewData
+            
+        }
+   
+    }
+    
+    
+    
+    
+    @IBAction func backPage(_ sender: Any) {
+       
+      //    var startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID") as!StartPlanViewController
+    }
+    
+    
     @IBAction func addCellLabel(_ sender: Any) {
         
         //功能還沒寫好
@@ -75,6 +97,8 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //        self.tableView.insertRows(at: [indexPath], with: .automatic)
         
     }
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -92,7 +116,6 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
     }
-    
     
     
     //MARK: cellForRowAT
@@ -138,15 +161,11 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }else{
             
-            
             let section =  indexPath.section
-            
             let cellData = tableViewData?[section].sectionData
             let tripDetail = cellData?[indexPath.row - 1] 
            
-            
             if tripDetail?.name != "增加旅程"{
-                
                 
                 if let tripDvc = storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
                     
@@ -155,7 +174,6 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     tripDetailVC.placeName = tripDetail?.name
                     tripDetailVC.placeId = tripDetail?.placeID
                     //tripDetailVC.photoReference = tripDetail?.photoReference
-                    
                     
                     navigationController?.pushViewController(tripDvc, animated: true)
                 
@@ -178,24 +196,39 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     //增加刪除功能
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete{
-          
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
             
-            tableViewData!.remove(at: indexPath.row)
- 
-         }
+            //防止使用者刪除日期
+            if(indexPath.row == 0){
+                return
+            }
+            
+            let cellData =  tableViewData![(indexPath.section)]
+            let deleteId = cellData.sectionData[indexPath.row-1].id
+            
+            //防止使用者刪除新增按鈕
+            if(deleteId != nil){
+                //資料庫刪除成功時 順便把畫面的tableViewData也需要刪除
+                if(dbManager.deletePlanDetail(withID: deleteId!)){
+                    tableViewData![(indexPath.section)].sectionData.remove(at: indexPath.row-1)
+                }
+            }
+            
+        }
+        
         tableView.reloadData()
-     }
+    }
      
     
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { }
 
         
         
-    }
+   
     
     
     

@@ -16,7 +16,7 @@
 		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 		19346E79249D7511002E8D48 /* background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19346E78249D7511002E8D48 /* background.swift */; };
 		1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */; };
-		194C94CA249B745E00FCEE7B /* StartPlanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C94C9249B745E00FCEE7B /* StartPlanning.swift */; };
+		194C94CA249B745E00FCEE7B /* StartPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */; };
 		1950BC9D2497B30A006343AB /* commentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950BC9C2497B30A006343AB /* commentClass.swift */; };
 		1966D2932498B572002029DC /* Trip-UimagePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966D2922498B572002029DC /* Trip-UimagePicCell.swift */; };
 		1966D2952498F7F0002029DC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966D2942498F7F0002029DC /* DBManager.swift */; };
@@ -50,7 +50,7 @@
 		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		19346E78249D7511002E8D48 /* background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = background.swift; path = travel_Project/Model/background.swift; sourceTree = SOURCE_ROOT; };
 		1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripDetailViewController.swift; path = travel_Project/controller/TripDetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		194C94C9249B745E00FCEE7B /* StartPlanning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartPlanning.swift; path = travel_Project/controller/StartPlanning.swift; sourceTree = SOURCE_ROOT; };
+		194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartPlanViewController.swift; path = travel_Project/controller/StartPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		1950BC9C2497B30A006343AB /* commentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = commentClass.swift; path = travel_Project/View/commentClass.swift; sourceTree = SOURCE_ROOT; };
 		1966D2922498B572002029DC /* Trip-UimagePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Trip-UimagePicCell.swift"; path = "travel_Project/View/Trip-UimagePicCell.swift"; sourceTree = SOURCE_ROOT; };
 		1966D2942498F7F0002029DC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DBManager.swift; path = travel_Project/View/DBManager.swift; sourceTree = SOURCE_ROOT; };
@@ -121,7 +121,7 @@
 		192EE53524827F66007EE3B0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				194C94C9249B745E00FCEE7B /* StartPlanning.swift */,
+				194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */,
 				19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */,
 				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
 				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
@@ -324,7 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194C94CA249B745E00FCEE7B /* StartPlanning.swift in Sources */,
+				194C94CA249B745E00FCEE7B /* StartPlanViewController.swift in Sources */,
 				19E083D424937F3000DCF201 /* GoogleApiUtil.swift in Sources */,
 				F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */,
 				F65A40A1248F1B4100A6C31F /* MapViewController.swift in Sources */,

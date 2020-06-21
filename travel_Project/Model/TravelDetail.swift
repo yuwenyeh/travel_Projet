@@ -11,8 +11,9 @@ import Foundation
 
 struct TravelDetail{
     
-    var id:String? = UUID().uuidString
+    var id:String?
     var relateId:String?//關聯ID
+    var travelDaily:String?//遊玩日期
     var placeID:String?
     var name:String?//名稱
     var address:String?//地址

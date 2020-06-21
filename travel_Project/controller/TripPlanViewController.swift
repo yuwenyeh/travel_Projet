@@ -20,21 +20,23 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     
     var noteData:Note?
     var sectionIndex:Int?
-    
+    private var travePlaceList: [TravelDetail]?//景點清單
     
     var stopLocationNearMap:Bool!//停止搜尋附近
-    
+
     let currentLocation: CLLocation? = nil
     let locationManager = CLLocationManager()
     var mapView : GMSMapView!
     var placeClient:GMSPlacesClient!
     var zoomLevel:Float = 15.0
     
-    private var travePlaceList: [TravelDetail]?//景點清單
+    let dbManager = DBManager.shared
+    
     private var nameSearch:UISearchController?
     private var searchText = ""
-    
     private var presenter : TripPlanViewControllProtocol?
+    
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -46,9 +48,8 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     
     override func viewDidLoad() {
         
-        
+        //測試預設用
         getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
-        
         
         super.viewDidLoad()
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
@@ -119,7 +120,6 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                             
                             if photoReference != nil {
                                 
-                                
                                 let lat = data["geometry"]["location"]["lat"]
                                 let lng = data["geometry"]["location"]["lng"]
                                 info.name = data["name"].string!
@@ -127,9 +127,6 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                                 info.placeID =  data["place_id"].string!
                               
                                 info.photoReference = photoReference
-                                
-                                
-                                
                                 info.centerLat = Double("\(lat)")
                                 info.centerLng = Double("\(lng)")
                                 
@@ -186,9 +183,6 @@ extension TripPlanViewController: UITableViewDataSource{
     }
     
     
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! TripPlanCell
@@ -197,10 +191,7 @@ extension TripPlanViewController: UITableViewDataSource{
             
             cell.nameLabel?.text = travePlace.name
             cell.address?.text = travePlace.address
-          
-            
-            
-            
+        
             //從google抓圖片
             if let photoReference = travePlace.photoReference{
                 let urlStr = GoogleApiUtil.createPhotoUrl(ference: photoReference, width: 400)
@@ -222,26 +213,27 @@ extension TripPlanViewController: UITableViewDelegate{
         
         let storeFile = UIAlertAction(title: "加入行程", style: .default) { (action) in
             
-        
-            let planDetail = self.travePlaceList?[indexPath.row]
+            //將字串的日期分開
+            let dailyArray = self.noteData?.dailyStr?.split(separator: "_")
+            let daily = dailyArray?[Int(self.sectionIndex!)]
             
-            
+            var planDetail = self.travePlaceList?[indexPath.row]
+            planDetail?.relateId = self.noteData?.id//紀錄父關聯id
+            planDetail?.travelDaily = String(daily!)//記錄遊玩日期
+            //存入資料庫
+            self.dbManager.insertPlanDetail(insertData: planDetail!)
+
+            //導頁
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
-                
                 let planVC = pvc as! PlanViewController
-                
-                
-               
                 let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
-                
                 self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
-                
                 planVC.notedata = self.noteData
                 self.navigationController?.pushViewController(planVC, animated: true)
-                
             }
 
         }
+        
         
         let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
             
@@ -256,6 +248,7 @@ extension TripPlanViewController: UITableViewDelegate{
                 
             }
         }
+        
         let deleteAction = UIAlertAction(title: "Cancel", style: .cancel) { (action)->Void in
             print("按下取消")
         }

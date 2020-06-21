@@ -11,7 +11,8 @@ import Foundation
 
 //資料庫欄位名稱常數
 
-
+//let TRAVEL_PLAN = "travel_plan"
+//let TRAVEL_DETAIL = "travel_detail"
 
 let ID = "id"
 
@@ -28,6 +29,7 @@ let CREATE_TIME = "createTime"
 let RELATE_ID = "relateId"
 let TRAVEL_DAY = "travelDay"
 let PLACE_NAME = "placeName"
+let PLACE_ID = "placeId"
 let ADDRESS = "address"
 let PHOTO_REFERENCE = "photoReference"
 let CENTER_LAT = "centerLat"
