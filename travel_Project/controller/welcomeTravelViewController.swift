@@ -25,53 +25,17 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     let dbManager = DBManager.shared
     
     
-    //weak var delegate : StartPlanning?
-//    @IBOutlet var showitem: UIImageView!
-//
-//
-//    @IBAction func camera(_ sender: UIButton) {
-//
-//        let imagePicker = UIImagePickerController()
-//        imagePicker.sourceType = .savedPhotosAlbum
-//        imagePicker.delegate = self
-//        self.present(imagePicker, animated: true, completion: nil)
-//    }
-//
-//    //camera
-//
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//
-//        let image = info[.originalImage] as? UIImage
-//        self.showitem.image = image
-//        isNewImage = true
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // guard let image = UIImage(named: "user") else{
-            //fatalError("no starting image")
-        
-        //showitem.image = image
+       
         UIPickerUnit();
     }
-        //背景霧化
-//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        backgrounImageView.addSubview(blurEffectView)
-        
-        //產生陰影
-//        showitem.layer.cornerRadius = 3
-//        showitem.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
-//        showitem.layer.shadowOffset = CGSize(width: 0, height: 1.75)
-//        showitem.layer.shadowRadius = 1.7
-//        showitem.layer.shadowOpacity = 0.45
- 
-    
+
+
     
     
     @IBAction func UserAction(_ sender: Any) {
@@ -82,15 +46,7 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     //增加橘色確定Button
     @IBAction func dataAddTrip(_ sender: UIButton) {
         
-        //驗證值
-        if let textFiel = self.travelname.text{
-            if textFiel == ""{
-                let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
-                let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                myalert.addAction(Alertaction)
-                present(myalert, animated: true, completion: nil)
-            }
-        }
+        
     }
     
     
@@ -99,9 +55,39 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
         
         if segue.identifier == "SeguePlan"{
             
+            //驗證值
+            if let textFiel = self.travelname.text{
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy年MM月dd日"
+                //出發日期比大小
+                var s_date = dateFormatter.date(from: self.startDay.text!)
+                s_date = s_date?.addingTimeInterval(24*60*60)//s_date 為前一日 所以要加一天
+                
+                //小於今天日期
+                if(Date().compare(s_date!).rawValue == 1){
+                    let myalert = UIAlertController(title: "日期不得小於今日", message: "Please again", preferredStyle: .alert)
+                    let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    myalert.addAction(Alertaction)
+                    present(myalert, animated: true, completion: nil)
+                    return
+                }
+                
+                if textFiel == ""{
+                    let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
+                    let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    myalert.addAction(Alertaction)
+                    present(myalert, animated: true, completion: nil)
+                    return
+                }
+                
+            }
+            
+            
             let planVC = segue.destination as! PlanViewController
             let note = Note()
             var dailyStr = [String]()
+            
             
             //把值裝進note
             note.travelName = self.travelname.text
@@ -205,7 +191,7 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
         myDatePicker.locale = NSLocale(localeIdentifier: "zh_TW") as Locale
         //設置UIDatePicker預設日期為現在日期
         myDatePicker.date = NSDate() as Date
-        // 設置 UIDatePicker 改變日期時會執行動作的方法
+        //設置 UIDatePicker 改變日期時會執行動作的方法
         myDatePicker.addTarget(self,action:#selector(welcomeTravelViewController.datePickerChanged),for: .valueChanged)
         //將原本鍵盤試圖改UIDatePicker
         startDay.inputView = myDatePicker

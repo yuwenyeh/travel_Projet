@@ -47,9 +47,9 @@ class StartPlanViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.red
         // navigation & status bar 改顏色方法
-        //        navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0, blue: 219/255, alpha: 1)
+      
         
-        navigationController?.navigationBar.apply(gradient: [UIColor(red: 0, green: 219/255, blue: 0, alpha: 1),UIColor(red: 231/255, green: 231/255, blue: 243/255, alpha: 1)])
+       navigationController?.navigationBar.apply(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
     }
     
     //background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
@@ -122,6 +122,11 @@ extension StartPlanViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, comletionHandler) in
+            
+            //防止行程計畫沒資料時誤刪
+            if self.data.count == 0{
+                return
+            }
             
             let deleteId = self.data[indexPath.row].id
             //刪除DB資料

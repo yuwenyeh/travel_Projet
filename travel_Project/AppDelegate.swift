@@ -20,7 +20,7 @@ import GooglePlaces
         GMSPlacesClient.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
         
         
-
+        UITabBar.appearance().tintColor = UIColor(red: 140/255, green: 219/255, blue: 229/255, alpha: 1)
         
    
         //產生資料庫

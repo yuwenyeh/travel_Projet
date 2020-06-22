@@ -18,10 +18,14 @@
 		1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */; };
 		194C94CA249B745E00FCEE7B /* StartPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */; };
 		1950BC9D2497B30A006343AB /* commentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950BC9C2497B30A006343AB /* commentClass.swift */; };
+		19604C4C249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */; };
 		1966D2932498B572002029DC /* Trip-UimagePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966D2922498B572002029DC /* Trip-UimagePicCell.swift */; };
 		1966D2952498F7F0002029DC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966D2942498F7F0002029DC /* DBManager.swift */; };
 		19880BC524874E410078C9F9 /* TripPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880BC424874E410078C9F9 /* TripPlanCell.swift */; };
 		19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */; };
+		1993D17724A05FF900FC3D16 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1993D17624A05FF900FC3D16 /* SearchViewController.swift */; };
+		1993D17924A0624E00FC3D16 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1993D17824A0624E00FC3D16 /* SearchCell.swift */; };
+		1993D17B24A0746100FC3D16 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1993D17A24A0746100FC3D16 /* LocationInfo.swift */; };
 		19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAE8D5248A74AF00282427 /* TravelDetail.swift */; };
 		19B2A212248B819A00A18972 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2A211248B819A00A18972 /* CellData.swift */; };
 		19BC29A3249A0BF500AF6A1C /* DesireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC29A2249A0BF500AF6A1C /* DesireView.swift */; };
@@ -52,10 +56,14 @@
 		1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripDetailViewController.swift; path = travel_Project/controller/TripDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartPlanViewController.swift; path = travel_Project/controller/StartPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		1950BC9C2497B30A006343AB /* commentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = commentClass.swift; path = travel_Project/View/commentClass.swift; sourceTree = SOURCE_ROOT; };
+		19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrpiDetailCollectionViewCell.swift; path = travel_Project/View/TrpiDetailCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1966D2922498B572002029DC /* Trip-UimagePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Trip-UimagePicCell.swift"; path = "travel_Project/View/Trip-UimagePicCell.swift"; sourceTree = SOURCE_ROOT; };
 		1966D2942498F7F0002029DC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DBManager.swift; path = travel_Project/View/DBManager.swift; sourceTree = SOURCE_ROOT; };
 		19880BC424874E410078C9F9 /* TripPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanCell.swift; path = travel_Project/View/TripPlanCell.swift; sourceTree = SOURCE_ROOT; };
 		19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = welcomeTravelViewController.swift; path = travel_Project/controller/welcomeTravelViewController.swift; sourceTree = SOURCE_ROOT; };
+		1993D17624A05FF900FC3D16 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = travel_Project/controller/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		1993D17824A0624E00FC3D16 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = travel_Project/View/SearchCell.swift; sourceTree = SOURCE_ROOT; };
+		1993D17A24A0746100FC3D16 /* LocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = travel_Project/Model/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
 		19AAE8D5248A74AF00282427 /* TravelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelDetail.swift; path = travel_Project/Model/TravelDetail.swift; sourceTree = SOURCE_ROOT; };
 		19B2A211248B819A00A18972 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellData.swift; path = travel_Project/Model/CellData.swift; sourceTree = SOURCE_ROOT; };
 		19BC29A2249A0BF500AF6A1C /* DesireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DesireView.swift; path = travel_Project/View/DesireView.swift; sourceTree = SOURCE_ROOT; };
@@ -66,7 +74,7 @@
 		CD9AC1019F7D3951C7519F77 /* Pods_travel_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandableHeaderView.swift; path = travel_Project/View/ExpandableHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		F65A40A0248F1B4100A6C31F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = travel_Project/controller/MapViewController.swift; sourceTree = SOURCE_ROOT; };
-		F68A0DC42487469C002712A0 /* TripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_Project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
+		F68A0DC42487469C002712A0 /* TripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_project/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanViewController.swift; path = travel_Project/controller/PlanViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -105,6 +113,7 @@
 			children = (
 				1912E8B0247D5E8900371012 /* SceneDelegate.swift */,
 				1912E8AE247D5E8900371012 /* AppDelegate.swift */,
+				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 				192EE53524827F66007EE3B0 /* controller */,
 				192FC863248009F0006086B5 /* API */,
 				192FC85F248003E8006086B5 /* Model */,
@@ -124,9 +133,9 @@
 				194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */,
 				19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */,
 				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
-				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 				1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */,
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
+				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				192FC86124800445006086B5 /* Note.swift */,
+				1993D17A24A0746100FC3D16 /* LocationInfo.swift */,
 				19B2A211248B819A00A18972 /* CellData.swift */,
 				19AAE8D5248A74AF00282427 /* TravelDetail.swift */,
 				19E083D5249385C300DCF201 /* TripPlanProtocol.swift */,
@@ -153,6 +163,8 @@
 				19880BC424874E410078C9F9 /* TripPlanCell.swift */,
 				1966D2922498B572002029DC /* Trip-UimagePicCell.swift */,
 				1950BC9C2497B30A006343AB /* commentClass.swift */,
+				19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */,
+				1993D17824A0624E00FC3D16 /* SearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,9 +348,12 @@
 				19E083D6249385C300DCF201 /* TripPlanProtocol.swift in Sources */,
 				19F7B55F249CF30F0026F17E /* Constant.swift in Sources */,
 				19346E79249D7511002E8D48 /* background.swift in Sources */,
+				1993D17B24A0746100FC3D16 /* LocationInfo.swift in Sources */,
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
+				1993D17924A0624E00FC3D16 /* SearchCell.swift in Sources */,
 				F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */,
 				192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */,
+				1993D17724A05FF900FC3D16 /* SearchViewController.swift in Sources */,
 				1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */,
 				1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */,
 				19E083D82493891900DCF201 /* UISearchcontroller.swift in Sources */,
@@ -346,6 +361,7 @@
 				1966D2952498F7F0002029DC /* DBManager.swift in Sources */,
 				1966D2932498B572002029DC /* Trip-UimagePicCell.swift in Sources */,
 				19880BC524874E410078C9F9 /* TripPlanCell.swift in Sources */,
+				19604C4C249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift in Sources */,
 				19B2A212248B819A00A18972 /* CellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

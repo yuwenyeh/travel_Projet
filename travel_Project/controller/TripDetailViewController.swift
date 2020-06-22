@@ -15,9 +15,14 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-class TripDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TripDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+
     
     
+    @IBOutlet var newImageView: UIImageView!
+    
+    
+    @IBOutlet var mycollectionView: UICollectionView!
     var noteData: Note?
     
     //從前頁帶過來3個變數
@@ -30,23 +35,12 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tbl_height: NSLayoutConstraint!
     var accessorUIimage: String?
     
-    var referenceArray:[String] = []
-    
+    var referenceArray:[String] = [] //裝網路字串照片
+    var moreImage : [UIImageView] = [] //裝imaage
     private var messageLabel : [discuss]?//放評論的小盒子
     
     
-    @IBOutlet weak var mainImage: UIImageView! //大照片
-    @IBOutlet var imageLabel: UIImageView!
-    @IBOutlet weak var threeImage: UIImageView!//第三張照片(View)
-    
-    
-    
-    @IBOutlet var addressLabel: UILabel! {//顯示住址
-    
-        didSet{
-            addressLabel.numberOfLines = 0
-        }
-        }
+
         
     @IBOutlet var tableview: UITableView!
     
@@ -56,7 +50,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         super.viewDidLoad()
         
-        
+        mycollectionView.dataSource = self
+        mycollectionView.delegate = self
         
         navigationItem.title = self.placeName
         
@@ -98,12 +93,61 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
+    //CollectionView
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return moreImage.count
+    }
     
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+          
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollCell", for: indexPath) as! TrpiDetailCollectionViewCell
+        cell.imageLabel.image = moreImage[indexPath.row].image
+        return cell
+
+      }
+      
+      
+      func numberOfSections(in collectionView: UICollectionView) -> Int {
+          return 1
+      }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         let width = (view.frame.width - 2) / 3
+               return CGSize(width: width, height: width)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       newImageView.image = moreImage[indexPath.row].image
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func getPhoto(){
+        if !referenceArray.isEmpty{
+            
+            for refer in referenceArray{
+                
+                let msg = UIImageView()
+                let  urlStr = GoogleApiUtil.createPhotoUrl(ference: refer, width: 400)
+                let  url = URL(string: urlStr)
+                msg.kf.setImage(with: url)
+                
+                self.moreImage.append(msg)
+                
+            }
+            
+            mycollectionView.reloadData()
+        }
+    }
     
     //設置照片
+    /*
     func setPhoto(){
         
         if !referenceArray.isEmpty {
@@ -136,7 +180,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }else{}
         
     }
-    
+    */
     
     
     //取詳情
@@ -151,20 +195,19 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 do {
                     let jsonData = try JSON(data: response.data!)
                     
+                    
+                     self.placeName = jsonData["result"]["name"].string
+                    
+                    
                     //取照片參照碼
                     if let photoArray = jsonData["result"]["photos"].array{
                         
-                        for (index ,photo) in photoArray.enumerated() {
+                        for photo in photoArray {
                             
-                            if index < 3{
                                 self.referenceArray.append(photo["photo_reference"].string!)
-                                self.placeName = jsonData["result"]["name"].string
-                                self.addressLabel.text = jsonData["result"]["formatted_address"].string
-                                
-                            }else{
-                                break
-                            }
-                            
+                               
+                                //self.addressLabel.text = jsonData["result"]["formatted_address"].string
+                  
                         }//for
                         
                     }
@@ -190,7 +233,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         
                     }
                     
-                    self.setPhoto()
+                    self.getPhoto()
                     self.tableview.reloadData()
                     
                 }catch{

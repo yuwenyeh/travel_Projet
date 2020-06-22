@@ -130,8 +130,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
             
-            //增加一個 +
-           //cell.imageView?.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+            
             
             cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             
@@ -165,7 +164,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let cellData = tableViewData?[section].sectionData
             let tripDetail = cellData?[indexPath.row - 1] 
            
-            if tripDetail?.name != "增加旅程"{
+            if tripDetail?.name != "✏️加入旅程"{
                 
                 if let tripDvc = storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
                     

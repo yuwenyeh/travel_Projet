@@ -23,7 +23,7 @@ class GoogleApiUtil{
     private static let GOOGLE_PHOTO:String = "\(GOOGLE_MAP_API_URL)/place/photo";
     
     
-    
+    //type = "tourist_attraction"旅遊景點
     public static func createStaticMapUrl(lat:Double, lng:Double, w:Int, h:Int) -> String {
         //精度緯度
         let centerLatLngStr = String.init(format: "%f,%f", lat, lng)
@@ -42,12 +42,15 @@ class GoogleApiUtil{
         return "\(GOOGLE_DETAIL)/json?place_id=\(placeId)&fields=formatted_address,name,review,photo&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
+    
+   
+    
     //取照片
     public static func createPhotoUrl(ference:String,width:Int) ->String{
         return "\(GOOGLE_PHOTO)?maxwidth=\(width)&photoreference=\(ference)&key=\(GOOGLE_API_KEY)"
     }
     
-    
+    //https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
     
     
     

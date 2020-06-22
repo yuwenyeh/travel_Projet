@@ -33,6 +33,7 @@ class DBManager : NSObject {
     }
     
     
+    //建立表格
     func createDatabase() -> Bool {
         
         var created = false
@@ -84,6 +85,8 @@ class DBManager : NSObject {
         
         return false
     }
+    
+    
     
     
     
@@ -160,7 +163,7 @@ class DBManager : NSObject {
                 }
                 
                 //裝入予預設值
-                let travelDefaultDetail = TravelDetail(name: "增加旅程")
+                let travelDefaultDetail = TravelDetail(name: "✏️加入旅程")
                 planDetails.append(travelDefaultDetail)
                 
                 //每日行程主項
