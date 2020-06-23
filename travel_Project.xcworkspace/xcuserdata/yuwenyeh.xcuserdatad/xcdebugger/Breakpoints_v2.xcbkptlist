@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2D06A26F-9591-498E-A31C-16D3853CC9DF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "travel_Project/Model/GoogleApiUtil.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "createNearMapUrl(lat:lng:types:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9B1E370-4478-432D-B911-CDBE48B639F6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "travel_Project/Model/GoogleApiUtil.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "createNearMapUrl(lat:lng:types:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BD283926-68BB-43C9-BA70-78180ACB72A9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -62,8 +30,8 @@
             filePath = "travel_Project/controller/MapViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "TripPlanViewController"
             landmarkType = "21">
          </BreakpointContent>
@@ -91,11 +59,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -139,11 +107,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -155,11 +123,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -171,11 +139,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -187,11 +155,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -203,11 +171,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +190,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "getStar(rating:)"
             landmarkType = "7">
             <Locations>
@@ -330,8 +298,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "getStar(rating:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,8 +314,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "getStar(rating:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,8 +330,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "getStar(rating:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,8 +346,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "getStar(rating:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,8 +362,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "getStar(rating:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -596,7 +564,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FD036D84-84C5-4395-802F-3A94E34AC1A5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "travel_Project/View/DBManager.swift"
@@ -714,8 +682,8 @@
             filePath = "travel_Project/controller/PlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -727,11 +695,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -935,11 +903,11 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "travel_Project/controller/TripPlanViewController.swift"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -986,8 +954,8 @@
             filePath = "travel_Project/controller/PlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -996,14 +964,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BF4E035A-9F81-439F-98A9-A10DB6EC6534"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "travel_Project/controller/PlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1028,14 +996,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FF2B9F26-222D-4F2D-A6B5-A367E8D04B55"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "travel_Project/controller/PlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1082,8 +1050,8 @@
             filePath = "travel_Project/controller/PlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1130,8 +1098,8 @@
             filePath = "travel_Project/controller/StartPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1146,8 +1114,8 @@
             filePath = "travel_Project/controller/StartPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1162,8 +1130,8 @@
             filePath = "travel_Project/controller/StartPlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1258,8 +1226,8 @@
             filePath = "travel_Project/controller/PlanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1274,8 +1242,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "getMapDetailInfo(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1290,8 +1258,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "getMapDetailInfo(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,8 +1274,8 @@
             filePath = "travel_Project/controller/TripDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "getMapDetailInfo(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1322,9 +1290,9 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "googleNearBysearch()"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1338,40 +1306,40 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "googleNearBysearch()"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0505787B-9786-4B38-9FD5-49BF0C883BCA - 52fa29bb53485618"
+                  uuid = "0505787B-9786-4B38-9FD5-49BF0C883BCA - 70409f944168e82c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "travel_project.SearchViewController.googleNearBysearch() -&gt; ()"
+                  symbolName = "travel_project.SearchViewController.getLocationNearMap(lat: Swift.Double, long: Swift.Double, types: Swift.String) -&gt; ()"
                   moduleName = "travel_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "354">
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "567">
                </Location>
                <Location
-                  uuid = "0505787B-9786-4B38-9FD5-49BF0C883BCA - 4496b22770dcaf7a"
+                  uuid = "0505787B-9786-4B38-9FD5-49BF0C883BCA - 753529e43ce2162f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in travel_project.SearchViewController.googleNearBysearch() -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in travel_project.SearchViewController.getLocationNearMap(lat: Swift.Double, long: Swift.Double, types: Swift.String) -&gt; ()"
                   moduleName = "travel_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "220">
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "318">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1386,9 +1354,9 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "googleNearBysearch()"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1402,9 +1370,9 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "googleNearBysearch()"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1418,9 +1386,9 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "googleNearBysearch()"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1434,8 +1402,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "filterContent(for:)"
             landmarkType = "7">
             <Locations>
@@ -1450,8 +1418,8 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
                   offsetFromSymbolStart = "47">
                </Location>
                <Location
@@ -1465,8 +1433,8 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "110"
-                  endingLineNumber = "110"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
                   offsetFromSymbolStart = "48">
                </Location>
             </Locations>
@@ -1482,8 +1450,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "updateSearchResults(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1498,8 +1466,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1514,8 +1482,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1530,8 +1498,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1546,8 +1514,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1562,8 +1530,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1578,8 +1546,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1594,8 +1562,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1610,8 +1578,8 @@
             filePath = "travel_Project/controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "SearchViewController"
             landmarkType = "3">
             <Locations>
@@ -1626,8 +1594,8 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
                   offsetFromSymbolStart = "126">
                </Location>
                <Location
@@ -1641,8 +1609,8 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
                   offsetFromSymbolStart = "164">
                </Location>
                <Location
@@ -1671,8 +1639,8 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
                   offsetFromSymbolStart = "4">
                </Location>
                <Location
@@ -1686,9 +1654,9 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "1280">
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1706">
                </Location>
                <Location
                   uuid = "7D9427CE-BAF5-48E8-A624-CF6B84F926E4 - f9aa5aaf15005d69"
@@ -1701,9 +1669,633 @@
                   urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "1221">
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1647">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B489C14-335E-408D-B976-A35E5459A0D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B85E4D3F-E620-4ED0-938F-684EFD29B97F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1014ACDF-FA5D-4D53-A266-90F24D689EC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78D03A24-5B98-45E1-98EE-8AC025E04B2E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ACEE1FBB-0944-4982-BCFE-939166F5A2E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22FCCB89-F8E0-4684-ADE5-87FC34017D55"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9325B713-8AFC-4E18-BC8F-FAFBCC81BC6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "getLocationNearMap(lat:long:types:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79712B66-7FCB-4225-A950-23963FFBC0E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_project/controller/TripPlanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1224774E-91AE-4D64-B393-400950DBFE87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B54C4E00-5981-4488-91BE-9B9FFED0AA33"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06E54A87-34A7-4B12-B04F-013742D40D6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "SearchViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "832602A3-31B8-42E4-B1D5-758C57B3F954"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E214F04-7474-4B46-803A-558515F07F81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "SearchViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "2E214F04-7474-4B46-803A-558515F07F81 - aa9eec6a1aebafa6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.searchResults.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "2E214F04-7474-4B46-803A-558515F07F81 - 7e095751706853ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.searchResults.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "2E214F04-7474-4B46-803A-558515F07F81 - 76249b5338917cab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.searchResults.modify : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "2E214F04-7474-4B46-803A-558515F07F81 - 4b4ddff75d8e8483"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.searchResults.modify : Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "2E214F04-7474-4B46-803A-558515F07F81 - 957751f1dd1e40b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; travel_project.SearchViewController"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "657">
+               </Location>
+               <Location
+                  uuid = "2E214F04-7474-4B46-803A-558515F07F81 - f9aa5aaf15005d69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;travel_project.SearchViewController&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "598">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "SearchViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78 - 15383bfec0eea0ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.resurtdata.getter : Swift.Optional&lt;Swift.Array&lt;travel_project.locationInfo&gt;&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78 - 92af4828771040a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.resurtdata.setter : Swift.Optional&lt;Swift.Array&lt;travel_project.locationInfo&gt;&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78 - 71489c330b550891"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.resurtdata.modify : Swift.Optional&lt;Swift.Array&lt;travel_project.locationInfo&gt;&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78 - 20f6f0ae3476f436"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.resurtdata.modify : Swift.Optional&lt;Swift.Array&lt;travel_project.locationInfo&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78 - 957751f1dd1e40b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; travel_project.SearchViewController"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "916">
+               </Location>
+               <Location
+                  uuid = "D72A6162-0B53-4069-AF37-C4C48AD3BE78 - f9aa5aaf15005d69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;travel_project.SearchViewController&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "857">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "SearchViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A - f3bde964f7e41d53"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.travelDetail.getter : Swift.Optional&lt;travel_project.TravelDetail&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A - bea4067b651a5ee7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.travelDetail.setter : Swift.Optional&lt;travel_project.TravelDetail&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "614">
+               </Location>
+               <Location
+                  uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A - 23520a297b039cf0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.travelDetail.modify : Swift.Optional&lt;travel_project.TravelDetail&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A - f94392cee6e599ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.travelDetail.modify : Swift.Optional&lt;travel_project.TravelDetail&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A - 957751f1dd1e40b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; travel_project.SearchViewController"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1110">
+               </Location>
+               <Location
+                  uuid = "12F78236-830E-4A1C-B530-5F98523CDC6A - f9aa5aaf15005d69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;travel_project.SearchViewController&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1051">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "travel_Project/controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "SearchViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119 - b80566a6e62891b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.noteData.getter : Swift.Optional&lt;travel_project.Note&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119 - 298ac7c38729dcc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.noteData.setter : Swift.Optional&lt;travel_project.Note&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119 - d9337b2bf4500bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.noteData.modify : Swift.Optional&lt;travel_project.Note&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119 - 7f64fcf6d97c2bdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.noteData.modify : Swift.Optional&lt;travel_project.Note&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119 - 957751f1dd1e40b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; travel_project.SearchViewController"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1010">
+               </Location>
+               <Location
+                  uuid = "0D463EEC-0FF6-436B-896C-ACAF81F25119 - f9aa5aaf15005d69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "travel_project.SearchViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;travel_project.SearchViewController&gt;"
+                  moduleName = "travel_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yuwenyeh/Desktop/git/travel_Project/controller/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "951">
                </Location>
             </Locations>
          </BreakpointContent>

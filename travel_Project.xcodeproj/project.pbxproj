@@ -74,7 +74,7 @@
 		CD9AC1019F7D3951C7519F77 /* Pods_travel_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandableHeaderView.swift; path = travel_Project/View/ExpandableHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		F65A40A0248F1B4100A6C31F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = travel_Project/controller/MapViewController.swift; sourceTree = SOURCE_ROOT; };
-		F68A0DC42487469C002712A0 /* TripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_project/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
+		F68A0DC42487469C002712A0 /* TripPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanViewController.swift; path = travel_Project/controller/PlanViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,6 @@
 			children = (
 				1912E8B0247D5E8900371012 /* SceneDelegate.swift */,
 				1912E8AE247D5E8900371012 /* AppDelegate.swift */,
-				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 				192EE53524827F66007EE3B0 /* controller */,
 				192FC863248009F0006086B5 /* API */,
 				192FC85F248003E8006086B5 /* Model */,
@@ -134,6 +133,7 @@
 				19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */,
 				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
 				1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */,
+				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
 				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
 			);

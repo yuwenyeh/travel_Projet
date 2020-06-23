@@ -11,6 +11,7 @@ import GoogleMaps
 import GooglePlaces
 
 
+
 import Alamofire
 import SwiftyJSON
 import Kingfisher
@@ -22,24 +23,33 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     var searchResults: [String] = [] //儲存搜尋的結果
     
     
+    
     var beforeSearch : [String] = [] //搜尋之前的結果
     var resurtdata: [locationInfo]?//裝小盒子
+    var noteData: Note?
+    var travelDetail: TravelDetail?
+    
+    var lat : Double?
+    var long : Double?
+    
+//    let googleMapUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
+//
+//    let pictureUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
+//
+//    let apiKey = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY"
     
     
-    let googleMapUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
     
-    let pictureUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-    
-    let apiKey = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY"
-    
-    
-    
-    var locationManger:CLLocationManager!//用來查找設備的當前位置
-    var crrentLocation:CLLocation?// 當前位置
+    let newlocationManger : CLLocationManager! = nil//用來查找設備的當前位置
+    var crrentLocation : CLLocation?// 當前位置
     var mapView:GMSMapView!
     var placeClient:GMSPlacesClient!
     var zoomLevel:Float = 15.0
+     var stopLocationNearMap:Bool!//停止搜尋附近
     
+    
+    var placeName:String? //顯示飯店名稱
+    var photoReference:String?
     
     
     
@@ -47,10 +57,34 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        getLocationNearMap(lat: 25.138917, long: 121.750889, types: "tourist_attraction")
+       //開啟定位方式最好的方式
+//              locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//              tableView.estimatedRowHeight = 150.0
+//              tableView.rowHeight = UITableView.automaticDimension
+//              getCurrentLocation()
+//
+//              //利用定位去抓使用者位置並顯示到畫面上
+//              locationManager.delegate = self
+//              tableView.delegate = self
+//              tableView.dataSource = self
+//              locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//              locationManager.activityType = .automotiveNavigation
+//              locationManager.startUpdatingLocation() //開啟定位
+//              locationManager.requestAlwaysAuthorization()
+//
+//              if #available(iOS 10.0,*){
+//                  locationManager.requestAlwaysAuthorization()
+//              }else{
+//
+//              }
+//
+        
         searchColltroller = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchColltroller.searchBar
         
-        googleNearBysearch()
+        
         initStatusBarStyle()
         
         searchColltroller.searchResultsUpdater = self  //搜尋結果更新器
@@ -63,12 +97,13 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     }
     
     // 取資料
-    func googleNearBysearch(){
+    func getLocationNearMap(lat:Double,long:Double,types:String){
         
-        guard let url = URL(string: googleMapUrl) else{
+        let url = GoogleApiUtil.createNearMapUrl(lat: lat , lng: long, types: "tourist_attraction")
+        
+        guard let boxUrl = URL(string: url)else {
             return
         }
-        
         Alamofire.request(url).validate().responseJSON(completionHandler: { response in
             
             if response.result.isSuccess {
@@ -82,15 +117,26 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
                         
                         for data in result{
                             var info =  locationInfo()
-                            info.newphotoReference = data["photos"][0]["photo_reference"].string
+                            
+                            let newphotoReference = data["photos"][0]["photo_reference"].string
+                            
+                            if newphotoReference != nil{
+                            
+                            let lat = data["geometry"]["location"]["lat"]
+                            let lng = data["geometry"]["location"]["lng"]
+                                
                             info.newlocationName = data["name"].string
                             info.newlocationAdd = data["plus_code"]["compound_code"].string
+                                
+                            info.newleftLAT_ID = Double("\(lat)")
+                            info.newrightLNG_ID = Double("\(lng)")
+                    
                             
                             self.resurtdata?.append(info)
+                            }
                             
-                            self.tableView.reloadData()
-                        }
-                        
+                        }//for
+                        self.tableView.reloadData()
                     }
                     
                 }catch  {
@@ -168,6 +214,8 @@ extension SearchViewController: UITableViewDataSource{
     
     }
     
+  
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        // if (searchColltroller?.isActive)! {}
             
@@ -212,5 +260,38 @@ extension UINavigationBar{
         
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
+    
+}
+extension SearchViewController: CLLocationManagerDelegate{
+    
+    
+    
+    //獲取定位資訊
+    func locationManager(_ manager: CLLocationManager,didUpdateLocations locations:[CLLocation]){
+        let currentLocation:CLLocation = locations[locations.count-1] as CLLocation
+        let lat = currentLocation.coordinate.latitude
+        let long = currentLocation.coordinate.longitude
+        
+        
+        if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
+            print(currentLocation.coordinate.latitude)
+            print(currentLocation.coordinate.longitude)
+            getLocationNearMap(lat: lat, long: long, types: "tourist_attraction")
+            //停止定位
+            stopLocationNearMap = true
+            //locationManager.stopUpdatingLocation()
+            
+            
+        }
+
+        
+    }
+    
+ 
+    //錯誤資訊列印
+    func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
+        print(error)
+    }
+    
     
 }

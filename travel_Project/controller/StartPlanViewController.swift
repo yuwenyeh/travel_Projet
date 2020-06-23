@@ -27,7 +27,7 @@ class StartPlanViewController: UIViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
         initStatusBarStyle()
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +87,24 @@ extension StartPlanViewController: UITableViewDataSource{
             cell.travelName.text = "旅遊名稱"
             cell.happyNumber.text = "天數"
         }
+        
+//        let bgColorView = UIView()
+//               bgColorView.frame = CGRect(x: 5,y: 5,width: (tableView.frame.width) - 10,height: (cell.frame.height) - 10)
+//               cell.selectedBackgroundView = bgColorView
+//
+               let myBackView = UIView(frame: cell.frame)
+               myBackView.frame = CGRect(x: 5,y: 5,width: (tableView.frame.width) - 10,height: (cell.frame.height) - 10)
+               myBackView.layer.cornerRadius = 5
+               myBackView.layer.shadowRadius = 2
+               myBackView.backgroundColor = UIColor.white
+               myBackView.layer.masksToBounds = false
+               myBackView.clipsToBounds = false
+               //myBackView.layer.shadowOffset = CGSizeMake(-1,1)
+               myBackView.layer.shadowOpacity = 0.2
+               let test : CGRect = myBackView.layer.bounds
+               myBackView.layer.shadowPath = UIBezierPath(rect: test).cgPath
+               cell.addSubview(myBackView)
+               cell.sendSubviewToBack(myBackView)
         
         return cell
     }

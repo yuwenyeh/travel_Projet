@@ -41,7 +41,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             self.streetView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long))//街景
             
 
-            // Creates a marker in the center of the map.
+            // 在地圖中心創建一個標記
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
             marker.title = travelDetail.name
@@ -54,23 +54,9 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             mapView.settings.myLocationButton = true//定位按鈕
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-        
-        
-        
     }
 }
-
-
 
 
 extension TripPlanViewController: GMSAutocompleteViewControllerDelegate{

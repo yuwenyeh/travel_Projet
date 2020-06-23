@@ -27,22 +27,25 @@ class GoogleApiUtil{
     public static func createStaticMapUrl(lat:Double, lng:Double, w:Int, h:Int) -> String {
         //精度緯度
         let centerLatLngStr = String.init(format: "%f,%f", lat, lng)
-        return "\(GOOGLE_STATIC_MAP)?center=\(centerLatLngStr)&&markers=color:red%7Clabel:S%7C\(centerLatLngStr)&size=\(w)x\(h)&scale=2&zoom=16&language=zh-TW&key=AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY";
+        return "\(GOOGLE_STATIC_MAP)?center=\(centerLatLngStr)&&markers=color:red%7Clabel:S%7C\(centerLatLngStr)&size=\(w)x\(h)&scale=2&zoom=16&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
     //搜尋附近景點
     public static func createNearMapUrl(lat:Double, lng:Double,types:String) ->String{
         //精度緯度
         let centerLatLngStr = String.init(format: "%f,%f", lat, lng)
+        
         return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&radius=2000&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
-    //取景點詳情
+    //取景點詳情取一個地點
     public static func  createMapDetailInfo(placeId:String) ->String{
         return "\(GOOGLE_DETAIL)/json?place_id=\(placeId)&fields=formatted_address,name,review,photo&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
     
+  
+    //"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
    
     
     //取照片

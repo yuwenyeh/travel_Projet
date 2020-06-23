@@ -41,10 +41,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
-    
- 
+
     
     override func viewDidLoad() {
         
@@ -123,7 +120,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                                 let lat = data["geometry"]["location"]["lat"]
                                 let lng = data["geometry"]["location"]["lng"]
                                 info.name = data["name"].string!
-                                info.address = data["vicinity"].string!
+                                info.address = data["plus_code"]["compound_code"].string
                                 info.placeID =  data["place_id"].string!
                               
                                 info.photoReference = photoReference

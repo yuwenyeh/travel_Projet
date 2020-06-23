@@ -16,7 +16,7 @@ import SwiftyJSON
 import Kingfisher
 
 class TripDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-
+    
     
     
     @IBOutlet var newImageView: UIImageView!
@@ -40,8 +40,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     private var messageLabel : [discuss]?//放評論的小盒子
     
     
-
-        
+    
+    
     @IBOutlet var tableview: UITableView!
     
     
@@ -83,14 +83,11 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         if keyPath == "contentSize"
         {
             
-                if let newvalue = change?[.newKey]{
-                    let newsize = newvalue as! CGSize
-                    self.tbl_height.constant = newsize.height
+            if let newvalue = change?[.newKey]{
+                let newsize = newvalue as! CGSize
+                self.tbl_height.constant = newsize.height
                 
-                    
-                }
-            
-            
+            }
         }
     }
     //CollectionView
@@ -99,26 +96,26 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         return moreImage.count
     }
     
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-          
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollCell", for: indexPath) as! TrpiDetailCollectionViewCell
         cell.imageLabel.image = moreImage[indexPath.row].image
         return cell
-
-      }
-      
-      
-      func numberOfSections(in collectionView: UICollectionView) -> Int {
-          return 1
-      }
+        
+    }
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         let width = (view.frame.width - 2) / 3
-               return CGSize(width: width, height: width)
+        let width = (view.frame.width - 2) / 3
+        return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       newImageView.image = moreImage[indexPath.row].image
+        newImageView.image = moreImage[indexPath.row].image
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1
@@ -146,46 +143,11 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    //設置照片
-    /*
-    func setPhoto(){
-        
-        if !referenceArray.isEmpty {
-            
-            for  (index,reference) in referenceArray.enumerated() {
-                
-                if index == 0{
-                    //照片1
-                    let  urlStr = GoogleApiUtil.createPhotoUrl(ference: reference, width: 400)
-                    let  url = URL(string: urlStr)
-                    self.mainImage.kf.setImage(with: url)
-                }
-                if index == 1{
-                    //照片2
-                    let urlStr = GoogleApiUtil.createPhotoUrl(ference: reference, width: 400)
-                    let  url = URL(string: urlStr)
-                    self.imageLabel.kf.setImage(with: url)
-                    
-                }
-                if index == 2{
-                    //照片2
-                    let urlStr = GoogleApiUtil.createPhotoUrl(ference: reference, width: 400)
-                    let  url = URL(string: urlStr)
-                    self.threeImage.kf.setImage(with: url)
-                    
-                }
-                
-            }
-            
-        }else{}
-        
-    }
-    */
     
     
     //取詳情
     func getMapDetailInfo(_ placeId:String){
-        
+        //取景點一個位置
         let url = GoogleApiUtil.createMapDetailInfo(placeId: placeId)
         
         Alamofire.request(url).validate().responseJSON { (response) in
@@ -196,18 +158,16 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     let jsonData = try JSON(data: response.data!)
                     
                     
-                     self.placeName = jsonData["result"]["name"].string
-                    
+                    self.placeName = jsonData["result"]["name"].string
                     
                     //取照片參照碼
                     if let photoArray = jsonData["result"]["photos"].array{
                         
                         for photo in photoArray {
                             
-                                self.referenceArray.append(photo["photo_reference"].string!)
-                               
-                                //self.addressLabel.text = jsonData["result"]["formatted_address"].string
-                  
+                            self.referenceArray.append(photo["photo_reference"].string!)
+                            
+                            
                         }//for
                         
                     }
@@ -281,7 +241,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.messageLabel?.text = message.text// 評論的內容
             cell.startUIImage.image = message.star//星星
             
-           //讓文字展開
+            //讓文字展開
             cell.messageLabel.numberOfLines = 0
             
             //從google抓照片
@@ -293,8 +253,6 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
         }
-        
-        
         
         
         return cell

@@ -14,7 +14,9 @@ struct locationInfo {
     var newphotoReference: String?
     var newlocationAdd: String?
     
-    
+    var newleftLAT_ID: Double? //精度
+    var newrightLNG_ID: Double?     //緯度
+    var placeID: String?  //ID
     
     
 }
