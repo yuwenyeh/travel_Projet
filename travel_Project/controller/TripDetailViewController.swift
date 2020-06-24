@@ -15,14 +15,10 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-class TripDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class TripDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     
-    @IBOutlet var newImageView: UIImageView!
-    
-    
-    @IBOutlet var mycollectionView: UICollectionView!
     var noteData: Note?
     
     //從前頁帶過來3個變數
@@ -31,116 +27,42 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var photoReference:String?
     
     
-    
-    @IBOutlet weak var tbl_height: NSLayoutConstraint!
     var accessorUIimage: String?
     
-    var referenceArray:[String] = [] //裝網路字串照片
-    var moreImage : [UIImageView] = [] //裝imaage
+    var referenceArray:[String] = [] //裝照片參照碼
+    var moreImage : [UIImageView] = [] //裝照片
     private var messageLabel : [discuss]?//放評論的小盒子
     
     
+    @IBOutlet var tableView: UITableView!
     
-    
-    @IBOutlet var tableview: UITableView!
-    
+    @IBOutlet var mainImage: UIImageView!//主要照片
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        mycollectionView.dataSource = self
-        mycollectionView.delegate = self
-        
         navigationItem.title = self.placeName
         
         if let placeId = self.placeId{
             getMapDetailInfo(placeId)
-            
         }
         
-        self.tableview.delegate = self
-        self.tableview.dataSource = self
-        
-        
-    }
-    
-    override func viewWillAppear(_ aminated: Bool){
-        
-        self.tableview.addObserver(self, forKeyPath: "contentSize", options: .new
-            , context: nil)
-        self.tableview.reloadData()
-    }
-    
-    
-    override func viewWillDisappear(_ animated:Bool){
-        
-        self.tableview.removeObserver(self, forKeyPath: "contentSize")
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "contentSize"
-        {
-            
-            if let newvalue = change?[.newKey]{
-                let newsize = newvalue as! CGSize
-                self.tbl_height.constant = newsize.height
-                
-            }
-        }
-    }
-    //CollectionView
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return moreImage.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollCell", for: indexPath) as! TrpiDetailCollectionViewCell
-        cell.imageLabel.image = moreImage[indexPath.row].image
-        return cell
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
     }
     
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width - 2) / 3
-        return CGSize(width: width, height: width)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        newImageView.image = moreImage[indexPath.row].image
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
     
     func getPhoto(){
+        
         if !referenceArray.isEmpty{
-            
-            for refer in referenceArray{
-                
-                let msg = UIImageView()
-                let  urlStr = GoogleApiUtil.createPhotoUrl(ference: refer, width: 400)
-                let  url = URL(string: urlStr)
-                msg.kf.setImage(with: url)
-                
-                self.moreImage.append(msg)
-                
-            }
-            
-            mycollectionView.reloadData()
+            let  urlStr = GoogleApiUtil.createPhotoUrl(ference: referenceArray[0], width: 400)
+            let  url = URL(string: urlStr)
+            self.mainImage.kf.setImage(with: url)
         }
+        
     }
     
     
@@ -157,29 +79,25 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 do {
                     let jsonData = try JSON(data: response.data!)
                     
-                    
                     self.placeName = jsonData["result"]["name"].string
                     
                     //取照片參照碼
                     if let photoArray = jsonData["result"]["photos"].array{
                         
                         for photo in photoArray {
-                            
                             self.referenceArray.append(photo["photo_reference"].string!)
-                            
-                            
                         }//for
                         
                     }
                     
                     //取評論
                     if let reviewArray = jsonData["result"]["reviews"].array{
+                        
                         self.messageLabel = [discuss]()
                         for data in reviewArray{
+                            
                             var info = discuss()
-                            
                             let user = data["profile_photo_url"].string //取使用者頭像
-                            
                             if user != nil {
                                 info.author_name = data["author_name"].string!
                                 info.text = data["text"].string!
@@ -194,7 +112,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                     
                     self.getPhoto()
-                    self.tableview.reloadData()
+                    self.tableView.reloadData()
                     
                 }catch{
                     print("JSONSerialization error:", error)
@@ -216,40 +134,26 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         return messageLabel?.count ?? 1
     }
     
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Trip_UimagePicCell
-        
         
         cell.allMessage?.text = "所有評價"
         
         if let message = messageLabel?[indexPath.row]{
             
-            
-            cell.userName?.text = message.author_name //評論者姓名
-            cell.timetext?.text = message.timetext //上次評論的時間
-            cell.messageLabel?.text = message.text// 評論的內容
+            cell.userName?.text = "發表人:  \(message.author_name!)"  //評論者姓名
+            cell.timetext?.text = "發表時間:  \(message.timetext!)" //上次評論的時間
+            cell.messageLabel?.text = "內容:  \(message.text!)"// 評論的內容
             cell.startUIImage.image = message.star//星星
             
             //讓文字展開
             cell.messageLabel.numberOfLines = 0
             
-            //從google抓照片
+            //評論者照片
             if let user = message.user{
-                let urlStr = GoogleApiUtil.createPhotoUrl(ference: user, width:150)
-                let url = URL(string: urlStr)
+                let url = URL(string: user)
                 cell.Userphoto.kf.setImage(with: url)
-                
             }
             
         }
@@ -257,6 +161,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
+    
+    
     
     
     
@@ -289,26 +195,5 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

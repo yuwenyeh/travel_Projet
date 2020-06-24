@@ -68,7 +68,7 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //getLocationNearMap(lat: 25.138917, long: 121.750889, types: "tourist_attraction")
+        getLocationNearMap(lat: 25.138917, long: 121.750889, types: "tourist_attraction")
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()

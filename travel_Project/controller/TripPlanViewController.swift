@@ -277,7 +277,7 @@ extension TripPlanViewController: CLLocationManagerDelegate{
         if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
             print(currentLocation.coordinate.latitude)
             print(currentLocation.coordinate.longitude)
-            getLocationNearMap(lat: lat, long: long, types: "food")
+            getLocationNearMap(lat: lat, long: long, types: "tourist_attraction")
             //停止定位
             stopLocationNearMap = true
             locationManager.stopUpdatingLocation()
