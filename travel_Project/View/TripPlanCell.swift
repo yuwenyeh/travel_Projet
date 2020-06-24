@@ -14,7 +14,7 @@ class TripPlanCell: UITableViewCell {
     @IBOutlet var nameLabel : UILabel!
     @IBOutlet var locationLabel : UILabel!
     @IBOutlet weak var address: UILabel!
-   // @IBOutlet weak var startLabel: UIImageView!//星星評價
+
     
     @IBOutlet var typeLabel : UILabel!
     @IBOutlet var tripImage: UIImageView!

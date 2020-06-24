@@ -137,8 +137,6 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     }
     
     
-    
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

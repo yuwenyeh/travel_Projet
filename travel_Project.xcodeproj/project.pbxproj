@@ -12,6 +12,7 @@
 		1912E8B6247D5E8900371012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B4247D5E8900371012 /* Main.storyboard */; };
 		1912E8B8247D5E8B00371012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B7247D5E8B00371012 /* Assets.xcassets */; };
 		1912E8BB247D5E8B00371012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B9247D5E8B00371012 /* LaunchScreen.storyboard */; };
+		191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */; };
 		192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */; };
 		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 		19346E79249D7511002E8D48 /* background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19346E78249D7511002E8D48 /* background.swift */; };
@@ -50,6 +51,7 @@
 		1912E8B7247D5E8B00371012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1912E8BA247D5E8B00371012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1912E8BC247D5E8B00371012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoogleMapViewController.swift; path = travel_Project/controller/GoogleMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewCell.swift; sourceTree = "<group>"; };
 		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		19346E78249D7511002E8D48 /* background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = background.swift; path = travel_Project/Model/background.swift; sourceTree = SOURCE_ROOT; };
@@ -136,6 +138,7 @@
 				F68A0DC42487469C002712A0 /* TripPlanViewController.swift */,
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
 				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
+				191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				19346E79249D7511002E8D48 /* background.swift in Sources */,
 				1993D17B24A0746100FC3D16 /* LocationInfo.swift in Sources */,
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
+				191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */,
 				1993D17924A0624E00FC3D16 /* SearchCell.swift in Sources */,
 				F68A0DC52487469C002712A0 /* TripPlanViewController.swift in Sources */,
 				192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */,

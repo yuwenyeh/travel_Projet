@@ -108,6 +108,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                     let jsonData = try JSON(data: response.data!)
                     
                     if let result = jsonData["results"].array{
+                        
                         self.travePlaceList = [TravelDetail]()
                         
                         for data in result{
@@ -119,9 +120,9 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
                                 
                                 let lat = data["geometry"]["location"]["lat"]
                                 let lng = data["geometry"]["location"]["lng"]
-                                info.name = data["name"].string!
-                                info.address = data["plus_code"]["compound_code"].string
-                                info.placeID =  data["place_id"].string!
+                                info.name = data["name"].string
+                                info.address = data["vicinity"].string
+                                info.placeID =  data["place_id"].string
                               
                                 info.photoReference = photoReference
                                 info.centerLat = Double("\(lat)")
@@ -250,7 +251,7 @@ extension TripPlanViewController: UITableViewDelegate{
             print("按下取消")
         }
         
-   
+        
         alertController.addAction(storeFile)
         alertController.addAction(okAction)
         alertController.addAction(deleteAction)
@@ -268,10 +269,10 @@ extension TripPlanViewController: CLLocationManagerDelegate{
     
     //獲取定位資訊
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations:[CLLocation]){
+        
         let currentLocation:CLLocation = locations[locations.count-1] as CLLocation
         let lat = currentLocation.coordinate.latitude
         let long = currentLocation.coordinate.longitude
-        
         
         if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
             print(currentLocation.coordinate.latitude)
@@ -280,11 +281,8 @@ extension TripPlanViewController: CLLocationManagerDelegate{
             //停止定位
             stopLocationNearMap = true
             locationManager.stopUpdatingLocation()
-            
-            
         }
 
-        
     }
     
  

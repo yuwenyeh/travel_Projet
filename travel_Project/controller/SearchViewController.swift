@@ -32,21 +32,26 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     var lat : Double?
     var long : Double?
     
-//    let googleMapUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
-//
-//    let pictureUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-//
-//    let apiKey = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY"
+    //    let googleMapUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
+    //
+    //    let pictureUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
+    //
+    //    let apiKey = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY"
     
     
     
-    let newlocationManger : CLLocationManager! = nil//用來查找設備的當前位置
-    var crrentLocation : CLLocation?// 當前位置
-    var mapView:GMSMapView!
-    var placeClient:GMSPlacesClient!
-    var zoomLevel:Float = 15.0
-     var stopLocationNearMap:Bool!//停止搜尋附近
+    //    let newlocationManger : CLLocationManager! = nil//用來查找設備的當前位置
+    //    var crrentLocation : CLLocation?// 當前位置
+    //    var mapView:GMSMapView!
+    //    var placeClient:GMSPlacesClient!
+    //    var zoomLevel:Float = 15.0
+    //     var stopLocationNearMap:Bool!//停止搜尋附近
     
+    var locationManager: CLLocationManager!
+    var currentLocation: CLLocation?
+    var mapView: GMSMapView!
+    var placesClient: GMSPlacesClient!
+    var zoomLevel: Float = 15.0
     
     var placeName:String? //顯示飯店名稱
     var photoReference:String?
@@ -54,32 +59,45 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     
     
     @IBOutlet var tableView: UITableView!
+    // An array to hold the list of likely places.
+    var likelyPlaces: [GMSPlace] = []
+    
+    // The currently selected place.
+    var selectedPlace: GMSPlace?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        getLocationNearMap(lat: 25.138917, long: 121.750889, types: "tourist_attraction")
-       //開啟定位方式最好的方式
-//              locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//              tableView.estimatedRowHeight = 150.0
-//              tableView.rowHeight = UITableView.automaticDimension
-//              getCurrentLocation()
-//
-//              //利用定位去抓使用者位置並顯示到畫面上
-//              locationManager.delegate = self
-//              tableView.delegate = self
-//              tableView.dataSource = self
-//              locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//              locationManager.activityType = .automotiveNavigation
-//              locationManager.startUpdatingLocation() //開啟定位
-//              locationManager.requestAlwaysAuthorization()
-//
-//              if #available(iOS 10.0,*){
-//                  locationManager.requestAlwaysAuthorization()
-//              }else{
-//
-//              }
-//
+        
+        //getLocationNearMap(lat: 25.138917, long: 121.750889, types: "tourist_attraction")
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        
+        placesClient = GMSPlacesClient.shared()
+        //開啟定位方式最好的方式
+        //              locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //              tableView.estimatedRowHeight = 150.0
+        //              tableView.rowHeight = UITableView.automaticDimension
+        //              getCurrentLocation()
+        //
+        //              //利用定位去抓使用者位置並顯示到畫面上
+        //              locationManager.delegate = self
+        //              tableView.delegate = self
+        //              tableView.dataSource = self
+        //              locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //              locationManager.activityType = .automotiveNavigation
+        //              locationManager.startUpdatingLocation() //開啟定位
+        //              locationManager.requestAlwaysAuthorization()
+        //
+        //              if #available(iOS 10.0,*){
+        //                  locationManager.requestAlwaysAuthorization()
+        //              }else{
+        //
+        //              }
+        //
         
         searchColltroller = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchColltroller.searchBar
@@ -121,18 +139,18 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
                             let newphotoReference = data["photos"][0]["photo_reference"].string
                             
                             if newphotoReference != nil{
-                            
-                            let lat = data["geometry"]["location"]["lat"]
-                            let lng = data["geometry"]["location"]["lng"]
                                 
-                            info.newlocationName = data["name"].string
-                            info.newlocationAdd = data["plus_code"]["compound_code"].string
+                                let lat = data["geometry"]["location"]["lat"]
+                                let lng = data["geometry"]["location"]["lng"]
                                 
-                            info.newleftLAT_ID = Double("\(lat)")
-                            info.newrightLNG_ID = Double("\(lng)")
-                    
-                            
-                            self.resurtdata?.append(info)
+                                info.newlocationName = data["name"].string
+                                info.newlocationAdd = data["plus_code"]["compound_code"].string
+                                
+                                info.newleftLAT_ID = Double("\(lat)")
+                                info.newrightLNG_ID = Double("\(lng)")
+                                
+                                
+                                self.resurtdata?.append(info)
                             }
                             
                         }//for
@@ -143,12 +161,12 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
                     print("JSONSerialization error:", error)
                 }
             }
- 
+            
         })
- 
+        
     }
     
-
+    
     //過濾內容的func
     func filterContent(for searchText : String){
         
@@ -170,17 +188,17 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
         }
     }
     func initStatusBarStyle(){
-           
-           // Set StatusBar Style
-           
-           self.navigationController?.navigationBar.barStyle = .black
-           
-           self.navigationController?.navigationBar.tintColor = UIColor.red
-           // navigation & status bar 改顏色方法
-         
-           
-          navigationController?.navigationBar.applyy(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
-       }
+        
+        // Set StatusBar Style
+        
+        self.navigationController?.navigationBar.barStyle = .black
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.red
+        // navigation & status bar 改顏色方法
+        
+        
+        navigationController?.navigationBar.applyy(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
+    }
     
 }
 extension SearchViewController: UITableViewDelegate{
@@ -191,58 +209,57 @@ extension SearchViewController: UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCell
-             
-             if let localInfo = resurtdata?[indexPath.row]{
-                 cell.newPlaceName.text = localInfo.newlocationName!
-                cell.newPlaceAdd.text = localInfo.newlocationAdd
+        
+        if let localInfo = resurtdata?[indexPath.row]{
+            cell.newPlaceName.text = localInfo.newlocationName!
+            cell.newPlaceAdd.text = localInfo.newlocationAdd
+            
+            
+            //開始抓照片
+            if let photoReference = localInfo.newphotoReference{
                 
-                 
-                //開始抓照片
-                 if let photoReference = localInfo.newphotoReference{
-                    
-                    let urlStr = GoogleApiUtil.createPhotoUrl(ference: photoReference, width: 400)
-                     let url = URL(string: urlStr)
-                    cell.searchImage.kf.setImage(with: url)
-                     
-                     
-                 }
-
-                }
-         return cell
-    
+                let urlStr = GoogleApiUtil.createPhotoUrl(ference: photoReference, width: 400)
+                let url = URL(string: urlStr)
+                cell.searchImage.kf.setImage(with: url)
+                
+                
+            }
+            
+        }
+        return cell
+        
     }
     
-  
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // if (searchColltroller?.isActive)! {}
-            
-            if let mapArray = self.resurtdata{
-                return mapArray.count
-            }
-
-    return 1
-  
+        // if (searchColltroller?.isActive)! {}
+        
+        if let mapArray = self.resurtdata{
+            return mapArray.count
+        }
+        
+        return 1
+        
     }
-
+    
     
 }
 
 extension UINavigationBar{
     
     //將顏色加入指定範圍
-      func applyy(gradient colors: [UIColor]) {
-         var naviAndStatusBar: CGRect = self.bounds
-         naviAndStatusBar.size.height += 45//statusBar和navigationBar的高度
-         setBackgroundImage(UINavigationBar.gradiente(size: naviAndStatusBar.size,colors: colors), for: .default)
-     }
-     
+    func applyy(gradient colors: [UIColor]) {
+        var naviAndStatusBar: CGRect = self.bounds
+        naviAndStatusBar.size.height += 45//statusBar和navigationBar的高度
+        setBackgroundImage(UINavigationBar.gradiente(size: naviAndStatusBar.size,colors: colors), for: .default)
+    }
+    
     
     //設定漸層
     static func gradiente(size: CGSize, colors: [UIColor]) ->UIImage{
-    
         
         let cgColors = colors.map{$0.cgColor}//將顏色轉換成cgColor
         
@@ -262,9 +279,9 @@ extension UINavigationBar{
     }
     
 }
+
+
 extension SearchViewController: CLLocationManagerDelegate{
-    
-    
     
     //獲取定位資訊
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations:[CLLocation]){
@@ -272,22 +289,22 @@ extension SearchViewController: CLLocationManagerDelegate{
         let lat = currentLocation.coordinate.latitude
         let long = currentLocation.coordinate.longitude
         
+        //
+        //        if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
+        //            print(currentLocation.coordinate.latitude)
+        //            print(currentLocation.coordinate.longitude)
+        //            getLocationNearMap(lat: lat, long: long, types: "tourist_attraction")
+        //            //停止定位
+        //            stopLocationNearMap = true
+        //            locationManager.stopUpdatingLocation()
+        //
+        //
+        //        }
         
-        if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
-            print(currentLocation.coordinate.latitude)
-            print(currentLocation.coordinate.longitude)
-            getLocationNearMap(lat: lat, long: long, types: "tourist_attraction")
-            //停止定位
-            stopLocationNearMap = true
-            //locationManager.stopUpdatingLocation()
-            
-            
-        }
-
         
     }
     
- 
+    
     //錯誤資訊列印
     func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
         print(error)
