@@ -44,13 +44,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="s1p-Sb-lLO">
                                                             <rect key="frame" x="106" y="17.5" width="262" height="41.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="景點名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVc-Xp-3HQ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="景點名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVc-Xp-3HQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="262" height="20.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Noy-d6-GfV">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Noy-d6-GfV">
                                                                     <rect key="frame" x="0.0" y="23.5" width="262" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -103,17 +103,29 @@
         <!--Google Map View Controller-->
         <scene sceneID="Vpl-Yl-IiP">
             <objects>
-                <viewController id="hqa-0e-nj3" customClass="GoogleMapViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="googleVC" id="hqa-0e-nj3" customClass="GoogleMapViewController" customModule="travel_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ChI-9s-lmo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bm4-yw-ww6">
+                                <rect key="frame" x="345" y="222" width="49" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="googleMap"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGx-9C-RNs">
+                                <rect key="frame" x="328" y="144" width="66" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="googleAB"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="kMc-xQ-lAu"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIj-Qh-vew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="-133"/>
+            <point key="canvasLocation" x="5342" y="-864"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vj0-ac-F8z">
@@ -146,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Oh-uH-i0I">
-                                <rect key="frame" x="0.0" y="88" width="412" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="412" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="7lt-kf-UKX">
                                         <rect key="frame" x="0.0" y="0.0" width="412" height="695"/>
@@ -265,24 +277,24 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wnh-BK-0F9">
                                 <rect key="frame" x="328" y="195" width="66" height="113"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-OC-oRg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YkA-OC-oRg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="776"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="titleCell" id="PYg-7p-UoO">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PYg-7p-UoO" id="pGQ-2S-gmk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92835599179999995" green="1" blue="0.98294919729999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="82" id="60n-ng-5Og" customClass="TripPlanCell" customModule="travel_project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="82"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="60n-ng-5Og" customClass="TripPlanCell" customModule="travel_project" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="60n-ng-5Og" id="kHu-x9-Tbs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -313,8 +325,7 @@
                     <navigationItem key="navigationItem" id="4AC-pW-7J3">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="TtM-oX-gAO">
                             <connections>
-                                <action selector="backPage:" destination="jH8-R9-Vzu" id="2ac-uI-EKD"/>
-                                <segue destination="IMI-Ze-iDe" kind="show" id="Ehr-At-XFV"/>
+                                <action selector="backStartButton:" destination="jH8-R9-Vzu" id="kx8-AP-EYo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QQg-kv-S55">
@@ -590,11 +601,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcG-6L-NLu" customClass="GMSPanoramaView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="482"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="406"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdK-yx-zgT" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="526" width="414" height="370"/>
+                                <rect key="frame" x="0.0" y="450" width="414" height="446"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -605,7 +616,7 @@
                             <constraint firstAttribute="bottom" secondItem="bdK-yx-zgT" secondAttribute="bottom" id="InU-Oc-HgD"/>
                             <constraint firstItem="kcG-6L-NLu" firstAttribute="trailing" secondItem="Eqk-DT-1iu" secondAttribute="trailing" id="L57-uG-BMC"/>
                             <constraint firstItem="bdK-yx-zgT" firstAttribute="leading" secondItem="Eqk-DT-1iu" secondAttribute="leading" id="cgZ-d8-JeV"/>
-                            <constraint firstItem="bdK-yx-zgT" firstAttribute="top" secondItem="XT4-rx-X6t" secondAttribute="top" constant="526" id="gyf-yZ-7RY"/>
+                            <constraint firstItem="bdK-yx-zgT" firstAttribute="top" secondItem="XT4-rx-X6t" secondAttribute="top" constant="450" id="gyf-yZ-7RY"/>
                             <constraint firstItem="kcG-6L-NLu" firstAttribute="leading" secondItem="Eqk-DT-1iu" secondAttribute="leading" id="oTG-eY-WSB"/>
                             <constraint firstItem="bdK-yx-zgT" firstAttribute="top" secondItem="kcG-6L-NLu" secondAttribute="bottom" id="zmY-nd-4Vj"/>
                         </constraints>
@@ -619,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeD-rs-grv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5339" y="-863"/>
+            <point key="canvasLocation" x="4502.898550724638" y="-156.02678571428569"/>
         </scene>
         <!--Welcome Travel View Controller-->
         <scene sceneID="h4N-2P-NTV">
@@ -790,13 +801,12 @@
             <point key="canvasLocation" x="1052" y="-131"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ehr-At-XFV"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="AddItemBG" width="298" height="260"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="comfirmButton" width="210" height="47"/>
+        <image name="googleAB" width="32" height="32"/>
+        <image name="googleMap" width="32" height="32"/>
         <image name="green" width="185" height="227"/>
         <image name="people" width="32" height="32"/>
         <image name="people-2" width="32" height="32"/>

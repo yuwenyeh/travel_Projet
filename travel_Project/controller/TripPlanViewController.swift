@@ -20,6 +20,7 @@ class TripPlanViewController: UIViewController, UISearchResultsUpdating{
     
     var noteData:Note?
     var sectionIndex:Int?
+    
     private var travePlaceList: [TravelDetail]?//景點清單
     
     var stopLocationNearMap:Bool!//停止搜尋附近
@@ -221,6 +222,8 @@ extension TripPlanViewController: UITableViewDelegate{
             //存入資料庫
             self.dbManager.insertPlanDetail(insertData: planDetail!)
 
+            
+            
             //導頁
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
                 let planVC = pvc as! PlanViewController

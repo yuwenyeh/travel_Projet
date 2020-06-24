@@ -14,9 +14,12 @@ protocol StartPlanningDelegate :class{
 
 class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-
+    
     var tableViewData:[CellData]? = [CellData]()
+    
     var notedata : Note!
+    
+    var selectionMap : Int?
     
     var travelName : String?
     var startDate : String?
@@ -31,13 +34,13 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navItem: UINavigationItem!//導航列
     
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let noteData = notedata{
-//            self.tableViewData = noteData.dailyPlan
+            //            self.tableViewData = noteData.dailyPlan
             navItem.title = noteData.travelName//設定導航列標題文字
         }
         
@@ -72,16 +75,18 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.notedata.dailyPlan = self.tableViewData
             
         }
-   
+        
+    }
+    
+    @IBAction func backStartButton(_ sender: Any) {
+        
+        let startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID")
+        navigationController?.pushViewController(startVC, animated: true)
+        
     }
     
     
     
-    
-    @IBAction func backPage(_ sender: Any) {
-       
-      //    var startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID") as!StartPlanViewController
-    }
     
     
     @IBAction func addCellLabel(_ sender: Any) {
@@ -92,7 +97,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //        if let noteDate = notedata{
         //            self.tableViewData?.append(contentsOf:CellData)
         //        }
-  
+        
         //        let indexPath = IndexPath(row:0, section: 0)
         //        self.tableView.insertRows(at: [indexPath], with: .automatic)
         
@@ -121,7 +126,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //MARK: cellForRowAT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-      
+        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionTitle
@@ -129,23 +134,23 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
-         
-           // cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+            
+            // cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             //幫cell加陰影
-           let myBackView = UIView(frame: cell.frame)
-                  myBackView.frame = CGRect(x: 5,y: 5,width: (tableView.frame.width) - 10,height: (cell.frame.height) - 10)
-                  myBackView.layer.cornerRadius = 5
-                  myBackView.layer.shadowRadius = 2
-                  myBackView.backgroundColor = UIColor.white
-                  myBackView.layer.masksToBounds = false
-                  myBackView.clipsToBounds = false
-                  //myBackView.layer.shadowOffset = CGSizeMake(-1,1)
-                  myBackView.layer.shadowOpacity = 0.2
-                  let test : CGRect = myBackView.layer.bounds
-                  myBackView.layer.shadowPath = UIBezierPath(rect: test).cgPath
-                  cell.addSubview(myBackView)
-                  cell.sendSubviewToBack(myBackView)
-           
+            let myBackView = UIView(frame: cell.frame)
+            myBackView.frame = CGRect(x: 5,y: 5,width: (tableView.frame.width) - 10,height: (cell.frame.height) - 10)
+            myBackView.layer.cornerRadius = 5
+            myBackView.layer.shadowRadius = 2
+            myBackView.backgroundColor = UIColor.white
+            myBackView.layer.masksToBounds = false
+            myBackView.clipsToBounds = false
+            //myBackView.layer.shadowOffset = CGSizeMake(-1,1)
+            myBackView.layer.shadowOpacity = 0.2
+            let test : CGRect = myBackView.layer.bounds
+            myBackView.layer.shadowPath = UIBezierPath(rect: test).cgPath
+            cell.addSubview(myBackView)
+            cell.sendSubviewToBack(myBackView)
+            
             return cell
             
             //加東西
@@ -174,21 +179,47 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let section =  indexPath.section
             let cellData = tableViewData?[section].sectionData
             let tripDetail = cellData?[indexPath.row - 1] 
-           
+            
             if tripDetail?.name != "✏️加入旅程"{
                 
-                if let tripDvc = storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
-                    
-                    let tripDetailVC = tripDvc as! TripDetailViewController
-                    
-                    tripDetailVC.placeName = tripDetail?.name
-                    tripDetailVC.placeId = tripDetail?.placeID
-                    //tripDetailVC.photoReference = tripDetail?.photoReference
-                    
-                    navigationController?.pushViewController(tripDvc, animated: true)
+                let alertControll = UIAlertController()
                 
+                let storeFile = UIAlertAction(title: "評價搜尋", style: .default) { (action) in
+                    
+                    if let tripDvc = self.storyboard?.instantiateViewController(withIdentifier: "TripDvc") {
+                        
+                        let tripDetailVC = tripDvc as! TripDetailViewController // 轉到單一評價
+                        
+                        tripDetailVC.placeName = tripDetail?.name
+                        tripDetailVC.placeId = tripDetail?.placeID
+                        
+                        self.navigationController?.pushViewController(tripDvc, animated: true)
+                        
+                    }
                 }
                 
+                
+                let okAction = UIAlertAction(title: "地圖導航", style: .default) { (action)->Void in
+                    
+                    if  let googleVC = self.storyboard?.instantiateViewController(withIdentifier: "googleVC") {
+                        
+                        let gooVC = googleVC as! GoogleMapViewController
+                        
+                        gooVC.googleMaplDetail = tripDetail
+                
+                        self.navigationController?.pushViewController(gooVC, animated: true)
+                        
+                    }
+                }
+                
+                let deleteAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+                    print("取消")
+                }
+                
+                alertControll.addAction(storeFile)
+                alertControll.addAction(okAction)
+                alertControll.addAction(deleteAction)
+                self.present(alertControll, animated: true, completion: nil)
                 
             }else{
                 //轉場到景點搜尋
@@ -201,7 +232,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
             }
             
- 
+            
         }
     }
     
@@ -230,15 +261,15 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.reloadData()
     }
-     
+    
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { }
-
-        
-        
-   
+    
+    
+    
+    
     
     
     

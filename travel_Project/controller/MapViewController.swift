@@ -33,7 +33,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             
             let lat =  travelDetail.centerLat!
             let long = travelDetail.centerLng!
-            
+    
             //地圖
             mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
             mapView.mapType = .terrain
