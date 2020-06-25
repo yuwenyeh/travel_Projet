@@ -23,12 +23,14 @@ class StartPlanViewController: UIViewController {
         super.viewDidLoad()
         self.tableview.delegate = self
         self.tableview.dataSource = self
-        initStatusBarStyle()
+//        initStatusBarStyle()
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        initStatusBarStyle()
         //讀取資料
         self.data = DBManager.shared.loadTravelPlans()
         tableview.reloadData()
