@@ -16,7 +16,7 @@ import SwiftyJSON
 import Kingfisher
 
 
-class TripPlanViewController: UIViewController {
+class TripPlanViewController: UIViewController, UISearchBarDelegate {
     
     let currentLocation: CLLocation? = nil
     let locationManager = CLLocationManager()
@@ -25,14 +25,55 @@ class TripPlanViewController: UIViewController {
 
     var noteData:Note?
     var sectionIndex:Int?
-    var travePlaceList: [TravelDetail]?//景點清單
+    var travePlaceList: [TravelDetail]?//景點清單 初步搜尋前呈現畫面搭資料集合
+    var searchBefore : [String] = []
+    
     var stopLocationNearMap:Bool!//停止搜尋附近
     
-    private var nameSearch:UISearchController?
+    private var nameSearch:UISearchController!//生成一個Search
+    var isShowSearchResult: Bool = true//是否顯示搜尋結果
+    
     private var searchText = ""
 //    private var presenter : TripPlanViewControllProtocol?
 
     @IBOutlet weak var tableView: UITableView!
+    
+    //搜尋選擇器
+
+    var type = "shopping_mall"
+    var searchlat : Double?
+    var searchlong : Double?
+  
+    
+    
+    @IBAction func restaurantSearch(_ sender: Any) {
+        
+        getLocationNearMap(lat: searchlat!, long: searchlong!, types: "restaurant")
+      
+    
+        
+    }
+    
+
+    @IBAction func tripViewSearch(_ sender: Any) {
+        //tyep = "tourist_attraction" 景點
+        type = "tourist_attraction"
+      getLocationNearMap(lat: searchlat!, long: searchlong!, types: "tourist_attraction")
+        
+    }
+    
+   
+    @IBAction func hotelSearch(_ sender: Any) {
+        
+     // type = "lodging"住宿
+        type = "lodging"
+       getLocationNearMap(lat: searchlat!, long: searchlong!, types: "lodging")
+    }
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -61,6 +102,8 @@ class TripPlanViewController: UIViewController {
         locationManager.startUpdatingLocation() //開啟定位
         locationManager.requestAlwaysAuthorization()
         
+        initStatusBarStyle() //加上導覽列漸層
+        
         if #available(iOS 10.0,*){
             locationManager.requestAlwaysAuthorization()
         }
@@ -71,15 +114,28 @@ class TripPlanViewController: UIViewController {
     }
     
     
+    
+    
     func initView(){
         /* Init SearchController 搜尋功能*/
         self.nameSearch = UISearchController(searchResultsController: nil)
-        self.nameSearch?.initStyle(updater: self, placeholoderTxt: NSLocalizedString("Please input the search keyword", comment: ""))
+       // self.nameSearch?.initStyle(updater: self, placeholoderTxt: NSLocalizedString("搜尋景點", comment: ""))
  
-        self.navigationItem.searchController = self.nameSearch
-        // /向上滾動時隱藏搜索欄，默認為true。 如果設置為false，它將始終顯示
-        self.navigationItem.hidesSearchBarWhenScrolling = false
         
+        nameSearch.searchBar.placeholder = "搜尋景點"
+        //self.navigationItem.searchController = self.nameSearch
+        // /向上滾動時隱藏搜索欄，默認為true。 如果設置為false，它將始終顯示
+       // self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.tableView.tableHeaderView = nameSearch.searchBar //不要與標題混淆
+    
+     
+        
+        self.nameSearch.obscuresBackgroundDuringPresentation = true//搜尋時不要變暗淡
+        nameSearch.searchBar.backgroundImage = UIImage()
+        nameSearch.searchBar.barTintColor = .white
+        self.nameSearch.searchBar.tintColor = UIColor(red: 231, green: 76, blue: 60, alpha: 1)
+        nameSearch.searchResultsUpdater = self
+        nameSearch.searchBar.delegate = self
         
     }
     
@@ -144,7 +200,17 @@ class TripPlanViewController: UIViewController {
         self.locationManager.requestWhenInUseAuthorization()
     }
     
-
+//導覽列顏色
+    func initStatusBarStyle(){
+        
+        // Set StatusBar Style
+        self.navigationController?.navigationBar.barStyle = .black
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        // navigation & status bar 改顏色方法
+        navigationController?.navigationBar.apply(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
+    }
+    
 } //class
 
 
@@ -246,7 +312,8 @@ extension TripPlanViewController: UISearchResultsUpdating{
             return
         }
         self.searchText = searchController.searchBar.text ?? ""
-        //        self.presenter?.onSearchKeyworkChange(keyword: self.searchText)
+        
+        //  地圖編碼器 self.presenter?.onSearchKeyworkChange(keyword: self.searchText)
         self.geoCoder.geocodeAddressString(self.searchText, completionHandler: { placemarks, error in
             
             guard let placemarks = placemarks else{
@@ -255,10 +322,10 @@ extension TripPlanViewController: UISearchResultsUpdating{
             //經緯度 只抓第一筆
             let coordinate = placemarks[0].location?.coordinate
             //景點搜尋
-            self.getLocationNearMap(lat:coordinate!.latitude , long: coordinate!.longitude, types: "food")
+            self.getLocationNearMap(lat:coordinate!.latitude , long: coordinate!.longitude, types:self.type)
             
         })
-    
+        tableView.reloadData()
     }
     
 }
@@ -273,6 +340,9 @@ extension TripPlanViewController: CLLocationManagerDelegate{
         let lat = currentLocation.coordinate.latitude
         let long = currentLocation.coordinate.longitude
         
+        searchlat = currentLocation.coordinate.latitude //search 功能給經緯度
+        searchlong = currentLocation.coordinate.longitude //search功能給經緯度
+        
         if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
             print(currentLocation.coordinate.latitude)
             print(currentLocation.coordinate.longitude)
@@ -284,11 +354,11 @@ extension TripPlanViewController: CLLocationManagerDelegate{
 
     }
     
-    //錯誤資訊列印
-    func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
-        print(error)
-    }
-    
+//    //錯誤資訊列印
+//    func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
+//        print(error)
+//    }
+//
     
 }
 

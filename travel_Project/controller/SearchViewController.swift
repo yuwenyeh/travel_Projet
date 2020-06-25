@@ -39,13 +39,7 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     //    let apiKey = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY"
     
     
-    
-    //    let newlocationManger : CLLocationManager! = nil//用來查找設備的當前位置
-    //    var crrentLocation : CLLocation?// 當前位置
-    //    var mapView:GMSMapView!
-    //    var placeClient:GMSPlacesClient!
-    //    var zoomLevel:Float = 15.0
-    //     var stopLocationNearMap:Bool!//停止搜尋附近
+  
     
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
@@ -73,34 +67,14 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation() 
         locationManager.delegate = self
         
         placesClient = GMSPlacesClient.shared()
-        //開啟定位方式最好的方式
-        //              locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //              tableView.estimatedRowHeight = 150.0
-        //              tableView.rowHeight = UITableView.automaticDimension
-        //              getCurrentLocation()
-        //
-        //              //利用定位去抓使用者位置並顯示到畫面上
-        //              locationManager.delegate = self
-        //              tableView.delegate = self
-        //              tableView.dataSource = self
-        //              locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //              locationManager.activityType = .automotiveNavigation
-        //              locationManager.startUpdatingLocation() //開啟定位
-        //              locationManager.requestAlwaysAuthorization()
-        //
-        //              if #available(iOS 10.0,*){
-        //                  locationManager.requestAlwaysAuthorization()
-        //              }else{
-        //
-        //              }
-        //
+   
         
         searchColltroller = UISearchController(searchResultsController: nil)
-        tableView.tableHeaderView = searchColltroller.searchBar
+        tableView.tableHeaderView = searchColltroller.searchBar//不要與標題混淆
         
         
         initStatusBarStyle()

@@ -8,58 +8,34 @@
 
 import UIKit
 
-class background: UIViewController {
-
-    
-    
-    
-  
-  var gradientLayer: CAGradientLayer!
-    
-    func  createGradientLayer () {
-    gradientLayer = CAGradientLayer ()
-    gradientLayer.frame = self .view.bounds
-        
-        let color = UIColor(red: 0.76, green: 0.88, blue: 0.77, alpha: 0.5).cgColor
-        
-        let blueGreen = UIColor(red: 0.04, green: 0.52, blue: 0.63, alpha:0.44).cgColor
-        
-        let titColor = UIColor(red: 1, green: 095, blue:0.74, alpha: 1).cgColor
-        
-        let blueCOlor = UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha:0.5).cgColor
-        
-        let green = UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00).cgColor
-        
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        gradientLayer.colors = [ blueGreen,titColor,color,titColor ];
-        
-        self.view.layer.addSublayer(gradientLayer)
-        
-    }
-    
-
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-        
-        
-        
- 
-    }
-    
-    override  func  viewWillAppear (_ animated: Bool) {
-        super .viewWillAppear(animated)
-        
-        createGradientLayer()
-        
-    }
-    
-
-
-
-  
-}
+//
+//extension UINavigationBar{
+//    
+//    //將顏色加入指定範圍
+//    func apply(gradient colors: [UIColor]) {
+//        var naviAndStatusBar: CGRect = self.bounds
+//        naviAndStatusBar.size.height += 45//statusBar和navigationBar的高度
+//        setBackgroundImage(UINavigationBar.gradient(size: naviAndStatusBar.size,colors: colors), for: .default)
+//    }
+//    
+//    //設定漸層
+//    static func gradient(size: CGSize, colors: [UIColor]) ->UIImage{
+//        
+//        let cgColors = colors.map{$0.cgColor}//將顏色轉換成cgColor
+//        
+//        UIGraphicsBeginImageContextWithOptions(size, true, 0)//開始繪製的位置
+//        
+//        guard let context = UIGraphicsGetCurrentContext() else { return UIGraphicsGetImageFromCurrentImageContext()!}
+//        
+//        defer {UIGraphicsEndImageContext()}
+//        
+//        var locations: [CGFloat] = [0,1]//顏色位置(座標)
+//        
+//        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: cgColors as NSArray as CFArray, locations: &locations) else { return UIGraphicsGetImageFromCurrentImageContext()! }
+//        
+//        context.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: [])//繪製漸層的角度
+//        
+//        return UIGraphicsGetImageFromCurrentImageContext()!
+//    }
+//    
+//}

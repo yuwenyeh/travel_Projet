@@ -43,6 +43,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         super.viewDidLoad()
         
+        initStatusBarStyle()
+        
         navigationItem.title = self.placeName
         
         if let placeId = self.placeId{
@@ -192,7 +194,15 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    
+    func initStatusBarStyle(){
+        
+        // Set StatusBar Style
+        self.navigationController?.navigationBar.barStyle = .black
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        // navigation & status bar 改顏色方法
+        navigationController?.navigationBar.apply(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
+    }
     
     
 }

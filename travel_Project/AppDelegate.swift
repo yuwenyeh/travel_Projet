@@ -13,7 +13,7 @@ import GooglePlaces
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
+   
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
@@ -22,6 +22,7 @@ import GooglePlaces
         
         UITabBar.appearance().tintColor = UIColor(red: 140/255, green: 219/255, blue: 229/255, alpha: 1)
         
+  
    
         //產生資料庫
         let dbManager = DBManager.shared

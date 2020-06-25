@@ -35,7 +35,7 @@ class GoogleApiUtil{
         //精度緯度
         let centerLatLngStr = String.init(format: "%f,%f", lat, lng)
         
-        return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&radius=2000&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
+        return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&radius=4000&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
     //取景點詳情取一個地點
