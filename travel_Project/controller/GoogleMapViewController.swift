@@ -10,19 +10,16 @@ import GooglePlaces
 class GoogleMapViewController: UIViewController {
     
     
-    
     var googleMaplDetail : TravelDetail?
- 
     var lat:Double?
     var long:Double?
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if let travelMap = googleMaplDetail{
-            
             self.lat = travelMap.centerLat
             self.long = travelMap.centerLng
             //製作地圖
@@ -33,7 +30,6 @@ class GoogleMapViewController: UIViewController {
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
             marker.map = mapView
-            
         }
         
     }
@@ -59,8 +55,6 @@ class GoogleMapViewController: UIViewController {
     }
     
     
-    
-    
     //導航
     @objc func navigation(){
         
@@ -77,13 +71,11 @@ class GoogleMapViewController: UIViewController {
     
     @objc func cameraBtn(){
         
-        
         if let controller = storyboard?.instantiateViewController(withIdentifier: "mapVC")
         {
             let mapVC = controller as! MapViewController
             
             mapVC.travelDetail = self.googleMaplDetail
-            
             
             present(controller, animated: true, completion: nil)
         }
@@ -92,7 +84,7 @@ class GoogleMapViewController: UIViewController {
     
     
     
- 
+    
     
     
 }

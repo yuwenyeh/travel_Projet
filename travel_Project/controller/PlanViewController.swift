@@ -8,18 +8,11 @@
 
 import UIKit
 
-protocol StartPlanningDelegate :class{
-    func didFinishUpdate(note:Note)
-}
 
 class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
     var tableViewData:[CellData]? = [CellData]()
-    
     var notedata : Note!
-    
-    var selectionMap : Int?
     
     var travelName : String?
     var startDate : String?
@@ -27,20 +20,16 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     let dbManager = DBManager.shared
     
-    //通知第一頁更新資料
-    weak var delegate : StartPlanningDelegate?
     
     @IBOutlet weak var arrow: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navItem: UINavigationItem!//導航列
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let noteData = notedata{
-            //            self.tableViewData = noteData.dailyPlan
             navItem.title = noteData.travelName//設定導航列標題文字
         }
         
@@ -48,11 +37,9 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.startDate = self.notedata.startDate
         self.happyNumber = self.notedata.days
         
-        
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     
@@ -61,6 +48,8 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         //讀取資料
         if let notedata = self.notedata{
+            
+            self.tableViewData?  = []//清空資料
             
             let dailyStrArray = notedata.dailyStr?.split(separator: "_")
             
@@ -79,37 +68,13 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @IBAction func backStartButton(_ sender: Any) {
-        
         let startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID")
         navigationController?.pushViewController(startVC, animated: true)
-        
     }
-    
-    
-    
-    
-    
-    @IBAction func addCellLabel(_ sender: Any) {
-        
-        //功能還沒寫好
-        //        let  CellData(isOpen: false, sectionTitle: <#T##String#>, sectionData: <#T##[String]#>)
-        
-        //        if let noteDate = notedata{
-        //            self.tableViewData?.append(contentsOf:CellData)
-        //        }
-        
-        //        let indexPath = IndexPath(row:0, section: 0)
-        //        self.tableView.insertRows(at: [indexPath], with: .automatic)
-        
-    }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return tableViewData!.count
     }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,7 +90,6 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     //MARK: cellForRowAT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
@@ -206,7 +170,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                         let gooVC = googleVC as! GoogleMapViewController
                         
                         gooVC.googleMaplDetail = tripDetail
-                
+                        
                         self.navigationController?.pushViewController(gooVC, animated: true)
                         
                     }
@@ -261,19 +225,6 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.reloadData()
     }
-    
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { }
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

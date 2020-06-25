@@ -144,9 +144,8 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.userName?.text = "發表人:  \(message.author_name!)"  //評論者姓名
             cell.timetext?.text = "發表時間:  \(message.timetext!)" //上次評論的時間
-            cell.messageLabel?.text = "內容:  \(message.text!)"// 評論的內容
-            cell.startUIImage.image = message.star//星星
-            
+            cell.messageLabel?.text = "發表內容:  \(message.text!)"// 評論的內容
+            cell.startUIImage.image = message.star!//星星
             //讓文字展開
             cell.messageLabel.numberOfLines = 0
             
@@ -189,7 +188,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             star = UIImage(named: "Star_rating_0_of_5")
         }
         
-        return star
+        return star!
         
     }
     

@@ -36,8 +36,6 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     }
 
 
-    
-    
     @IBAction func UserAction(_ sender: Any) {
         self.startDay.text = time()
     }
