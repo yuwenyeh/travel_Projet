@@ -34,7 +34,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     private var searchText = ""
     var isShowSearchResult: Bool = true//是否顯示搜尋結果
     
-    var trvelPlaceType = "tourist_attraction"//搜尋預種類
+    var travelPlaceType = "tourist_attraction"//搜尋預種類
     
     var searchlat : Double?
     var searchlong : Double?
@@ -93,21 +93,21 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         switch sender.selectedSegmentIndex {
         case 0:
      
-            self.trvelPlaceType = "locality"
+            self.travelPlaceType = "locality"
         case 1:
-            self.trvelPlaceType = "restaurant"
+            self.travelPlaceType = "restaurant"
         case 2:
-            self.trvelPlaceType = "shopping_mall"
+            self.travelPlaceType = "shopping_mall"
         case 3:
-            self.trvelPlaceType = "department_store"
+            self.travelPlaceType = "department_store"
         case 4:
-            self.trvelPlaceType = "lodging"
+            self.travelPlaceType = "lodging"
         default:
-            self.trvelPlaceType = "tourist_attraction"
+            self.travelPlaceType = "tourist_attraction"
         }
         
         
-        self.getLocationNearMap(lat:self.searchlat! , long: self.searchlong! ,types:self.trvelPlaceType)
+        self.getLocationNearMap(lat:self.searchlat! , long: self.searchlong! ,types:self.travelPlaceType)
         
     }
     
@@ -244,7 +244,8 @@ extension TripPlanViewController: UITableViewDelegate{
             
             var planDetail = self.travePlaceList?[indexPath.row]
             
-            
+            //建立type分類名稱
+            planDetail?.travelPlaceType = self.travelPlaceType
             
             planDetail?.relateId = self.noteData?.id//紀錄父關聯id
             planDetail?.travelDaily = String(daily!)//記錄遊玩日期
@@ -314,7 +315,7 @@ extension TripPlanViewController: UISearchResultsUpdating{
             //經緯度 只抓第一筆
             let coordinate = placemarks[0].location?.coordinate
             //景點搜尋
-            self.getLocationNearMap(lat:coordinate!.latitude , long: coordinate!.longitude, types:self.trvelPlaceType)
+            self.getLocationNearMap(lat:coordinate!.latitude , long: coordinate!.longitude, types:self.travelPlaceType)
             
         })
         tableView.reloadData()

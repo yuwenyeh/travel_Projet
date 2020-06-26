@@ -21,7 +21,8 @@ class DBManager : NSObject {
     //建立表
     let CREATE_TRAVEL_PLAN_SQL = "create table travel_plan (id text primary key not null, travelName text not null, startDate text not null, days text not null, dayStr ,createTime text not null)"
     
-    let CREATE_TRAVEL_DETAIL_SQL = "create table travel_detail (id text primary key not null,relateId text not null , travelDay text not null, placeName text, placeId text ,address text , photoReference  text  , centerLat text , centerLng text, createTime text not null)"
+    let CREATE_TRAVEL_DETAIL_SQL = "create table travel_detail (id text primary key not null,relateId text not null , travelDay text not null, placeName text, placeId text ,address text , photoReference  text  , centerLat text , centerLng text, createTime text not null, travelPlaceType text )"
+    
     
     
     
@@ -139,7 +140,7 @@ class DBManager : NSObject {
         if openDatabase() {
             
             let query = "select * from travel_detail  where relateId=? and  travelDay=? order by \(CREATE_TIME) asc"
-            //asc大小排序 
+            //asc大小排序
             do {
                 
                 let results = try database.executeQuery(query, values: [relateId, daily])
@@ -158,7 +159,7 @@ class DBManager : NSObject {
                     planDetail.photoReference = results.string(forColumn: PHOTO_REFERENCE)
                     planDetail.centerLat = results.double(forColumn: CENTER_LAT)
                     planDetail.centerLng = results.double(forColumn: CENTER_LNG)
-                    
+                    planDetail.travelPlaceType = results.string(forColumn: TRVAEL_PLACE_TYPE)
                     planDetails.append(planDetail)
                 }
                 
@@ -216,7 +217,9 @@ class DBManager : NSObject {
             
             if let insertData = insertData{
                 
-                let query = "insert into travel_detail(\(ID) , \(RELATE_ID),\(TRAVEL_DAY),\(PLACE_NAME),\(PLACE_ID),\(ADDRESS),\(PHOTO_REFERENCE),\(CENTER_LAT),\(CENTER_LNG),\(CREATE_TIME)) values('\(UUID().uuidString)','\(insertData.relateId!)','\(insertData.travelDaily!)','\(insertData.name!)',  '\(insertData.placeID!)','\(insertData.address!)','\(insertData.photoReference!)','\(insertData.centerLat!)','\(insertData.centerLng!)',strftime('%s', 'now'))"
+                let query = "insert into travel_detail(\(ID) , \(RELATE_ID),\(TRAVEL_DAY),\(PLACE_NAME),\(PLACE_ID),\(ADDRESS),\(PHOTO_REFERENCE),\(CENTER_LAT),\(CENTER_LNG),\(CREATE_TIME),\(TRVAEL_PLACE_TYPE)) values('\(UUID().uuidString)','\(insertData.relateId!)','\(insertData.travelDaily!)','\(insertData.name!)',  '\(insertData.placeID!)','\(insertData.address!)','\(insertData.photoReference!)','\(insertData.centerLat!)','\(insertData.centerLng!)',strftime('%s', 'now'),'\(insertData.travelPlaceType!)')"
+                
+                
                 
                 if !database.executeStatements(query) {
                     print("Failed to insert initial data into the database.")

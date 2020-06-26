@@ -20,8 +20,7 @@ struct TravelDetail{
     var photoReference:String?
     var centerLat:Double?//經度
     var centerLng:Double?//緯度
-    
-    var tripType : String?//存名稱前的google圖片
+    var travelPlaceType : String?//存名稱前的google圖片
     
 }
     
