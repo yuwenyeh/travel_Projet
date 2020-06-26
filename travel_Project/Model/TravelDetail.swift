@@ -17,7 +17,7 @@ struct TravelDetail{
     var placeID:String?
     var name:String?//名稱
     var address:String?//地址
-    var photoReference:String?
+    var photoReference:String? //google上取得照片
     var centerLat:Double?//經度
     var centerLng:Double?//緯度
     var travelPlaceType : String?//存名稱前的google圖片

@@ -255,6 +255,8 @@ extension TripPlanViewController: UITableViewDelegate{
             //導頁
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
                 let planVC = pvc as! PlanViewController
+                
+                
                 let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
                 self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
                 
