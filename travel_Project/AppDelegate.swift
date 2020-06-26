@@ -13,17 +13,26 @@ import GooglePlaces
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate {
     
-   
+   var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
         GMSPlacesClient.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
         
         
-        UITabBar.appearance().tintColor = UIColor(red: 140/255, green: 219/255, blue: 229/255, alpha: 1)
+        let navBar = UINavigationBar.appearance()//設定導航欄
         
-  
-   
+        navBar.barTintColor = UIColor(red: 247/255, green: 226/255, blue: 29/255, alpha: 1
+        )
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.backgroundColor = UIColor(red: 247/255, green: 226/255, blue: 29/255, alpha: 1)
+        
+        
+        
+        self.window!.rootViewController = inputViewController
+        self.window!.makeKeyAndVisible()
+        
+        
         //產生資料庫
         let dbManager = DBManager.shared
         dbManager.createDatabase()

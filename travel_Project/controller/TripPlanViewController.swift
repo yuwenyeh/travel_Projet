@@ -22,58 +22,29 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     let locationManager = CLLocationManager()
     let geoCoder = CLGeocoder()//地圖編碼器
     let dbManager = DBManager.shared
-
+    
     var noteData:Note?
     var sectionIndex:Int?
-    var travePlaceList: [TravelDetail]?//景點清單 初步搜尋前呈現畫面搭資料集合
-    var searchBefore : [String] = []
+    var travePlaceList: [TravelDetail]?//景點清單
     
+    var searchBefore : [String] = []
     var stopLocationNearMap:Bool!//停止搜尋附近
     
     private var nameSearch:UISearchController!//生成一個Search
+    private var searchText = ""
     var isShowSearchResult: Bool = true//是否顯示搜尋結果
     
-    private var searchText = ""
-//    private var presenter : TripPlanViewControllProtocol?
-
-    @IBOutlet weak var tableView: UITableView!
+    var trvelPlaceType = "tourist_attraction"//搜尋預種類
     
-    //搜尋選擇器
-
-    var type = "shopping_mall"
     var searchlat : Double?
     var searchlong : Double?
-  
-    
-    
-    @IBAction func restaurantSearch(_ sender: Any) {
-        
-        getLocationNearMap(lat: searchlat!, long: searchlong!, types: "restaurant")
-      
-    
-        
-    }
-    
-
-    @IBAction func tripViewSearch(_ sender: Any) {
-        //tyep = "tourist_attraction" 景點
-        type = "tourist_attraction"
-      getLocationNearMap(lat: searchlat!, long: searchlong!, types: "tourist_attraction")
-        
-    }
-    
-   
-    @IBAction func hotelSearch(_ sender: Any) {
-        
-     // type = "lodging"住宿
-        type = "lodging"
-       getLocationNearMap(lat: searchlat!, long: searchlong!, types: "lodging")
-    }
     
     
     
+    @IBOutlet weak var segmentedLabel: UISegmentedControl!
     
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         
@@ -82,6 +53,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         
         super.viewDidLoad()
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor .white
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .never
@@ -93,25 +65,54 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         tableView.rowHeight = UITableView.automaticDimension
         getCurrentLocation()
         
-        //利用定位去抓使用者位置並顯示到畫面上
-        locationManager.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+    
+        //利用定位去抓使用者位置並顯示到畫面上
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.activityType = .automotiveNavigation
         locationManager.startUpdatingLocation() //開啟定位
         locationManager.requestAlwaysAuthorization()
         
-        initStatusBarStyle() //加上導覽列漸層
+     
         
         if #available(iOS 10.0,*){
             locationManager.requestAlwaysAuthorization()
+            
         }
         
-        //搜尋功能
-        initView()
-    
+        initView()//搜尋功能畫面
+  
+
     }
+    
+    
+    @IBAction func travelTypeBtn(_ sender: UISegmentedControl) {
+         
+        switch sender.selectedSegmentIndex {
+        case 0:
+     
+            self.trvelPlaceType = "locality"
+        case 1:
+            self.trvelPlaceType = "restaurant"
+        case 2:
+            self.trvelPlaceType = "shopping_mall"
+        case 3:
+            self.trvelPlaceType = "department_store"
+        case 4:
+            self.trvelPlaceType = "lodging"
+        default:
+            self.trvelPlaceType = "tourist_attraction"
+        }
+        
+        
+        self.getLocationNearMap(lat:self.searchlat! , long: self.searchlong! ,types:self.trvelPlaceType)
+        
+    }
+    
+    
+    
     
     
     
@@ -119,26 +120,18 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     func initView(){
         /* Init SearchController 搜尋功能*/
         self.nameSearch = UISearchController(searchResultsController: nil)
-       // self.nameSearch?.initStyle(updater: self, placeholoderTxt: NSLocalizedString("搜尋景點", comment: ""))
  
-        
-        nameSearch.searchBar.placeholder = "搜尋景點"
-        //self.navigationItem.searchController = self.nameSearch
-        // /向上滾動時隱藏搜索欄，默認為true。 如果設置為false，它將始終顯示
-       // self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.nameSearch.searchBar.placeholder = "搜尋景點"
+      
         self.tableView.tableHeaderView = nameSearch.searchBar //不要與標題混淆
-    
-     
-        
         self.nameSearch.obscuresBackgroundDuringPresentation = true//搜尋時不要變暗淡
-        nameSearch.searchBar.backgroundImage = UIImage()
-        nameSearch.searchBar.barTintColor = .white
+        self.nameSearch.searchBar.backgroundImage = UIImage()
+        self.nameSearch.searchBar.barTintColor = .white
         self.nameSearch.searchBar.tintColor = UIColor(red: 231, green: 76, blue: 60, alpha: 1)
-        nameSearch.searchResultsUpdater = self
-        nameSearch.searchBar.delegate = self
+        self.nameSearch.searchResultsUpdater = self
+        self.nameSearch.searchBar.delegate = self
         
     }
-    
     
     
     /*搜尋附近景點*/
@@ -173,7 +166,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
                                 info.name = data["name"].string
                                 info.address = data["vicinity"].string
                                 info.placeID =  data["place_id"].string
-                              
+                                
                                 info.photoReference = photoReference
                                 info.centerLat = Double("\(lat)")
                                 info.centerLng = Double("\(lng)")
@@ -200,16 +193,8 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         self.locationManager.requestWhenInUseAuthorization()
     }
     
-//導覽列顏色
-    func initStatusBarStyle(){
-        
-        // Set StatusBar Style
-        self.navigationController?.navigationBar.barStyle = .black
-        
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        // navigation & status bar 改顏色方法
-        navigationController?.navigationBar.apply(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
-    }
+ 
+ 
     
 } //class
 
@@ -232,7 +217,7 @@ extension TripPlanViewController: UITableViewDataSource{
             
             cell.nameLabel?.text = travePlace.name
             cell.address?.text = travePlace.address
-        
+            
             //從google抓圖片
             if let photoReference = travePlace.photoReference{
                 let urlStr = GoogleApiUtil.createPhotoUrl(ference: photoReference, width: 400)
@@ -258,20 +243,27 @@ extension TripPlanViewController: UITableViewDelegate{
             let daily = dailyArray?[Int(self.sectionIndex!)]
             
             var planDetail = self.travePlaceList?[indexPath.row]
+            
+            
+            
             planDetail?.relateId = self.noteData?.id//紀錄父關聯id
             planDetail?.travelDaily = String(daily!)//記錄遊玩日期
             //存入資料庫
             self.dbManager.insertPlanDetail(insertData: planDetail!)
-
+            
             //導頁
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
                 let planVC = pvc as! PlanViewController
                 let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
                 self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
+                
                 planVC.notedata = self.noteData
+                
+                
+                
                 self.navigationController?.pushViewController(planVC, animated: true)
             }
-
+            
         }
         
         let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
@@ -298,7 +290,7 @@ extension TripPlanViewController: UITableViewDelegate{
         self.present(alertController, animated: true,completion: nil)
     }
     
-
+    
 }
 
 
@@ -322,7 +314,7 @@ extension TripPlanViewController: UISearchResultsUpdating{
             //經緯度 只抓第一筆
             let coordinate = placemarks[0].location?.coordinate
             //景點搜尋
-            self.getLocationNearMap(lat:coordinate!.latitude , long: coordinate!.longitude, types:self.type)
+            self.getLocationNearMap(lat:coordinate!.latitude , long: coordinate!.longitude, types:self.trvelPlaceType)
             
         })
         tableView.reloadData()
@@ -339,10 +331,9 @@ extension TripPlanViewController: CLLocationManagerDelegate{
         let currentLocation:CLLocation = locations[locations.count-1] as CLLocation
         let lat = currentLocation.coordinate.latitude
         let long = currentLocation.coordinate.longitude
-        
-        searchlat = currentLocation.coordinate.latitude //search 功能給經緯度
-        searchlong = currentLocation.coordinate.longitude //search功能給經緯度
-        
+        self.searchlat = currentLocation.coordinate.latitude //search 功能給經緯度
+        self.searchlong = currentLocation.coordinate.longitude //search功能給經緯度
+    
         if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
             print(currentLocation.coordinate.latitude)
             print(currentLocation.coordinate.longitude)
@@ -351,14 +342,14 @@ extension TripPlanViewController: CLLocationManagerDelegate{
             stopLocationNearMap = true
             locationManager.stopUpdatingLocation()
         }
-
+        
     }
     
-//    //錯誤資訊列印
-//    func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
-//        print(error)
-//    }
-//
+    //    //錯誤資訊列印
+    //    func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
+    //        print(error)
+    //    }
+    //
     
 }
 

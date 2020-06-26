@@ -35,7 +35,7 @@ class GoogleApiUtil{
         //精度緯度
         let centerLatLngStr = String.init(format: "%f,%f", lat, lng)
         
-        return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&radius=4000&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
+        return "\(GOOGLE_NEAR_MAP)/json?location=\(centerLatLngStr)&radius=2000&types=\(types)&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
     //取景點詳情取一個地點
@@ -44,21 +44,12 @@ class GoogleApiUtil{
     }
     
     
-  
-    //"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
-   
-    
     //取照片
     public static func createPhotoUrl(ference:String,width:Int) ->String{
         return "\(GOOGLE_PHOTO)?maxwidth=\(width)&photoreference=\(ference)&key=\(GOOGLE_API_KEY)"
     }
     
-    //https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-    
-    
-    
-    
-    
+
     
 }
 // GoogleApiUtil

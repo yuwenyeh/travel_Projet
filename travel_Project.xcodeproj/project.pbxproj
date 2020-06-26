@@ -14,6 +14,7 @@
 		1912E8BB247D5E8B00371012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B9247D5E8B00371012 /* LaunchScreen.storyboard */; };
 		191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */; };
 		1928B1AA24A48092006B549E /* TripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B1A924A48092006B549E /* TripPlanViewController.swift */; };
+		1928B1AC24A4CA17006B549E /* TravelTypeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */; };
 		192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */; };
 		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 		1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */; };
@@ -52,6 +53,7 @@
 		1912E8BC247D5E8B00371012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoogleMapViewController.swift; path = travel_project/controller/GoogleMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		1928B1A924A48092006B549E /* TripPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_Project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
+		1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelTypeButtonCell.swift; path = travel_Project/View/TravelTypeButtonCell.swift; sourceTree = SOURCE_ROOT; };
 		192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewCell.swift; sourceTree = "<group>"; };
 		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripDetailViewController.swift; path = travel_project/controller/TripDetailViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -135,8 +137,8 @@
 				1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */,
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
 				1928B1A924A48092006B549E /* TripPlanViewController.swift */,
-				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
 				191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */,
+				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -166,6 +168,7 @@
 				1950BC9C2497B30A006343AB /* commentClass.swift */,
 				19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */,
 				1993D17824A0624E00FC3D16 /* SearchCell.swift */,
+				1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */,
 				19E083D6249385C300DCF201 /* TripPlanProtocol.swift in Sources */,
 				19F7B55F249CF30F0026F17E /* Constant.swift in Sources */,
+				1928B1AC24A4CA17006B549E /* TravelTypeButtonCell.swift in Sources */,
 				1993D17B24A0746100FC3D16 /* LocationInfo.swift in Sources */,
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
 				191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */,

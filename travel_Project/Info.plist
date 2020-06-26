@@ -73,7 +73,7 @@
 	<string>請同意App取得位置資訊</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>存取相簿</string>
-   
-    
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

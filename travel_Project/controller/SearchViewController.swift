@@ -32,15 +32,6 @@ class SearchViewController: UIViewController,UISearchResultsUpdating {
     var lat : Double?
     var long : Double?
     
-    //    let googleMapUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.48386540,120.45358340&rankby=distance&types=tourist_attraction&key=%20AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk&language=zh-TW"
-    //
-    //    let pictureUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-    //
-    //    let apiKey = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY"
-    
-    
-  
-    
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
     var mapView: GMSMapView!

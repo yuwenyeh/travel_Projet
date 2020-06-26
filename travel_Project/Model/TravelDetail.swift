@@ -21,6 +21,7 @@ struct TravelDetail{
     var centerLat:Double?//經度
     var centerLng:Double?//緯度
     
+    var tripType : String?//存名稱前的google圖片
     
 }
     

@@ -38,15 +38,15 @@ class GoogleMapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //導航鈕
         let navigationBtn = UIButton()
-        let btnImage = UIImage(named: "googleMap")
+        let btnImage = UIImage(named: "googleMap-1")
         navigationBtn.setImage(btnImage, for: .normal)
-        navigationBtn.frame = CGRect(x: self.view.frame.width * 0.65, y: self.view.frame.height * 0.25, width: 200 , height: 200)
+        navigationBtn.frame = CGRect(x: self.view.frame.width * 0.75, y: self.view.frame.height * 0.35, width: 100 , height: 100)
         navigationBtn.addTarget(self, action: #selector(self.navigation), for: .touchUpInside)
         
         let cameraBtn = UIButton()
-        let camBtnImage = UIImage(named:"icons8-camera")
+        let camBtnImage = UIImage(named:"locationName")
         cameraBtn.setImage(camBtnImage, for: .normal)
-        cameraBtn.frame = CGRect(x: self.view.frame.width * 0.65, y: self.view.frame.height * 0.15, width: 200, height: 200)
+        cameraBtn.frame = CGRect(x: self.view.frame.width * 0.75, y: self.view.frame.height * 0.20, width: 100, height: 100)
         cameraBtn.addTarget(self, action: #selector(self.cameraBtn), for: .touchUpInside)
         
         

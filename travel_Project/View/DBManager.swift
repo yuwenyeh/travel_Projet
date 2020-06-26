@@ -139,7 +139,7 @@ class DBManager : NSObject {
         if openDatabase() {
             
             let query = "select * from travel_detail  where relateId=? and  travelDay=? order by \(CREATE_TIME) asc"
-            
+            //asc大小排序 
             do {
                 
                 let results = try database.executeQuery(query, values: [relateId, daily])
