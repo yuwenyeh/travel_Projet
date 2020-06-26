@@ -99,7 +99,9 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             
-            cell.textLabel?.text =  tableViewData![indexPath.section].sectionData[indexPath.row - 1].name
+            cell.textLabel?.textAlignment = NSTextAlignment.center //字體致中
+            cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name!
+           
             
             // cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             //幫cell加陰影
@@ -110,7 +112,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             myBackView.backgroundColor = UIColor.white
             myBackView.layer.masksToBounds = false
             myBackView.clipsToBounds = false
-            myBackView.layer.shadowOffset = CGSizeMake(-1,1)
+            //myBackView.layer.shadowOffset = CGSize.Make(-1,1)
             myBackView.layer.shadowOpacity = 0.2
             let test : CGRect = myBackView.layer.bounds
             myBackView.layer.shadowPath = UIBezierPath(rect: test).cgPath

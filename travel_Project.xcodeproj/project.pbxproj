@@ -13,6 +13,7 @@
 		1912E8B8247D5E8B00371012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B7247D5E8B00371012 /* Assets.xcassets */; };
 		1912E8BB247D5E8B00371012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B9247D5E8B00371012 /* LaunchScreen.storyboard */; };
 		191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */; };
+		1928B0FA24A66128000BF6B2 /* planCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B0F924A66128000BF6B2 /* planCell.swift */; };
 		1928B1AA24A48092006B549E /* TripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B1A924A48092006B549E /* TripPlanViewController.swift */; };
 		1928B1AC24A4CA17006B549E /* TravelTypeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */; };
 		192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */; };
@@ -52,6 +53,7 @@
 		1912E8BA247D5E8B00371012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1912E8BC247D5E8B00371012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoogleMapViewController.swift; path = travel_project/controller/GoogleMapViewController.swift; sourceTree = SOURCE_ROOT; };
+		1928B0F924A66128000BF6B2 /* planCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = planCell.swift; path = travel_Project/View/planCell.swift; sourceTree = SOURCE_ROOT; };
 		1928B1A924A48092006B549E /* TripPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_Project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelTypeButtonCell.swift; path = travel_Project/View/TravelTypeButtonCell.swift; sourceTree = SOURCE_ROOT; };
 		192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,9 +136,9 @@
 				194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */,
 				19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */,
 				F6D9073524860B0F00FCC6D1 /* PlanViewController.swift */,
+				1928B1A924A48092006B549E /* TripPlanViewController.swift */,
 				1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */,
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
-				1928B1A924A48092006B549E /* TripPlanViewController.swift */,
 				191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */,
 				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
 			);
@@ -169,6 +171,7 @@
 				19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */,
 				1993D17824A0624E00FC3D16 /* SearchCell.swift */,
 				1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */,
+				1928B0F924A66128000BF6B2 /* planCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				19BC29A3249A0BF500AF6A1C /* DesireView.swift in Sources */,
 				192FC86224800445006086B5 /* Note.swift in Sources */,
 				1950BC9D2497B30A006343AB /* commentClass.swift in Sources */,
+				1928B0FA24A66128000BF6B2 /* planCell.swift in Sources */,
 				19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */,
 				19E083D6249385C300DCF201 /* TripPlanProtocol.swift in Sources */,
 				19F7B55F249CF30F0026F17E /* Constant.swift in Sources */,

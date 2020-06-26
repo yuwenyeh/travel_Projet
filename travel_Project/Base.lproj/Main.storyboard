@@ -294,13 +294,31 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98298686739999996" green="0.9593027234" blue="0.5148115754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="60n-ng-5Og" customClass="TripPlanCell" customModule="travel_project" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="60n-ng-5Og" customClass="planCell" customModule="travel_project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="60n-ng-5Og" id="kHu-x9-Tbs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eiZ-aq-Hy4">
+                                                    <rect key="frame" x="10" y="20" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="YIE-EI-Zg0"/>
+                                                        <constraint firstAttribute="width" constant="60" id="y2G-Pk-EeE"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eiZ-aq-Hy4" firstAttribute="centerY" secondItem="kHu-x9-Tbs" secondAttribute="centerY" id="aLR-X4-Wfi"/>
+                                                <constraint firstItem="eiZ-aq-Hy4" firstAttribute="leading" secondItem="kHu-x9-Tbs" secondAttribute="leading" constant="10" id="tqN-lp-w2L"/>
+                                                <constraint firstAttribute="bottom" secondItem="eiZ-aq-Hy4" secondAttribute="bottom" constant="20" id="xdZ-Pe-zLt"/>
+                                                <constraint firstItem="eiZ-aq-Hy4" firstAttribute="top" secondItem="kHu-x9-Tbs" secondAttribute="top" constant="20" id="zu0-V7-7pb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationImage" destination="eiZ-aq-Hy4" id="GC3-Mb-kmc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -337,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkh-cH-dLW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597" y="-864"/>
+            <point key="canvasLocation" x="3595.652173913044" y="-864.50892857142856"/>
         </scene>
         <!--景點搜尋-->
         <scene sceneID="2mL-ql-EL9">

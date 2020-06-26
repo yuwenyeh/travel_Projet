@@ -38,7 +38,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     
     var searchlat : Double?
     var searchlong : Double?
-    
+    var imageType : UIImage?//放Type的照片
     
     
     @IBOutlet weak var segmentedLabel: UISegmentedControl!
@@ -87,23 +87,23 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
 
     }
     
-    
+    //搜尋選擇器
     @IBAction func travelTypeBtn(_ sender: UISegmentedControl) {
          
         switch sender.selectedSegmentIndex {
         case 0:
      
-            self.travelPlaceType = "locality"
+            self.travelPlaceType = "locality" //地方性
         case 1:
-            self.travelPlaceType = "restaurant"
+            self.travelPlaceType = "restaurant" //餐廳
         case 2:
-            self.travelPlaceType = "shopping_mall"
+            self.travelPlaceType = "shopping_mall" //百貨
         case 3:
-            self.travelPlaceType = "department_store"
+            self.travelPlaceType = "department_store" //商店
         case 4:
-            self.travelPlaceType = "lodging"
+            self.travelPlaceType = "lodging" //住宿
         default:
-            self.travelPlaceType = "tourist_attraction"
+            self.travelPlaceType = "tourist_attraction" //旅遊景點
         }
         
         
@@ -242,10 +242,12 @@ extension TripPlanViewController: UITableViewDelegate{
             let dailyArray = self.noteData?.dailyStr?.split(separator: "_")
             let daily = dailyArray?[Int(self.sectionIndex!)]
             
+            
+            
             var planDetail = self.travePlaceList?[indexPath.row]
             
-            //建立type分類名稱
-            planDetail?.travelPlaceType = self.travelPlaceType
+           
+            planDetail?.travelPlaceType = self.travelPlaceType  //建立type分類名稱
             
             planDetail?.relateId = self.noteData?.id//紀錄父關聯id
             planDetail?.travelDaily = String(daily!)//記錄遊玩日期
