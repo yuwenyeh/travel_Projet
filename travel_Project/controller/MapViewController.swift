@@ -18,10 +18,10 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
     var noteData:Note?
     var sectionIndex:Int?
     
-
-
-    @IBOutlet var streetView: GMSPanoramaView!
-    @IBOutlet var mapView: GMSMapView!
+    
+    
+    var streetView: GMSPanoramaView!
+    var mapView: GMSMapView!
     
     
     
@@ -33,50 +33,49 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             
             let lat =  travelDetail.centerLat!
             let long = travelDetail.centerLng!
-    
+            
             //地圖
             mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
             mapView.mapType = .terrain
             
             self.streetView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long))//街景
             
-
+            
             // 在地圖中心創建一個標記
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
             marker.title = travelDetail.name
-//            marker.snippet = "Australia"
+            //            marker.snippet = "Australia"
             marker.map = mapView
-
-        
+            
+            
             mapView.settings.compassButton = true//指南針
             mapView.isMyLocationEnabled = true//定位啟用
             mapView.settings.myLocationButton = true//定位按鈕
             
         }
-
+        
     }
 }
 
 
 extension TripPlanViewController: GMSAutocompleteViewControllerDelegate{
-
+    
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-
+        
         print("Place name: \(String(describing: place.name))")
-
+        
         dismiss(animated: true , completion: nil)
-
-       
+        
     }
-
+    
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         print(error.localizedDescription)
     }
-
+    
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-
+        
     }
-
-
+    
+    
 }

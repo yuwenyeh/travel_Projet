@@ -22,6 +22,8 @@ class GoogleApiUtil{
     
     private static let GOOGLE_PHOTO:String = "\(GOOGLE_MAP_API_URL)/place/photo";
     
+    private static let GOOGLE_MAP_PATH:String = "\(GOOGLE_MAP_API_URL)/directions"
+    
     
     //type = "tourist_attraction"旅遊景點
     public static func createStaticMapUrl(lat:Double, lng:Double, w:Int, h:Int) -> String {
@@ -43,13 +45,19 @@ class GoogleApiUtil{
         return "\(GOOGLE_DETAIL)/json?place_id=\(placeId)&fields=formatted_address,name,review,photo&language=zh-TW&key=\(GOOGLE_API_KEY)";
     }
     
-    
     //取照片
     public static func createPhotoUrl(ference:String,width:Int) ->String{
         return "\(GOOGLE_PHOTO)?maxwidth=\(width)&photoreference=\(ference)&key=\(GOOGLE_API_KEY)"
     }
     
-
+    
+    //取路徑
+    public static func createMapPathUrl(cLat:Double, cLong:Double,dLat:Double, dLng:Double ,mode:String) ->String{
+        return  "\(GOOGLE_MAP_PATH)/json?origin=\(cLat),\(cLong)&destination=\(dLat),\(dLng)&sensor=false&mode=\(mode)&key=\(GOOGLE_API_KEY)"
+    }
+    
+    
+    
     
 }
 // GoogleApiUtil

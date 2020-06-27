@@ -350,12 +350,7 @@ extension TripPlanViewController: CLLocationManagerDelegate{
         
     }
     
-    //    //錯誤資訊列印
-    //    func locationManager(manager:CLLocationManager!,didFinishDeferredUpdatesWithError error: NSError!){
-    //        print(error)
-    //    }
-    //
-    
+   
 }
 
 
