@@ -16,9 +16,9 @@
 		1928B0FA24A66128000BF6B2 /* planCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B0F924A66128000BF6B2 /* planCell.swift */; };
 		1928B1AA24A48092006B549E /* TripPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B1A924A48092006B549E /* TripPlanViewController.swift */; };
 		1928B1AC24A4CA17006B549E /* TravelTypeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */; };
-		192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */; };
 		192FC86224800445006086B5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FC86124800445006086B5 /* Note.swift */; };
 		1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */; };
+		194A8CF724A6E669008CEF69 /* TravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A8CF624A6E669008CEF69 /* TravelTableViewCell.swift */; };
 		194C94CA249B745E00FCEE7B /* StartPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */; };
 		1950BC9D2497B30A006343AB /* commentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950BC9C2497B30A006343AB /* commentClass.swift */; };
 		19604C4C249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */; };
@@ -56,9 +56,9 @@
 		1928B0F924A66128000BF6B2 /* planCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = planCell.swift; path = travel_Project/View/planCell.swift; sourceTree = SOURCE_ROOT; };
 		1928B1A924A48092006B549E /* TripPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripPlanViewController.swift; path = travel_Project/controller/TripPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		1928B1AB24A4CA17006B549E /* TravelTypeButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelTypeButtonCell.swift; path = travel_Project/View/TravelTypeButtonCell.swift; sourceTree = SOURCE_ROOT; };
-		192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewCell.swift; sourceTree = "<group>"; };
 		192FC86124800445006086B5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripDetailViewController.swift; path = travel_project/controller/TripDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		194A8CF624A6E669008CEF69 /* TravelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TravelTableViewCell.swift; path = travel_Project/View/TravelTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		194C94C9249B745E00FCEE7B /* StartPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StartPlanViewController.swift; path = travel_project/controller/StartPlanViewController.swift; sourceTree = SOURCE_ROOT; };
 		1950BC9C2497B30A006343AB /* commentClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = commentClass.swift; path = travel_Project/View/commentClass.swift; sourceTree = SOURCE_ROOT; };
 		19604C4B249F9EAC00459368 /* TrpiDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrpiDetailCollectionViewCell.swift; path = travel_Project/View/TrpiDetailCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -162,7 +162,7 @@
 		192FC860248003F5006086B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				192EE5332481F6C7007EE3B0 /* TravelTableViewCell.swift */,
+				194A8CF624A6E669008CEF69 /* TravelTableViewCell.swift */,
 				19BC29A2249A0BF500AF6A1C /* DesireView.swift */,
 				F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */,
 				19880BC424874E410078C9F9 /* TripPlanCell.swift */,
@@ -350,6 +350,7 @@
 				19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */,
 				19BC29A3249A0BF500AF6A1C /* DesireView.swift in Sources */,
 				192FC86224800445006086B5 /* Note.swift in Sources */,
+				194A8CF724A6E669008CEF69 /* TravelTableViewCell.swift in Sources */,
 				1950BC9D2497B30A006343AB /* commentClass.swift in Sources */,
 				1928B0FA24A66128000BF6B2 /* planCell.swift in Sources */,
 				19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */,
@@ -360,7 +361,6 @@
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
 				191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */,
 				1993D17924A0624E00FC3D16 /* SearchCell.swift in Sources */,
-				192EE5342481F6C7007EE3B0 /* TravelTableViewCell.swift in Sources */,
 				1993D17724A05FF900FC3D16 /* SearchViewController.swift in Sources */,
 				1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */,
 				1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */,

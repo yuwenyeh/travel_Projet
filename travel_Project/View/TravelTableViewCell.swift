@@ -15,6 +15,7 @@ class TravelTableViewCell: UITableViewCell {
     @IBOutlet  var travelName : UILabel!
     @IBOutlet  var happyNumber: UILabel!
     
+    @IBOutlet weak var backgroundImag: UIImageView!
     
     
     override func awakeFromNib() {

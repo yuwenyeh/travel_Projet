@@ -97,12 +97,19 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.textLabel?.text = tableViewData![indexPath.section].sectionTitle
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! planCell
             
             cell.textLabel?.textAlignment = NSTextAlignment.center //字體致中
-            cell.textLabel?.text = tableViewData![indexPath.section].sectionData[indexPath.row - 1].name!
-           
             
+            let data  = tableViewData![indexPath.section].sectionData[indexPath.row - 1]
+            
+            cell.textLabel?.text = data.name!
+            
+            
+            if data.travelPlaceType != nil{
+              cell.locationImage.image = getLocationImage(type:data.travelPlaceType!)
+            }
+           
             // cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             //幫cell加陰影
             let myBackView = UIView(frame: cell.frame)
@@ -229,15 +236,43 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         tableView.reloadData()
     }
-//    func initStatusBarStyle(){
-//        
-//        // Set StatusBar Style
-//        self.navigationController?.navigationBar.barStyle = .black
-//        
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//        // navigation & status bar 改顏色方法
-//        navigationController?.navigationBar.apply(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
-//    }
+    
+    
+    func getLocationImage(type:String) -> UIImage {
+        
+        var resultImage:UIImage?
+        
+        
+        switch type {
+            
+        case "locality": //地方性
+            resultImage = UIImage(named:"icons8-suitcase2")
+            
+        case "restaurant"://餐廳
+            resultImage = UIImage(named:"icons8-tableware")
+            
+        case "shopping_mall":
+            resultImage =  UIImage(named:"icons8-suitcase2")
+            
+        case "department_store":
+            resultImage =  UIImage(named:"icons8-apartment")
+            
+        case "lodging":
+            resultImage =  UIImage(named:"icons8-a_home")
+            
+        case "tourist_attraction":
+            resultImage =  UIImage(named:"icons8-suitcase2")
+            
+        default:
+            resultImage =  UIImage(named:"icons8-suitcase2")
+        }
+        
+        
+        return resultImage!
+        
+    }
+    
+    
 }
 
 

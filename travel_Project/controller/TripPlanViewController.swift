@@ -271,16 +271,22 @@ extension TripPlanViewController: UITableViewDelegate{
             
         }
         
-        let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
+        let okAction = UIAlertAction(title: "評價搜尋", style: .default) { (action)->Void in
             
-            let selectedTravelDetail = self.travePlaceList?[indexPath.row]//選好的景點
+            //let selectedTravelDetail = self.travePlaceList?[indexPath.row]//選好的景點
             
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "mapVC"){
-                let mapVC = vc as! MapViewController
-                mapVC.travelDetail = selectedTravelDetail
-                mapVC.noteData = self.noteData
-                mapVC.sectionIndex = self.sectionIndex
-                self.navigationController?.pushViewController(mapVC, animated: true)
+            
+            if let tripDvc = self.storyboard?.instantiateViewController(withIdentifier: "TripDvc"){
+                let tripDetailVC = tripDvc as! TripDetailViewController//轉到單一評價
+                
+                let trave = self.travePlaceList![indexPath.row]
+                
+                tripDetailVC.placeName = trave.name
+                
+                tripDetailVC.placeId = trave.placeID
+                    
+                
+                self.navigationController?.pushViewController(tripDvc, animated: true)
                 
             }
         }
@@ -354,8 +360,20 @@ extension TripPlanViewController: CLLocationManagerDelegate{
 }
 
 
-
-
+//
+//let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
+//
+//    let selectedTravelDetail = self.travePlaceList?[indexPath.row]//選好的景點
+//
+//    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "mapVC"){
+//        let mapVC = vc as! MapViewController
+//        mapVC.travelDetail = selectedTravelDetail
+//        mapVC.noteData = self.noteData
+//        mapVC.sectionIndex = self.sectionIndex
+//        self.navigationController?.pushViewController(mapVC, animated: true)
+//
+//    }
+//}
 
 
 

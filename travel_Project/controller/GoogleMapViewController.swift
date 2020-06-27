@@ -63,7 +63,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
         
         //路徑鈕
         let pathBtn = UIButton()
-        let pathImage = UIImage(named:"googleAB")
+        let pathImage = UIImage(named:"AB")
         pathBtn.setImage(pathImage, for: .normal)
         pathBtn.frame = CGRect(x: self.view.frame.width * 0.75, y: self.view.frame.height * 0.50, width: 100, height: 100)
         pathBtn.addTarget(self, action: #selector(self.createGoogleMapPath), for: .touchUpInside)

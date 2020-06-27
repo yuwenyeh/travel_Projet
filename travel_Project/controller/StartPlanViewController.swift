@@ -14,7 +14,7 @@ class StartPlanViewController: UIViewController {
     var data:[Note] = []
     
     let dbManager = DBManager.shared
-    
+
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -35,20 +35,7 @@ class StartPlanViewController: UIViewController {
         self.data = DBManager.shared.loadTravelPlans()
         tableview.reloadData()
     }
-    
-    
-//    func initStatusBarStyle(){
-//
-//        // Set StatusBar Style
-//        self.navigationController?.navigationBar.barStyle = .black
-//
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//        // navigation & status bar 改顏色方法
-//        navigationController?.navigationBar.apply(gradient: [UIColor(red: 19/255, green: 93/255, blue: 14, alpha: 1),UIColor(red: 105/255, green: 255/255, blue: 151/255, alpha: 1),UIColor(red: 0/255, green: 228/255, blue: 255, alpha: 1)])
-//    }
- 
-    
-    
+   
 }
 
 extension StartPlanViewController: UITableViewDataSource{
@@ -65,9 +52,18 @@ extension StartPlanViewController: UITableViewDataSource{
         if self.data.count > 0{
             
             let note = self.data[indexPath.row]
-            cell.startDay?.text = "日期:\(note.startDate!)"
+            let dailyStrArray = note.dailyStr?.split(separator: "_")
+            
+            cell.startDay?.text = "日期:\(note.startDate!) - \(dailyStrArray![dailyStrArray!.count - 1])"
             cell.travelName?.text = "旅遊名稱\(note.travelName!)"
             cell.happyNumber?.text = "天數:\(note.days!)天"
+            
+            let number = Int.random(in: 1 ..< 4 )
+            
+            
+            cell.backgroundImag.image = UIImage(named: "pic\(number)")
+            cell.backgroundImag.layer.cornerRadius = 10
+            
         }
      
         let myBackView = UIView(frame: cell.frame)
@@ -144,43 +140,6 @@ extension StartPlanViewController: UITableViewDelegate{
     
     
 }
-
-
-
-
-//extension UINavigationBar{
-//    
-//    //將顏色加入指定範圍
-//    func apply(gradient colors: [UIColor]) {
-//        var naviAndStatusBar: CGRect = self.bounds
-//        naviAndStatusBar.size.height += 45//statusBar和navigationBar的高度
-//        setBackgroundImage(UINavigationBar.gradient(size: naviAndStatusBar.size,colors: colors), for: .default)
-//    }
-//    
-//    //設定漸層
-//    static func gradient(size: CGSize, colors: [UIColor]) ->UIImage{
-//        
-//        let cgColors = colors.map{$0.cgColor}//將顏色轉換成cgColor
-//        
-//        UIGraphicsBeginImageContextWithOptions(size, true, 0)//開始繪製的位置
-//        
-//        guard let context = UIGraphicsGetCurrentContext() else { return UIGraphicsGetImageFromCurrentImageContext()!}
-//        
-//        defer {UIGraphicsEndImageContext()}
-//        
-//        var locations: [CGFloat] = [0,1]//顏色位置(座標)
-//        
-//        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: cgColors as NSArray as CFArray, locations: &locations) else { return UIGraphicsGetImageFromCurrentImageContext()! }
-//        
-//        context.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: [])//繪製漸層的角度
-//        
-//        return UIGraphicsGetImageFromCurrentImageContext()!
-//    }
-//    
-//}
-//
-
-
 
 
 
