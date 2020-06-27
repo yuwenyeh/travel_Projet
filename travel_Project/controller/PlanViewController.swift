@@ -101,6 +101,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             cell.textLabel?.textAlignment = NSTextAlignment.center //字體致中
             
+            
             let data  = tableViewData![indexPath.section].sectionData[indexPath.row - 1]
             
             cell.textLabel?.text = data.name!
@@ -131,6 +132,10 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             //加東西
             
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+        return UITableView.automaticDimension
     }
     
     

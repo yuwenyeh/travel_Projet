@@ -31,7 +31,7 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         UIPickerUnit();
     }
 
