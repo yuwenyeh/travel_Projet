@@ -20,8 +20,8 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
     
     
     
-    var streetView: GMSPanoramaView!
-    var mapView: GMSMapView!
+    @IBOutlet var streetView: GMSPanoramaView!
+    @IBOutlet var mapView: GMSMapView!
     
     
     
@@ -35,8 +35,8 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             let long = travelDetail.centerLng!
             
             //地圖
-            mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
-            mapView.mapType = .terrain
+            mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 18)
+            mapView.mapType = .normal
             
             self.streetView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: long))//街景
             

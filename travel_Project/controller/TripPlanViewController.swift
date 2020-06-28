@@ -49,7 +49,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         
         //測試預設用
-        getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
+//        getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
         
         super.viewDidLoad()
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
@@ -110,10 +110,6 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         self.getLocationNearMap(lat:self.searchlat! , long: self.searchlong! ,types:self.travelPlaceType)
         
     }
-    
-    
-    
-    
     
     
     
@@ -241,12 +237,9 @@ extension TripPlanViewController: UITableViewDelegate{
             //將字串的日期分開
             let dailyArray = self.noteData?.dailyStr?.split(separator: "_")
             let daily = dailyArray?[Int(self.sectionIndex!)]
-            
-            
-            
+        
             var planDetail = self.travePlaceList?[indexPath.row]
             
-           
             planDetail?.travelPlaceType = self.travelPlaceType  //建立type分類名稱
             
             planDetail?.relateId = self.noteData?.id//紀錄父關聯id
@@ -257,35 +250,21 @@ extension TripPlanViewController: UITableViewDelegate{
             //導頁
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
                 let planVC = pvc as! PlanViewController
-                
-                
                 let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
                 self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
-                
                 planVC.notedata = self.noteData
-                
-                
-                
                 self.navigationController?.pushViewController(planVC, animated: true)
             }
             
         }
         
         let okAction = UIAlertAction(title: "評價搜尋", style: .default) { (action)->Void in
-            
-            //let selectedTravelDetail = self.travePlaceList?[indexPath.row]//選好的景點
-            
-            
+          
             if let tripDvc = self.storyboard?.instantiateViewController(withIdentifier: "TripDvc"){
                 let tripDetailVC = tripDvc as! TripDetailViewController//轉到單一評價
-                
                 let trave = self.travePlaceList![indexPath.row]
-                
                 tripDetailVC.placeName = trave.name
-                
                 tripDetailVC.placeId = trave.placeID
-                    
-                
                 self.navigationController?.pushViewController(tripDvc, animated: true)
                 
             }

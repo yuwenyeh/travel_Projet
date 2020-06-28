@@ -94,18 +94,15 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
-            cell.textLabel?.text = tableViewData![indexPath.section].sectionTitle
+            cell.textLabel?.text = "📅 " + tableViewData![indexPath.section].sectionTitle
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! planCell
             
             cell.textLabel?.textAlignment = NSTextAlignment.center //字體致中
-            
-            
+            cell.textLabel?.textColor = UIColor.black
             let data  = tableViewData![indexPath.section].sectionData[indexPath.row - 1]
-            
             cell.textLabel?.text = data.name!
-            
             
             if data.travelPlaceType != nil{
               cell.locationImage.image = getLocationImage(type:data.travelPlaceType!)
@@ -179,7 +176,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
                 
                 
-                let okAction = UIAlertAction(title: "地圖導航", style: .default) { (action)->Void in
+                let okAction = UIAlertAction(title: "地圖", style: .default) { (action)->Void in
                     
                     if  let googleVC = self.storyboard?.instantiateViewController(withIdentifier: "googleVC") {
                         

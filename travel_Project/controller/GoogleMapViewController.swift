@@ -102,7 +102,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
                             let path = GMSPath(fromEncodedPath: points!)
                             let polyline = GMSPolyline(path: path)
                             polyline.strokeWidth = 5.0
-                            polyline.strokeColor = UIColor.green
+                            polyline.strokeColor = UIColor.blue
                             let bounds = GMSCoordinateBounds(path: path!)
                             self.mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
                             polyline.map = self.mapView
@@ -142,7 +142,8 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
             
             mapVC.travelDetail = self.googleMaplDetail
             
-            present(controller, animated: true, completion: nil)
+            //present(controller, animated: true, completion: nil)
+            self.navigationController?.pushViewController(mapVC, animated: true)
         }
         
     }

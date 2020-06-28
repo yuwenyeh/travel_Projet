@@ -55,7 +55,7 @@ extension StartPlanViewController: UITableViewDataSource{
             let dailyStrArray = note.dailyStr?.split(separator: "_")
             
             cell.startDay?.text = "日期:\(note.startDate!) - \(dailyStrArray![dailyStrArray!.count - 1])"
-            cell.travelName?.text = "旅遊名稱\(note.travelName!)"
+            cell.travelName?.text = "旅遊名稱:  \(note.travelName!)"
             cell.happyNumber?.text = "天數:\(note.days!)天"
             
             let number = Int.random(in: 1 ..< 4 )
