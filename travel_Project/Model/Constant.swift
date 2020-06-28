@@ -23,6 +23,8 @@ let DAYS = "days"
 let DAY_STR = "dayStr"
 
 let CREATE_TIME = "createTime"
+let IS_CHECKED = "isChecked"
+
 
 
 //行程詳情

@@ -19,7 +19,7 @@ class DBManager : NSObject {
     
     
     //建立表
-    let CREATE_TRAVEL_PLAN_SQL = "create table travel_plan (id text primary key not null, travelName text not null, startDate text not null, days text not null, dayStr ,createTime text not null)"
+    let CREATE_TRAVEL_PLAN_SQL = "create table travel_plan (id text primary key not null, travelName text not null, startDate text not null, days text not null, dayStr ,createTime text not null,isChecked text)"
     
     let CREATE_TRAVEL_DETAIL_SQL = "create table travel_detail (id text primary key not null,relateId text not null , travelDay text not null, placeName text, placeId text ,address text , photoReference  text  , centerLat text , centerLng text, createTime text not null, travelPlaceType text )"
     
@@ -111,7 +111,7 @@ class DBManager : NSObject {
                     travelPlan.startDate = results.string(forColumn: START_DATE)
                     travelPlan.days = results.string(forColumn: DAYS)
                     travelPlan.dailyStr = results.string(forColumn: DAY_STR)
-                    
+                    travelPlan.isChecked = results.string(forColumn: IS_CHECKED)
                     travelPlans.append(travelPlan)
                 }
                 
@@ -219,8 +219,6 @@ class DBManager : NSObject {
                 
                 let query = "insert into travel_detail(\(ID) , \(RELATE_ID),\(TRAVEL_DAY),\(PLACE_NAME),\(PLACE_ID),\(ADDRESS),\(PHOTO_REFERENCE),\(CENTER_LAT),\(CENTER_LNG),\(CREATE_TIME),\(TRVAEL_PLACE_TYPE)) values('\(UUID().uuidString)','\(insertData.relateId!)','\(insertData.travelDaily!)','\(insertData.name!)',  '\(insertData.placeID!)','\(insertData.address!)','\(insertData.photoReference!)','\(insertData.centerLat!)','\(insertData.centerLng!)',strftime('%s', 'now'),'\(insertData.travelPlaceType!)')"
                 
-                
-                
                 if !database.executeStatements(query) {
                     print("Failed to insert initial data into the database.")
                     print(database.lastError(), database.lastErrorMessage())
@@ -232,6 +230,30 @@ class DBManager : NSObject {
         
         database.close()
     }
+    
+    //更新行李清單
+    func updateMovie(withID updateId: String, isChecked:String) {
+        
+        if openDatabase() {
+            let query = "update travel_plan set \(IS_CHECKED)=? where \(ID)=?"
+            
+            do {
+                try database.executeUpdate(query, values: [isChecked ,updateId])
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+            
+            database.close()
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     
     //刪除旅遊計畫
     func deletePlan(withID deleteId: String) -> Bool {

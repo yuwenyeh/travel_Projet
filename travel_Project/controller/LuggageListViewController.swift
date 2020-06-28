@@ -10,9 +10,13 @@ import UIKit
 
 class LuggageListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var checkList = ["護照","錢包","信用卡","當地貨幣","交通卡","耳機","充電器","轉接器","相機","電池","防曬乳","藥物","外套","內衣","襪子","墨鏡","聯繫人聯絡方式","保養品"]
     
-    var inCheckList:[String] = []
+    var selectIndex:Int?//選取的計畫(儲存用)
+    
+    var checkList = ["護照","錢包","信用卡","當地貨幣","交通卡","耳機","充電器","轉接器","相機","電池","防曬乳","藥物","外套","內衣","襪子","墨鏡","聯繫人聯絡方式","保養品"] //18個
+    var isChecked = [String]()//勾選狀態
+    
+    
     var data:[Note] = []
     let dbManager = DBManager.shared
     
@@ -28,55 +32,54 @@ class LuggageListViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "行李清單"
+        //初始化
+        isChecked = Array(repeating: "N", count:checkList.count)
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //讀取資料
         self.data = DBManager.shared.loadTravelPlans()
+        //初始化勾選狀態 預設第一個行程
+        if !data.isEmpty{
+            if data[0].isChecked != nil{
+                let isCheckArray = data[0].isChecked?.split(separator: "_").map(String.init)
+                self.isChecked = isCheckArray!
+            }
+        }
         self.myCollectionView.reloadData()
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return checkList.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
-        cell.textLabel?.text = self.checkList[indexPath.row]
-        cell.showsReorderControl = true
-//        if isFinished[indexPath.row] {
-//            cell.accessoryType = .checkmark
-//        }else{
-//            cell.accessoryType = .none
-//        }
-        
+        let row = indexPath.row
+        cell.textLabel?.text = self.checkList[row]//項目
+        if self.isChecked[row] == "Y" {
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            let data = self.checkList.remove(at: indexPath.row)
-            
-        }
-        self.tableView.deleteRows(at: [indexPath], with: .automatic)
-    }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        self.checkList.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        isChecked[row] = isChecked[row] == "Y" ? "N": "Y"
+        self.tableView.reloadData()
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         self.tableView.setEditing(editing, animated: true)
     }
-   
+    
 }
-
-
-
 
 extension LuggageListViewController: UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
@@ -86,17 +89,15 @@ extension LuggageListViewController: UICollectionViewDataSource,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.data.count
+        return data.count == 0 ? 1 : data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listCell", for: indexPath) as! MyCollectionCell
         
         if self.data.count > 0{
-            
             let note = self.data[indexPath.row]
             let dailyStrArray = note.dailyStr?.split(separator: "_")
-            
             cell.startDay?.text = "日期:\(note.startDate!) - \(dailyStrArray![dailyStrArray!.count - 1])"
             cell.travelName?.text = "旅遊名稱:  \(note.travelName!)"
             cell.happyNumber?.text = "天數:\(note.days!)天"
@@ -118,20 +119,56 @@ extension LuggageListViewController: UICollectionViewDataSource,UICollectionView
     
     // MARK: - Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("row: \(indexPath.row)")
         
+        self.selectIndex = indexPath.row
+        var note = data[indexPath.row]
         
+        let alertController = UIAlertController()
+        let OokAction = UIAlertAction(title: "儲存行李清單", style: .default) { (action)-> Void in
+            print("使用者按下ok")
+            
+            if note.id != nil{
+                let id = note.id
+                let str = self.isChecked.joined(separator: "_")
+                self.dbManager.updateMovie(withID:id!,isChecked:str)
+                
+            }else{
+                
+            }
+            
+        }
         
+        let loadAction = UIAlertAction(title: "讀取行李清單", style: .default) { (action)-> Void in
+            print("使用者按下ok")
+            //讀取資料
+            self.data = DBManager.shared.loadTravelPlans()
+            note = self.data[indexPath.row]
+            if note.isChecked != nil {
+                let isCheckArray = note.isChecked?.split(separator: "_").map(String.init)
+                self.isChecked = isCheckArray!
+                self.tableView.reloadData()
+            }else{
+                //初始化
+                self.isChecked = Array(repeating: "N", count:self.checkList.count)
+                self.tableView.reloadData()
+            }
+        }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){(action) ->Void in
+            print("使用者按下取消")
+        }
+        
+        alertController.addAction(OokAction)
+        alertController.addAction(cancelAction)
+        alertController.addAction(loadAction)
+        self.present(alertController, animated: true,completion: nil)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        let height = self.view.frame.width
+        //        let height = self.view.frame.width
         return CGSize(width: width, height:200)
     }
-    
-   
     
 }
