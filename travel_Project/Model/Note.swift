@@ -22,7 +22,8 @@ class  Note :Equatable{
     var addFlag = false//是否已新增行程
     var image : UIImage?
     var dailyStr:String?//天數字串
-    
+    var inCheckList:[String] = []//打勾的
+    var checkList:[String] = []//打勾前
     
     
     static func == (lhs: Note, rhs: Note) -> Bool {

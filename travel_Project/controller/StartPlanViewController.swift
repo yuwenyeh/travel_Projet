@@ -57,13 +57,18 @@ extension StartPlanViewController: UITableViewDataSource{
             cell.startDay?.text = "日期:\(note.startDate!) - \(dailyStrArray![dailyStrArray!.count - 1])"
             cell.travelName?.text = "旅遊名稱:  \(note.travelName!)"
             cell.happyNumber?.text = "天數:\(note.days!)天"
-            
             let number = Int.random(in: 1 ..< 4 )
-            
-            
             cell.backgroundImag.image = UIImage(named: "pic\(number)")
             cell.backgroundImag.layer.cornerRadius = 10
             
+        }else{
+    
+            cell.startDay?.text = "日期:"
+            cell.travelName?.text = "旅遊名稱:"
+            cell.happyNumber?.text = "天數:天"
+            let number = Int.random(in: 1 ..< 4 )
+            cell.backgroundImag.image = UIImage(named: "pic\(number)")
+            cell.backgroundImag.layer.cornerRadius = 10
         }
      
         let myBackView = UIView(frame: cell.frame)

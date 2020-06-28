@@ -72,7 +72,7 @@ class welcomeTravelViewController: UIViewController,UIPickerViewDelegate, UIPick
                 }
                 
                 if textFiel == ""{
-                    let myalert = UIAlertController(title: "No input", message: "Please again", preferredStyle: .alert)
+                    let myalert = UIAlertController(title: "請填寫規劃行程", message: "Please again", preferredStyle: .alert)
                     let Alertaction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     myalert.addAction(Alertaction)
                     present(myalert, animated: true, completion: nil)

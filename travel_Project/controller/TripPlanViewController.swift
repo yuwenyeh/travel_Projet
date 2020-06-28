@@ -49,7 +49,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         
         //測試預設用
-//        getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
+      getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
         
         super.viewDidLoad()
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
@@ -93,7 +93,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         switch sender.selectedSegmentIndex {
         case 0:
      
-            self.travelPlaceType = "locality" //地方性
+            self.travelPlaceType = "tourist_attraction" //地方性
         case 1:
             self.travelPlaceType = "restaurant" //餐廳
         case 2:

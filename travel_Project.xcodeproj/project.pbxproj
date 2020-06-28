@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19029FCE24A8890900FA523F /* LuggageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19029FCD24A8890900FA523F /* LuggageListViewController.swift */; };
+		19029FD024A89B0B00FA523F /* ChickList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19029FCF24A89B0B00FA523F /* ChickList.swift */; };
+		19029FD224A8ABE000FA523F /* MyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19029FD124A8ABE000FA523F /* MyCollectionCell.swift */; };
 		1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912E8AE247D5E8900371012 /* AppDelegate.swift */; };
 		1912E8B1247D5E8900371012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1912E8B0247D5E8900371012 /* SceneDelegate.swift */; };
 		1912E8B6247D5E8900371012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1912E8B4247D5E8900371012 /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		0822935005827528C6607EF7 /* Pods-travel_project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel_project.release.xcconfig"; path = "Target Support Files/Pods-travel_project/Pods-travel_project.release.xcconfig"; sourceTree = "<group>"; };
 		0A1DD3B98AD764CCD738FA73 /* Pods-travel_project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel_project.debug.xcconfig"; path = "Target Support Files/Pods-travel_project/Pods-travel_project.debug.xcconfig"; sourceTree = "<group>"; };
+		19029FCD24A8890900FA523F /* LuggageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LuggageListViewController.swift; path = travel_Project/controller/LuggageListViewController.swift; sourceTree = SOURCE_ROOT; };
+		19029FCF24A89B0B00FA523F /* ChickList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChickList.swift; path = travel_Project/Model/ChickList.swift; sourceTree = SOURCE_ROOT; };
+		19029FD124A8ABE000FA523F /* MyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyCollectionCell.swift; path = travel_Project/View/MyCollectionCell.swift; sourceTree = SOURCE_ROOT; };
 		1912E8AB247D5E8900371012 /* travel_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travel_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1912E8AE247D5E8900371012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1912E8B0247D5E8900371012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
 				191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */,
 				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
+				19029FCD24A8890900FA523F /* LuggageListViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 				19E083D5249385C300DCF201 /* TripPlanProtocol.swift */,
 				19E083D72493891900DCF201 /* UISearchcontroller.swift */,
 				19F7B55E249CF30F0026F17E /* Constant.swift */,
+				19029FCF24A89B0B00FA523F /* ChickList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				194A8CF624A6E669008CEF69 /* TravelTableViewCell.swift */,
+				19029FD124A8ABE000FA523F /* MyCollectionCell.swift */,
 				19BC29A2249A0BF500AF6A1C /* DesireView.swift */,
 				F618C9E22486062100AB48CD /* ExpandableHeaderView.swift */,
 				19880BC424874E410078C9F9 /* TripPlanCell.swift */,
@@ -345,10 +354,13 @@
 				194C94CA249B745E00FCEE7B /* StartPlanViewController.swift in Sources */,
 				19E083D424937F3000DCF201 /* GoogleApiUtil.swift in Sources */,
 				F6D9073624860B0F00FCC6D1 /* PlanViewController.swift in Sources */,
+				19029FD224A8ABE000FA523F /* MyCollectionCell.swift in Sources */,
 				F65A40A1248F1B4100A6C31F /* MapViewController.swift in Sources */,
 				1928B1AA24A48092006B549E /* TripPlanViewController.swift in Sources */,
 				19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */,
+				19029FD024A89B0B00FA523F /* ChickList.swift in Sources */,
 				19BC29A3249A0BF500AF6A1C /* DesireView.swift in Sources */,
+				19029FCE24A8890900FA523F /* LuggageListViewController.swift in Sources */,
 				192FC86224800445006086B5 /* Note.swift in Sources */,
 				194A8CF724A6E669008CEF69 /* TravelTableViewCell.swift in Sources */,
 				1950BC9D2497B30A006343AB /* commentClass.swift in Sources */,

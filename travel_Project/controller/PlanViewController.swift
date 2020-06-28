@@ -103,7 +103,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.textLabel?.textColor = UIColor.black
             let data  = tableViewData![indexPath.section].sectionData[indexPath.row - 1]
             cell.textLabel?.text = data.name!
-            
+              cell.showsReorderControl = true
             if data.travelPlaceType != nil{
               cell.locationImage.image = getLocationImage(type:data.travelPlaceType!)
             }
@@ -235,7 +235,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
             
         }
-        
+       
         tableView.reloadData()
     }
     
