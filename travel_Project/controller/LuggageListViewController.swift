@@ -13,7 +13,7 @@ class LuggageListViewController: UIViewController, UITableViewDelegate, UITableV
     
     var selectIndex:Int?//選取的計畫(儲存用)
     
-    var checkList = ["護照","錢包","信用卡","當地貨幣","交通卡","耳機","充電器","轉接器","相機","電池","防曬乳","藥物","外套","內衣","襪子","墨鏡","聯繫人聯絡方式","保養品"] //18個
+    var checkList = ["🎟護照","👛錢包","💳信用卡","💴當地貨幣","🎫交通卡","🎧耳機","⚡️充電器","🔌轉接器","📸相機","🔋電池","☀️防曬乳","💊藥物","🧥外套","👙內衣","🧦襪子","🕶墨鏡","📝聯繫人聯絡方式","💄保養品"] //18個
     var isChecked = [String]()//勾選狀態
     
     
@@ -29,7 +29,7 @@ class LuggageListViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.myCollectionView.dataSource = self
         self.myCollectionView.delegate = self
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
+       // self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "行李清單"
         //初始化
@@ -74,10 +74,10 @@ class LuggageListViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.reloadData()
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        self.tableView.setEditing(editing, animated: true)
-    }
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        self.tableView.setEditing(editing, animated: true)
+//    }
     
 }
 
@@ -134,6 +134,7 @@ extension LuggageListViewController: UICollectionViewDataSource,UICollectionView
                 self.dbManager.updateMovie(withID:id!,isChecked:str)
                 
             }else{
+                
                 
             }
             

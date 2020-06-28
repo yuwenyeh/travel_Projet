@@ -325,7 +325,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-df-ZgQ">
-                                                    <rect key="frame" x="20" y="87" width="61.5" height="72"/>
+                                                    <rect key="frame" x="20" y="77" width="61.5" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旅遊名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hu-0a-WEj">
                                                             <rect key="frame" x="0.0" y="0.0" width="61.5" height="18"/>
@@ -347,12 +347,24 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="點擊照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFT-6x-nfS">
+                                                    <rect key="frame" x="341" y="15" width="58" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="38" id="VGg-BU-WBk"/>
+                                                        <constraint firstAttribute="width" constant="58" id="sCx-Dt-XkS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="AI8-WW-xLe" secondAttribute="bottom" constant="5" id="4if-UN-sXq"/>
+                                                <constraint firstAttribute="trailing" secondItem="IFT-6x-nfS" secondAttribute="trailing" constant="15" id="ENE-uj-mkr"/>
                                                 <constraint firstItem="aPZ-df-ZgQ" firstAttribute="leading" secondItem="p8u-wJ-kQI" secondAttribute="leading" constant="20" id="KHA-pW-c91"/>
-                                                <constraint firstAttribute="bottom" secondItem="aPZ-df-ZgQ" secondAttribute="bottom" constant="5" id="SY0-yT-abA"/>
+                                                <constraint firstAttribute="bottom" secondItem="aPZ-df-ZgQ" secondAttribute="bottom" constant="15" id="SY0-yT-abA"/>
                                                 <constraint firstItem="AI8-WW-xLe" firstAttribute="centerX" secondItem="p8u-wJ-kQI" secondAttribute="centerX" id="pPZ-HV-O0l"/>
+                                                <constraint firstItem="IFT-6x-nfS" firstAttribute="top" secondItem="p8u-wJ-kQI" secondAttribute="top" constant="15" id="ucP-QN-5Nv"/>
                                                 <constraint firstItem="AI8-WW-xLe" firstAttribute="top" secondItem="p8u-wJ-kQI" secondAttribute="top" constant="5" id="yDj-yy-uNH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -380,9 +392,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AuQ-JF-NYA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="95z-Rv-5HC">
-                        <barButtonItem key="rightBarButtonItem" title="儲存" id="ZaF-aL-dtn"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="95z-Rv-5HC"/>
                     <connections>
                         <outlet property="myCollectionView" destination="EM6-di-3M8" id="pUZ-uY-ZDw"/>
                         <outlet property="tableView" destination="3Oo-Ec-2kN" id="bx6-Yq-uSF"/>
