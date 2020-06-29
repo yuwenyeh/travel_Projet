@@ -49,7 +49,7 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         
         //測試預設用
-      getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
+      //getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
         
         super.viewDidLoad()
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)

@@ -43,7 +43,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         super.viewDidLoad()
         
-        //initStatusBarStyle()
+       
         
         navigationItem.title = self.placeName
         

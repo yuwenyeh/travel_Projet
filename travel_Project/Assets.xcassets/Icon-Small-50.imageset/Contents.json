@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "icons8-test_passed.png",
+      "filename" : "Icon-Small-50.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Icon-Small-50@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
