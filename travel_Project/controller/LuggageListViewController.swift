@@ -30,7 +30,7 @@ class LuggageListViewController: UIViewController, UITableViewDelegate, UITableV
         self.myCollectionView.dataSource = self
         self.myCollectionView.delegate = self
        // self.navigationItem.leftBarButtonItem = self.editButtonItem
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        //self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "行李清單"
         //初始化
         isChecked = Array(repeating: "N", count:checkList.count)
@@ -74,10 +74,7 @@ class LuggageListViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.reloadData()
     }
     
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        self.tableView.setEditing(editing, animated: true)
-//    }
+
     
 }
 
@@ -89,7 +86,7 @@ extension LuggageListViewController: UICollectionViewDataSource,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return data.count == 0 ? 1 : data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

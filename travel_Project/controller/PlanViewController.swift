@@ -21,7 +21,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let dbManager = DBManager.shared
     
     
-   // @IBOutlet weak var arrow: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navItem: UINavigationItem!//導航列
     
@@ -29,19 +29,19 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let noteData = notedata{
-//            navItem.title = noteData.travelName//設定導航列標題文字
-//        }
-        //initStatusBarStyle()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        if let noteData = notedata{
+            navItem.title = noteData.travelName//設定導航列標題文字
+        }
+        
+        
         self.travelName = self.notedata.travelName
         self.startDate = self.notedata.startDate
         self.happyNumber = self.notedata.days
         
-        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        tableView.separatorColor = UIColor(white: 0.85, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
-    }
+    }//vidwDidLoad
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,8 +69,13 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @IBAction func backStartButton(_ sender: Any) {
-        let startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID")
-        navigationController?.pushViewController(startVC, animated: true)
+        //回到原本的畫面
+        self.navigationController?.popToRootViewController(animated: true)
+        
+        //下面的返回是回去產生新的畫面跟之前的畫面一樣,除了多一頁佔記憶體畫面也會不一樣多Back
+        //self.navigationController?.popViewController(animated: true)
+        //        let startVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "startID")
+        //        navigationController?.pushViewController(startVC, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,6 +97,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //MARK: cellForRowAT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
             cell.textLabel?.text = "📅 " + tableViewData![indexPath.section].sectionTitle
@@ -103,11 +109,11 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.textLabel?.textColor = UIColor.black
             let data  = tableViewData![indexPath.section].sectionData[indexPath.row - 1]
             cell.textLabel?.text = data.name!
-              cell.showsReorderControl = true
+            cell.showsReorderControl = true
             if data.travelPlaceType != nil{
-              cell.locationImage.image = getLocationImage(type:data.travelPlaceType!)
+                cell.locationImage.image = getLocationImage(type:data.travelPlaceType!)
             }
-           
+            
             // cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
             //幫cell加陰影
             let myBackView = UIView(frame: cell.frame)
@@ -131,7 +137,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
+        
         return UITableView.automaticDimension
     }
     
@@ -235,7 +241,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
             
         }
-       
+        
         tableView.reloadData()
     }
     
@@ -246,7 +252,7 @@ class PlanViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         switch type {
-            
+        
         case "locality": //地方性
             resultImage = UIImage(named:"icons8-suitcase2")
             

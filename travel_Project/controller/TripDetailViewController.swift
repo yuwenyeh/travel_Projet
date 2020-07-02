@@ -50,7 +50,7 @@ class TripDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         if let placeId = self.placeId{
             getMapDetailInfo(placeId)
         }
-          self.navigationController?.navigationBar.tintColor = UIColor.white
+         // self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.delegate = self
         self.tableView.dataSource = self
         

@@ -46,24 +46,27 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     override func viewDidLoad() {
-        
-        //測試預設用
-      //getLocationNearMap(lat: 25.138917 ,long: 121.750889, types: "food")
-        
+      
         super.viewDidLoad()
-        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
-        self.navigationController?.navigationBar.tintColor = UIColor .white
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        getCurrentLoation()
+        //getCurrent() //Alert詢問是否要設定開啟定位
+       
+        
+        tableView.separatorColor = UIColor(white: 0.85, alpha: 1)
+        //self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .never
         stopLocationNearMap = false
+        
         
         //開啟定位方式最好的方式
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         tableView.estimatedRowHeight = 150.0
         tableView.rowHeight = UITableView.automaticDimension
-        getCurrentLocation()
+       
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -72,21 +75,92 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.activityType = .automotiveNavigation
-        locationManager.startUpdatingLocation() //開啟定位
-        locationManager.requestAlwaysAuthorization()
-        
-     
-        
-        if #available(iOS 10.0,*){
-            locationManager.requestAlwaysAuthorization()
-            
-        }
-        
-        initView()//搜尋功能畫面
-  
+         locationManager.startUpdatingLocation() //開啟定位
+       
 
-    }
+
+        initView()//搜尋功能畫面
+    }//viewDlod
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // 1. 還沒有詢問過用戶以獲得權限
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+        // 2. 用戶不同意
+        else if CLLocationManager.authorizationStatus() == .denied {
+            
+            let aleat = UIAlertController(title: "打開定位開關", message:"定位服務未開啓,請進入系統設置>隱私>定位服務中打開開關,並允許trip使用定位服務", preferredStyle: .alert)
+            let tempAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+                
+                self.dismiss(animated: true, completion: nil)
+                    }
+            let callAction = UIAlertAction(title: "立即設置", style: .default) { (action) in
+                let url = NSURL.init(string: UIApplication.openSettingsURLString)
+                if UIApplication.shared.canOpenURL(url! as URL) {
+                    
+                    
+                    if #available(iOS 10, *) {
+                        UIApplication.shared.open(url! as URL, options: [:], completionHandler: { (success) in
+                           print("跳至設定")
+                        })
+                       } else {
+                        UIApplication.shared.openURL(url! as URL)
+                         }
+                       }
+                   }
+                    
+                    aleat.addAction(tempAction)
+                    aleat.addAction(callAction)
+            self.present(aleat, animated: true, completion: nil)
+                }
+        
+        // 3. 用戶已經同意
+        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    func getCurrentLoation(){//獲取當前位置定位第一次登入請求授權
+        self.locationManager.requestWhenInUseAuthorization()
+    }
+
+    
+//    func getCurrent(){
+//    if (CLLocationManager.authorizationStatus() != .denied){
+//
+//        print("應用擁有定位權限")
+//
+//    }else {
+//
+//        let aleat = UIAlertController(title: "打開定位開關", message:"定位服務未開啓,請進入系統設置>隱私>定位服務中打開開關,並允許trip使用定位服務", preferredStyle: .alert)
+//        let tempAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+//
+//
+//                }
+//        let callAction = UIAlertAction(title: "立即設置", style: .default) { (action) in
+//            let url = NSURL.init(string: UIApplication.openSettingsURLString)
+//            if UIApplication.shared.canOpenURL(url! as URL) {
+//
+//
+//                if #available(iOS 10, *) {
+//                    UIApplication.shared.open(url! as URL, options: [:], completionHandler: { (success) in
+//                       print("跳至設定")
+//                    })
+//                   } else {
+//                    UIApplication.shared.openURL(url! as URL)
+//                     }
+//                   }
+//               }
+//
+//                aleat.addAction(tempAction)
+//                aleat.addAction(callAction)
+//        self.present(aleat, animated: true, completion: nil)
+//            }
+//    }
+    
+
     //搜尋選擇器
     @IBAction func travelTypeBtn(_ sender: UISegmentedControl) {
          
@@ -107,10 +181,12 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
         }
         
         
-        self.getLocationNearMap(lat:self.searchlat! , long: self.searchlong! ,types:self.travelPlaceType)
+        //判斷有無經緯度,沒有就不搜尋
+        if let lat = self.searchlat , let long = self.searchlong {
+        self.getLocationNearMap(lat: lat , long: long ,types:self.travelPlaceType)
         
+         }
     }
-    
     
     
     func initView(){
@@ -184,10 +260,10 @@ class TripPlanViewController: UIViewController, UISearchBarDelegate {
     }
     
     
-    func getCurrentLocation(){
-        //請求採用授權
-        self.locationManager.requestWhenInUseAuthorization()
-    }
+//    func getCurrentLocation(){ //獲取當前位置開啟定位
+//        //請求採用授權
+//        self.locationManager.requestWhenInUseAuthorization()
+//    }
     
  
  
@@ -202,7 +278,7 @@ extension TripPlanViewController: UITableViewDataSource{
         if let travePlacelList = self.travePlaceList{
             return travePlacelList.count
         }
-        return 1
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -231,27 +307,39 @@ extension TripPlanViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    
         let alertController = UIAlertController()
         
         let storeFile = UIAlertAction(title: "加入行程", style: .default) { (action) in
             //將字串的日期分開
             let dailyArray = self.noteData?.dailyStr?.split(separator: "_")
             let daily = dailyArray?[Int(self.sectionIndex!)]
-        
-            var planDetail = self.travePlaceList?[indexPath.row]
             
-            planDetail?.travelPlaceType = self.travelPlaceType  //建立type分類名稱
             
-            planDetail?.relateId = self.noteData?.id//紀錄父關聯id
-            planDetail?.travelDaily = String(daily!)//記錄遊玩日期
+//        guard
+            
+            
+            guard  var planDetail = self.travePlaceList?[indexPath.row] else{
+                let controller = UIAlertController(title: "無法取到定位", message: "請開定位服務", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                controller.addAction(okAction)
+                self.present(controller, animated: true, completion: nil)
+               return
+                
+            }
+            planDetail.travelPlaceType = self.travelPlaceType  //建立type分類名稱
+            
+            planDetail.relateId = self.noteData?.id//紀錄父關聯id
+            planDetail.travelDaily = String(daily!)//記錄遊玩日期
             //存入資料庫
-            self.dbManager.insertPlanDetail(insertData: planDetail!)
+            
+            self.dbManager.insertPlanDetail(insertData: planDetail)
             
             //導頁
             if let pvc = self.storyboard?.instantiateViewController(withIdentifier: "plan"){
                 let planVC = pvc as! PlanViewController
                 let count = (self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.count)! - 1
-                self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail! ,at: count)
+                self.noteData?.dailyPlan?[self.sectionIndex!].sectionData.insert(planDetail ,at: count)
                 planVC.notedata = self.noteData
                 self.navigationController?.pushViewController(planVC, animated: true)
             }
@@ -260,9 +348,11 @@ extension TripPlanViewController: UITableViewDelegate{
         
         let okAction = UIAlertAction(title: "評價搜尋", style: .default) { (action)->Void in
           
-            if let tripDvc = self.storyboard?.instantiateViewController(withIdentifier: "TripDvc"){
+            
+            //用guard 解包防呆
+            if let tripDvc = self.storyboard?.instantiateViewController(withIdentifier: "TripDvc"), let trave = self.travePlaceList?[indexPath.row]{
                 let tripDetailVC = tripDvc as! TripDetailViewController//轉到單一評價
-                let trave = self.travePlaceList![indexPath.row]
+//                let trave = self.travePlaceList[indexPath.row]
                 tripDetailVC.placeName = trave.name
                 tripDetailVC.placeId = trave.placeID
                 self.navigationController?.pushViewController(tripDvc, animated: true)
@@ -295,7 +385,7 @@ extension TripPlanViewController: UISearchResultsUpdating{
         }
         self.searchText = searchController.searchBar.text ?? ""
         
-        //  地圖編碼器 self.presenter?.onSearchKeyworkChange(keyword: self.searchText)
+        //  地圖編碼器
         self.geoCoder.geocodeAddressString(self.searchText, completionHandler: { placemarks, error in
             
             guard let placemarks = placemarks else{
@@ -319,16 +409,22 @@ extension TripPlanViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations:[CLLocation]){
         
         let currentLocation:CLLocation = locations[locations.count-1] as CLLocation
-        let lat = currentLocation.coordinate.latitude
-        let long = currentLocation.coordinate.longitude
+//        let lat = currentLocation.coordinate.latitude
+//        let long = currentLocation.coordinate.longitude
+        
         self.searchlat = currentLocation.coordinate.latitude //search 功能給經緯度
         self.searchlong = currentLocation.coordinate.longitude //search功能給經緯度
     
         if(currentLocation.horizontalAccuracy > 0  && !stopLocationNearMap){
             print(currentLocation.coordinate.latitude)
             print(currentLocation.coordinate.longitude)
+            
+            
+            if let lat = self.searchlat , let long = self.searchlong{
             getLocationNearMap(lat: lat, long: long, types: "tourist_attraction")
-            //停止定位
+            }
+                //停止定位
+            
             stopLocationNearMap = true
             locationManager.stopUpdatingLocation()
         }
@@ -339,20 +435,7 @@ extension TripPlanViewController: CLLocationManagerDelegate{
 }
 
 
-//
-//let okAction = UIAlertAction(title: "地圖導覽", style: .default) { (action)->Void in
-//
-//    let selectedTravelDetail = self.travePlaceList?[indexPath.row]//選好的景點
-//
-//    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "mapVC"){
-//        let mapVC = vc as! MapViewController
-//        mapVC.travelDetail = selectedTravelDetail
-//        mapVC.noteData = self.noteData
-//        mapVC.sectionIndex = self.sectionIndex
-//        self.navigationController?.pushViewController(mapVC, animated: true)
-//
-//    }
-//}
+
 
 
 

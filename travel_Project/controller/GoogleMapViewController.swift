@@ -17,10 +17,10 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
     var lat:Double?
     var long:Double?
     
-    var type = "driving"//交通方式 寫死
+    var type = "driving"//交通方式
     
-    var clat:Double? = 25.138917//預設當前位置
-    var clong:Double? = 121.750889
+    var clat:Double? //預設當前位置
+    var clong:Double?
     
     var mapView: GMSMapView!
     let currentLocation: CLLocation? = nil
@@ -29,6 +29,9 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        
         if let travelMap = googleMaplDetail{
             self.lat = travelMap.centerLat
             self.long = travelMap.centerLng
@@ -36,6 +39,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
             let camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: long!, zoom: 10.0)
             self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
             self.view = self.mapView
+            
             //插地標
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
@@ -47,6 +51,8 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+      
         //導航鈕
         let navigationBtn = UIButton()
         let btnImage = UIImage(named: "googleMap-1")
@@ -67,22 +73,29 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
         pathBtn.setImage(pathImage, for: .normal)
         pathBtn.frame = CGRect(x: self.view.frame.width * 0.75, y: self.view.frame.height * 0.50, width: 100, height: 100)
         pathBtn.addTarget(self, action: #selector(self.createGoogleMapPath), for: .touchUpInside)
-        
+      
         self.view.addSubview(cameraBtn)
         self.view.addSubview(navigationBtn)
         self.view.addSubview(pathBtn)
-
+        
     }
     
     
     //產生地圖路線
-     @objc func createGoogleMapPath(){
+    @objc func createGoogleMapPath(){
         
-        let mapPathUrl = GoogleApiUtil.createMapPathUrl(cLat:self.clat!, cLong:self.clong!, dLat:self.lat!, dLng:self.long! , mode: self.type)
+     
+        
+        var mapPathUrl = ""
+    if let clat = self.clat , let clong = self.clong , let slat = self.lat , let slng = self.long{
+    mapPathUrl = GoogleApiUtil.createMapPathUrl(cLat:clat, cLong:clong, dLat:slat, dLng:slng , mode: self.type)
+        }
+        
         
         guard let url = URL(string:mapPathUrl)else{
             return
         }
+        
         
         Alamofire.request(url).validate().responseJSON { (response) in
             
@@ -95,20 +108,20 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
                         return
                     }
                     
-                        let routeOverviewPolyline = routers[0]["overview_polyline"]
-                        let points = routeOverviewPolyline["points"].string
+                    let routeOverviewPolyline = routers[0]["overview_polyline"]
+                    let points = routeOverviewPolyline["points"].string
                     
-                        DispatchQueue.main.async(execute: {
-                            let path = GMSPath(fromEncodedPath: points!)
-                            let polyline = GMSPolyline(path: path)
-                            polyline.strokeWidth = 5.0
-                            polyline.strokeColor = UIColor.blue
-                            let bounds = GMSCoordinateBounds(path: path!)
-                            self.mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
-                            polyline.map = self.mapView
-
-                        })
-                     
+                    DispatchQueue.main.async(execute: {
+                        let path = GMSPath(fromEncodedPath: points!)
+                        let polyline = GMSPolyline(path: path)
+                        polyline.strokeWidth = 5.0
+                        polyline.strokeColor = UIColor.blue
+                        let bounds = GMSCoordinateBounds(path: path!)
+                        self.mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
+                        polyline.map = self.mapView
+                        
+                    })
+                    
                 }catch {
                     print("JSONSerialization error:", error)
                 }
@@ -119,7 +132,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-   
+    
     //導航
     @objc func navigation(){
         
@@ -142,20 +155,25 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
             
             mapVC.travelDetail = self.googleMaplDetail
             
-            //present(controller, animated: true, completion: nil)
+           
             self.navigationController?.pushViewController(mapVC, animated: true)
         }
         
     }
     
     
+    
+    
     //獲取定位資訊
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations:[CLLocation]){
+        
+    
         
         let currentLocation:CLLocation = locations[locations.count-1] as CLLocation
         
         self.clat = currentLocation.coordinate.latitude //search 功能給經緯度
         self.clong = currentLocation.coordinate.longitude //search功能給經緯度
+        
         
         if(currentLocation.horizontalAccuracy > 0){
             print(currentLocation.coordinate.latitude)
@@ -165,9 +183,9 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate {
         }
         
     }
-
     
-
+    
+    
 }
 
 

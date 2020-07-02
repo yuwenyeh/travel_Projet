@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
+import GoogleMaps
+import GooglePlaces
+
 
 class StartPlanViewController: UIViewController {
     
-    
+    //1
     var data:[Note] = []
     
     let dbManager = DBManager.shared
@@ -18,24 +22,38 @@ class StartPlanViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+           
+    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+       
         self.tableview.delegate = self
         self.tableview.dataSource = self
-//        initStatusBarStyle()
+        
     
     }
-    
+   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //initStatusBarStyle()
+       // getCurrentLocation()
+        
+
+       
         //讀取資料
         self.data = DBManager.shared.loadTravelPlans()
         tableview.reloadData()
     }
    
+
+ 
 }
 
 extension StartPlanViewController: UITableViewDataSource{

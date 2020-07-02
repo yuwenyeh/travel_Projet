@@ -31,8 +31,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
         
         if let travelDetail = travelDetail{
             
-            let lat =  travelDetail.centerLat!
-            let long = travelDetail.centerLng!
+            if  let lat =  travelDetail.centerLat, let long = travelDetail.centerLng{
             
             //地圖
             mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 18)
@@ -52,7 +51,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
             mapView.settings.compassButton = true//指南針
             mapView.isMyLocationEnabled = true//定位啟用
             mapView.settings.myLocationButton = true//定位按鈕
-            
+            }
         }
         
     }

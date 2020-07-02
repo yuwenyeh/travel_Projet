@@ -29,7 +29,6 @@
 		1966D2952498F7F0002029DC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966D2942498F7F0002029DC /* DBManager.swift */; };
 		19880BC524874E410078C9F9 /* TripPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880BC424874E410078C9F9 /* TripPlanCell.swift */; };
 		19880C362487CE550078C9F9 /* welcomeTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */; };
-		1993D17724A05FF900FC3D16 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1993D17624A05FF900FC3D16 /* SearchViewController.swift */; };
 		1993D17924A0624E00FC3D16 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1993D17824A0624E00FC3D16 /* SearchCell.swift */; };
 		1993D17B24A0746100FC3D16 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1993D17A24A0746100FC3D16 /* LocationInfo.swift */; };
 		19AAE8D6248A74AF00282427 /* TravelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAE8D5248A74AF00282427 /* TravelDetail.swift */; };
@@ -51,7 +50,7 @@
 		19029FCD24A8890900FA523F /* LuggageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LuggageListViewController.swift; path = travel_Project/controller/LuggageListViewController.swift; sourceTree = SOURCE_ROOT; };
 		19029FCF24A89B0B00FA523F /* ChickList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChickList.swift; path = travel_Project/Model/ChickList.swift; sourceTree = SOURCE_ROOT; };
 		19029FD124A8ABE000FA523F /* MyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyCollectionCell.swift; path = travel_Project/View/MyCollectionCell.swift; sourceTree = SOURCE_ROOT; };
-		1912E8AB247D5E8900371012 /* travel_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travel_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1912E8AB247D5E8900371012 /* Travel_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1912E8AE247D5E8900371012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1912E8B0247D5E8900371012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1912E8B5247D5E8900371012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +71,6 @@
 		1966D2942498F7F0002029DC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DBManager.swift; path = travel_Project/View/DBManager.swift; sourceTree = SOURCE_ROOT; };
 		19880BC424874E410078C9F9 /* TripPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripPlanCell.swift; path = travel_Project/View/TripPlanCell.swift; sourceTree = SOURCE_ROOT; };
 		19880C352487CE550078C9F9 /* welcomeTravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = welcomeTravelViewController.swift; path = travel_project/controller/welcomeTravelViewController.swift; sourceTree = SOURCE_ROOT; };
-		1993D17624A05FF900FC3D16 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = travel_project/controller/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		1993D17824A0624E00FC3D16 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = travel_Project/View/SearchCell.swift; sourceTree = SOURCE_ROOT; };
 		1993D17A24A0746100FC3D16 /* LocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = travel_Project/Model/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
 		19AAE8D5248A74AF00282427 /* TravelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelDetail.swift; path = travel_Project/Model/TravelDetail.swift; sourceTree = SOURCE_ROOT; };
@@ -113,7 +111,7 @@
 		1912E8AC247D5E8900371012 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1912E8AB247D5E8900371012 /* travel_project.app */,
+				1912E8AB247D5E8900371012 /* Travel_Project.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,7 +144,6 @@
 				1937E95A2495AD0000A04D72 /* TripDetailViewController.swift */,
 				F65A40A0248F1B4100A6C31F /* MapViewController.swift */,
 				191A17FF24A20D84006CFD37 /* GoogleMapViewController.swift */,
-				1993D17624A05FF900FC3D16 /* SearchViewController.swift */,
 				19029FCD24A8890900FA523F /* LuggageListViewController.swift */,
 			);
 			path = controller;
@@ -238,7 +235,7 @@
 			);
 			name = travel_project;
 			productName = travel_project;
-			productReference = 1912E8AB247D5E8900371012 /* travel_project.app */;
+			productReference = 1912E8AB247D5E8900371012 /* Travel_Project.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -373,7 +370,6 @@
 				F618C9E32486062100AB48CD /* ExpandableHeaderView.swift in Sources */,
 				191A180024A20D84006CFD37 /* GoogleMapViewController.swift in Sources */,
 				1993D17924A0624E00FC3D16 /* SearchCell.swift in Sources */,
-				1993D17724A05FF900FC3D16 /* SearchViewController.swift in Sources */,
 				1937E95B2495AD0000A04D72 /* TripDetailViewController.swift in Sources */,
 				1912E8AF247D5E8900371012 /* AppDelegate.swift in Sources */,
 				19E083D82493891900DCF201 /* UISearchcontroller.swift in Sources */,
@@ -528,17 +524,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SS3P4M9T55;
+				CURRENT_PROJECT_VERSION = 1.0.2;
+				DEVELOPMENT_TEAM = 5768C6QJLM;
 				INFOPLIST_FILE = travel_project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yoyoyeh.travel-project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = yoyoyeh.travelproject;
+				PRODUCT_NAME = Travel_Project;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -547,18 +545,22 @@
 			baseConfigurationReference = 0822935005827528C6607EF7 /* Pods-travel_project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SS3P4M9T55;
+				CURRENT_PROJECT_VERSION = 1.0.2;
+				DEVELOPMENT_TEAM = 5768C6QJLM;
 				INFOPLIST_FILE = travel_project/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yoyoyeh.travel-project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = yoyoyeh.travelproject;
+				PRODUCT_NAME = Travel_Project;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

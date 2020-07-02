@@ -10,7 +10,7 @@ import Foundation
 
 class GoogleApiUtil{
     
-    private static let GOOGLE_API_KEY = "AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY";
+    private static let GOOGLE_API_KEY = "AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk";
     
     private static let GOOGLE_MAP_API_URL:String = "https://maps.googleapis.com/maps/api";
     

@@ -10,15 +10,19 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
+
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    //
    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
-        GMSPlacesClient.provideAPIKey("AIzaSyD-OVc_frDI7h3KNYjsjB8cr_kiG2K74SY")
+    //AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk
         
+        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        GMSServices.provideAPIKey("AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk")
+        GMSPlacesClient.provideAPIKey("AIzaSyCzxPdj1LXGnX0953beVlsZu1CgrobApgk")
+        
+     
         
         let navBar = UINavigationBar.appearance()//設定導航欄
         
@@ -26,6 +30,19 @@ import GooglePlaces
         )
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor(red: 247/255, green: 226/255, blue: 29/255, alpha: 1)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
